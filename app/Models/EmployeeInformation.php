@@ -12,7 +12,7 @@ class EmployeeInformation extends Model
     use HasFactory;
 
     protected $fillable = ['unique_id', 'designation', 'joining_date', 'working_day', 'employee_id', 'employee_type_id', 'department_id', 'location_id'];
-    protected $casts = ['working_date' => WorkingDay::class];
+    protected $casts = ['working_day' => WorkingDay::class];
 
     /**
      * get the employee of this employee information

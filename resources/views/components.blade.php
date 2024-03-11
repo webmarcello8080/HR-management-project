@@ -22,7 +22,6 @@
     <div class="budge budge-red">Something</div>
     <div class="budge budge-yellow">Something</div>
     <div class="budge budge-purple">Something</div>
-
     <div class="flex items-center justify-center gap-4">
         <div class="gray-container">
             <h5>Something in here</h5>
@@ -52,7 +51,7 @@
         <input type="tel" name="" class="input-element" placeholder="Telephone">    
     </div>
     <div class="flex items-center justify-center gap-4">
-        <input type="date" name="" class="input-element" placeholder="Date">
+        <input type="text" name="" onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date">
         <select name="" class="input-element">
             <option value="" disabled selected>select something</option>
             <option value="1">1</option>

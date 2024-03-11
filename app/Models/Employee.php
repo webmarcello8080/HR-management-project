@@ -56,4 +56,24 @@ class Employee extends Model implements HasMedia
 
         return $employee;
     }
+
+    /**
+     * get this employee image url based on image name
+     */
+    public function getMediaUrl(string $mediaName): string{
+        $media = $this->getMedia($mediaName);
+
+        if(isset($media[0])){
+            return $media[0]->getUrl('thumb');
+        }
+
+        return asset('/images/placeholder.jpg');
+    }
+
+    /**
+     * get this Employee Full Name
+     */
+    public function getFullName() : string {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }

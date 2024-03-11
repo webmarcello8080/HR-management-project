@@ -32,7 +32,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
+        lexend: ["Lexend", "sans-serif"],
       }
     },
   },

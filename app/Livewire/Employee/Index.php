@@ -7,7 +7,10 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $employees;
+
     public function mount(){
+        $this->employees = Employee::all();
     }
 
     public function render()

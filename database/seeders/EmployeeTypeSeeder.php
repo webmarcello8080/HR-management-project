@@ -17,10 +17,10 @@ class EmployeeTypeSeeder extends Seeder
         if(DB::table('employee_types')->count() == 0){
 
             DB::table('employee_types')->insert([
-                ['name' => 'Director'],
-                ['name' => 'Developer'],
-                ['name' => 'Designer'],
-                ['name' => 'SEO '],
+                ['name' => 'Office'],
+                ['name' => 'Remote'],
+                ['name' => 'Hybrid'],
+                ['name' => 'Freelancer'],
 
             ]);
             

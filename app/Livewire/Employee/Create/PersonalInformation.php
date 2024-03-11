@@ -11,7 +11,7 @@ class PersonalInformation extends Component
 {
     use WithFileUploads;
 
-    #[Validate('image|max:1024')]
+    #[Validate('nullable|image|max:1024')]
     public $profile_image;
     #[Validate('required|min:3')]
     public $first_name;
