@@ -22,6 +22,10 @@ dd {
     @apply ml-10;
 }
 
+a{
+    @apply underline;
+}
+
 .default-container{
     @apply max-w-full px-4 m-5;
 }

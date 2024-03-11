@@ -1,0 +1,99 @@
+<?php
+
+namespace App\Livewire\Employees\Edit;
+
+use App\Models\Employee;
+use Livewire\Component;
+use Livewire\Attributes\Validate;
+use Livewire\WithFileUploads;
+
+class PersonalInformation extends Component
+{
+    use WithFileUploads;
+
+    public Employee $employee;
+    public $existing_media;
+    #[Validate]
+    public $profile_image;
+    #[Validate]
+    public $first_name;
+    #[Validate]
+    public $last_name;
+    #[Validate]
+    public $mobile_number;
+    #[Validate]
+    public $email;
+    #[Validate]
+    public $dob;
+    #[Validate]
+    public $marital_status;
+    #[Validate]
+    public $gender;
+    #[Validate]
+    public $nationality;
+    #[Validate]
+    public $address;
+    #[Validate]
+    public $city;
+    #[Validate]
+    public $country;
+    #[Validate]
+    public $post_code;
+
+    public function mount(int $employee_id): void
+    {
+        $this->employee = Employee::find($employee_id);
+        $this->existing_media = $this->employee->getMediaUrl('profile_image');
+        $this->first_name = $this->employee->first_name;
+        $this->last_name = $this->employee->last_name;
+        $this->mobile_number = $this->employee->mobile_number;
+        $this->email = $this->employee->email;
+        $this->dob = $this->employee->dob;
+        $this->marital_status = $this->employee->marital_status;
+        $this->gender = $this->employee->gender;
+        $this->nationality = $this->employee->nationality;
+        $this->address = $this->employee->address;
+        $this->city = $this->employee->city;
+        $this->country = $this->employee->country;
+        $this->post_code = $this->employee->post_code;
+    }
+
+    public function rules()
+    {
+        return [
+            'profile_image' => 'nullable|image|max:2048',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
+            'mobile_number' => 'nullable|min:3',
+            'email' => 'required|min:3|email|unique:employees,email,' . $this->employee->id,
+            'dob' => 'required|date',
+            'marital_status' => 'required',
+            'gender' => 'required',
+            'nationality' => 'required|min:3',
+            'address' => 'required|min:3',
+            'city' => 'required|min:3',
+            'country' => 'nullable|min:3',
+            'post_code' => 'required|min:3',
+        ];
+    }
+
+    public function save(): void
+    {
+        $validated = $this->validate();
+
+        $this->employee->update($validated);
+
+        $this->dispatch('next-step');
+    }
+
+    public function removeMedia(): void
+    {
+        $this->employee->clearMediaCollection('profile_image');
+        $this->existing_media = '';
+    }
+
+    public function render()
+    {
+        return view('livewire.employees.edit.personal-information');
+    }
+}

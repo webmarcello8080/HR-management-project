@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Employee;
+namespace App\Livewire\Employees;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -18,6 +18,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.employee.create');
+        return view('livewire.employees.create');
     }
 }

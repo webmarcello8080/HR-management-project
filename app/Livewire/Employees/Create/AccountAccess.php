@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Employee\Create;
+namespace App\Livewire\Employees\Create;
 
 use App\Models\EmployeeAccount;
 use Livewire\Component;
@@ -8,13 +8,13 @@ use Livewire\Attributes\Validate;
 
 class AccountAccess extends Component
 {
-    #[Validate('required|email|unique:employee_accounts,email')]
+    #[Validate]
     public $email;
-    #[Validate('nullable|min:3')]
+    #[Validate]
     public $slack_id;
-    #[Validate('nullable|min:3')]
+    #[Validate]
     public $skype_id;
-    #[Validate('nullable|min:3')]
+    #[Validate]
     public $github_id;
     public $employee_id;
 
@@ -22,13 +22,20 @@ class AccountAccess extends Component
         $this->employee_id = $employee_id;
     }
 
+    public function rules(){
+        return [
+            'email' => 'required|email|unique:employee_accounts,email',
+            'slack_id' => 'nullable|min:3',
+            'skype_id' => 'nullable|min:3',
+            'github_id' => 'nullable|min:3',
+        ];
+    }
+
     public function save(){
         $validated = $this->validate();
         $validated['employee_id'] = $this->employee_id;
 
-        $employee_information = EmployeeAccount::create($validated);
-
-        $this->dispatch('next-step', employeeId: $this->employee_id);
+        EmployeeAccount::create($validated);
 
         session()->flash('status', 'Employee successfully created.');
  
@@ -37,6 +44,6 @@ class AccountAccess extends Component
 
     public function render()
     {
-        return view('livewire.employee.create.account-access');
+        return view('livewire.employees.create.account-access');
     }
 }

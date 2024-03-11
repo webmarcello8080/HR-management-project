@@ -1,5 +1,5 @@
 @extends('layouts.default')
 @section('title', 'All Employees')
 @section('content')
-    @livewire('employee.index')
+    @livewire('employees.index')
 @endsection

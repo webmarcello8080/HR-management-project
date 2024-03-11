@@ -58,6 +58,19 @@ class Employee extends Model implements HasMedia
     }
 
     /**
+     * overwrite update method based on $attribute and $image
+     */
+    public function update(array $attributes = [], array $options = []): void
+    {
+        $this->fill($attributes)->save($options);
+
+        if ($attributes['profile_image']) {
+            $this->clearMediaCollection('profile_image');
+            $this->addMedia($attributes['profile_image']->path())->toMediaCollection('profile_image');
+        }
+    }
+
+    /**
      * get this employee image url based on image name
      */
     public function getMediaUrl(string $mediaName): string{

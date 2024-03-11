@@ -17,4 +17,5 @@ Route::get('/components', function () {return view('components');});
 
 // Employee routes
 Route::get('/employee', function () {return view('employees/create');})->name('employee.create');
+Route::get('/employee/{id}', function () {return view('employees/edit');})->name('employee.edit');
 Route::get('/employees', function () {return view('employees/index');})->name('employee.index');

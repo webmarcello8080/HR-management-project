@@ -19,7 +19,7 @@
             <span class="caption table-cell py-2">Actions</span>
         </div>
         @foreach ($employees as $employee)
-            @livewire('employee.line', ['employee' => $employee], key($employee->id))
+            @livewire('employees.line', ['employee' => $employee], key($employee->id))
         @endforeach
     </div>
 </div>

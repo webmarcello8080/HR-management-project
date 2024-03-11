@@ -1,5 +1,5 @@
 .btn{
-    @apply inline-block;
+    @apply inline-block cursor-pointer no-underline;
 
     &.btn-small{
         @apply py-2 px-3 text-sm rounded-lg;

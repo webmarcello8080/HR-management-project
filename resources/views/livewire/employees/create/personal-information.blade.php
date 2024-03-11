@@ -1,13 +1,11 @@
 <div>
     <form wire:submit='save'>
         <div class="flex items-center justify-center gap-5 mb-5">
-            <div class="">
-                @if ($profile_image && !$errors->get('profile_image'))
-                    <div class="w-16 h-16">
-                        <img class="w-full h-full object-cover" src="{{ $profile_image->temporaryUrl() }}">
-                    </div>
-                @endif
-            </div>
+            @if ($profile_image && !$errors->get('profile_image'))
+                <div class="w-16 h-16">
+                    <img class="w-full h-full object-cover" src="{{ $profile_image->temporaryUrl() }}">
+                </div>
+            @endif
             <div class="flex-1 flex-grow">
                 <input type="file" wire:model.blur='profile_image' >
                 @error('profile_image') <span class="error">{{ $message }}</span> @enderror

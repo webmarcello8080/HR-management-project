@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Employee;
+namespace App\Livewire\Employees;
 
 use App\Models\Employee;
 use Livewire\Component;
@@ -15,6 +15,6 @@ class Line extends Component
 
     public function render()
     {
-        return view('livewire.employee.line');
+        return view('livewire.employees.line');
     }
 }

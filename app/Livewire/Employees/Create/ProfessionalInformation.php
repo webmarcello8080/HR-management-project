@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Employee\Create;
+namespace App\Livewire\Employees\Create;
 
 use App\Models\EmployeeInformation;
 use Livewire\Component;
@@ -8,24 +8,36 @@ use Livewire\Attributes\Validate;
 
 class ProfessionalInformation extends Component
 {
-    #[Validate('required|min:3|unique:employee_information,unique_id')]
+    #[Validate]
     public $unique_id;
-    #[Validate('required|min:3')]
+    #[Validate]
     public $designation;
-    #[Validate('required|date')]
+    #[Validate]
     public $joining_date;
-    #[Validate('required|integer')]
+    #[Validate]
     public $working_day;
-    #[Validate('required|integer')]
+    #[Validate]
     public $employee_type_id;
-    #[Validate('required|integer')]
+    #[Validate]
     public $department_id;
-    #[Validate('required|integer')]
+    #[Validate]
     public $location_id;
     public $employee_id;
 
     public function mount($employee_id){
         $this->employee_id = $employee_id;
+    }
+
+    public function rules(){
+        return [
+            'unique_id' => 'required|min:3|unique:employee_information,unique_id',
+            'designation' => 'required|min:3',
+            'joining_date' => 'required|integer',
+            'working_day' => 'required|integer',
+            'employee_type_id' => 'required|integer',
+            'department_id' => 'required|integer',
+            'location_id' => 'required|integer',
+        ];
     }
 
     public function save(){
@@ -39,6 +51,6 @@ class ProfessionalInformation extends Component
 
     public function render()
     {
-        return view('livewire.employee.create.professional-information');
+        return view('livewire.employees.create.professional-information');
     }
 }
