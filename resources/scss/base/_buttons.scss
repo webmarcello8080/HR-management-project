@@ -1,0 +1,23 @@
+.btn{
+    @apply inline-block;
+
+    &.btn-small{
+        @apply py-2 px-3 text-sm rounded-lg;
+    }
+
+    &.btn-big{
+        @apply py-3 px-5 rounded-lg;
+    }
+
+    &.btn-purple{
+        @apply bg-purple text-white;
+    }
+
+    &.btn-transparent{
+        @apply bg-transparent border border-gray/20;
+    }
+
+    &.btn-gray{
+        @apply bg-gray/5;
+    }
+}

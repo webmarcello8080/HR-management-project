@@ -1,0 +1,47 @@
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    @apply font-bold mb-4;
+}
+
+h1, .h1{
+    @apply text-6xl;
+}
+
+h2, .h2{
+    @apply text-5xl;
+}
+
+h3, .h3{
+    @apply text-3xl;
+}
+
+h4, .h4{
+    @apply text-2xl;
+}
+
+h5, .h5{
+    @apply text-xl;
+}
+
+h6, .h6{
+    @apply text-base;
+}
+
+.caption{
+    @apply text-gray;
+}
+
+.small-caption{
+    @apply text-gray text-sm;
+}
+
+.error{
+    @apply text-red text-sm;
+}
+
+.tab{
+    @apply py-2;
+
+    &.active{
+        @apply text-purple border-b-2 border-purple;
+    }
+}

@@ -1,0 +1,11 @@
+.input-element{
+    @apply rounded-lg p-4 border border-gray/20 grow w-full;
+
+    &:focus-visible{
+        @apply border-purple border-2 outline-none;
+    }
+
+    &::placeholder{
+        @apply text-dark;
+    }
+}

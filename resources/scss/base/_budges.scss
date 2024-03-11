@@ -1,0 +1,19 @@
+.budge{
+    @apply text-sm py-1 px-2 rounded inline-block;
+
+    &.budge-green{
+        @apply text-green bg-green/10;
+    }
+
+    &.budge-red{
+        @apply text-red bg-red/10;
+    }
+
+    &.budge-yellow{
+        @apply text-yellow bg-yellow/10;
+    }
+
+    &.budge-purple{
+        @apply text-purple bg-purple/10;
+    }
+}
