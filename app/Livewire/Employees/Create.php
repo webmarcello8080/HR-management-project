@@ -2,18 +2,19 @@
 
 namespace App\Livewire\Employees;
 
+use App\Models\Employee;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
 class Create extends Component
 {
+    public Employee $employee;
     public $formStep = 1;
-    public $employeeId = null;
 
     #[On('next-step')] 
-    public function nextStep($employeeId){
+    public function nextStep($employee){
         $this->formStep ++;
-        $this->employeeId = $employeeId;
+        $this->employee = Employee::find($employee['id']);
     }
 
     public function render()

@@ -5,12 +5,12 @@
         <div class="tab cursor-pointer @if($formStep == 3) active @endif" wire:click='getToStep(3)'>Account Access</div>
     </div>
     @if ($formStep == 1)
-        @livewire('employees.edit.personalInformation', ['employee_id' => $employee_id])
+        @livewire('employees.tabs.personalInformation', ['employee' => $employee])
     @endif
     @if ($formStep == 2)
-        @livewire('employees.edit.professionalInformation', ['employee_id' => $employee_id])
+        @livewire('employees.tabs.professionalInformation', ['employee' => $employee])
     @endif
     @if ($formStep == 3)
-        @livewire('employees.edit.accountAccess', ['employee_id' => $employee_id])
+        @livewire('employees.tabs.accountAccess', ['employee' => $employee])
     @endif
 </div>

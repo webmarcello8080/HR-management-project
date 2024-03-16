@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Employees\Edit;
+namespace App\Livewire\Employees\Tabs;
 
 use App\Models\Employee;
 use Livewire\Component;
@@ -40,10 +40,29 @@ class PersonalInformation extends Component
     #[Validate]
     public $post_code;
 
-    public function mount(int $employee_id): void
+    public function rules()
     {
-        $this->employee = Employee::find($employee_id);
-        $this->existing_media = $this->employee->getMediaUrl('profile_image');
+        return [
+            'profile_image' => 'nullable|image|max:2048',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
+            'mobile_number' => 'nullable|min:3',
+            'email' => 'required|min:3|email|unique:employees,email,' . $this->employee->id,
+            'dob' => 'required|date',
+            'marital_status' => 'nullable',
+            'gender' => 'required',
+            'nationality' => 'nullable|min:3',
+            'address' => 'required|min:3',
+            'city' => 'required|min:3',
+            'country' => 'nullable|min:3',
+            'post_code' => 'required|min:3',
+        ];
+    }
+
+    public function mount(Employee $employee = null)
+    {
+        $this->employee = $employee ?? new Employee();
+        $this->existing_media = $this->employee->exists ? $this->employee->getMediaUrl('profile_image') : null;
         $this->first_name = $this->employee->first_name;
         $this->last_name = $this->employee->last_name;
         $this->mobile_number = $this->employee->mobile_number;
@@ -58,32 +77,13 @@ class PersonalInformation extends Component
         $this->post_code = $this->employee->post_code;
     }
 
-    public function rules()
-    {
-        return [
-            'profile_image' => 'nullable|image|max:2048',
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
-            'mobile_number' => 'nullable|min:3',
-            'email' => 'required|min:3|email|unique:employees,email,' . $this->employee->id,
-            'dob' => 'required|date',
-            'marital_status' => 'required',
-            'gender' => 'required',
-            'nationality' => 'required|min:3',
-            'address' => 'required|min:3',
-            'city' => 'required|min:3',
-            'country' => 'nullable|min:3',
-            'post_code' => 'required|min:3',
-        ];
-    }
-
-    public function save(): void
-    {
+    public function save(){
         $validated = $this->validate();
 
-        $this->employee->update($validated);
+        $this->employee->fill($validated);
+        $this->employee->saveWithImage($validated['profile_image'], 'profile_image');
 
-        $this->dispatch('next-step');
+        $this->dispatch('next-step', employee: $this->employee);
     }
 
     public function removeMedia(): void
@@ -94,6 +94,6 @@ class PersonalInformation extends Component
 
     public function render()
     {
-        return view('livewire.employees.edit.personal-information');
+        return view('livewire.employees.tabs.personal-information');
     }
 }

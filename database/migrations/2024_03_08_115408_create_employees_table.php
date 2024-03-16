@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('mobile_number')->nullable();
             $table->string('email')->unique();
             $table->date('dob');
-            $table->unsignedSmallInteger('marital_status');
+            $table->unsignedSmallInteger('marital_status')->nullable();
             $table->unsignedSmallInteger('gender');
-            $table->string('nationality');
+            $table->string('nationality')->nullable();
             $table->string('address');
             $table->string('city');
             $table->string('country')->nullable();

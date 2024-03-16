@@ -7,6 +7,7 @@ use App\Enums\MaritalStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -44,29 +45,15 @@ class Employee extends Model implements HasMedia
     }
 
     /**
-     * overwrite create method based on $attribute and $image
+     * overwrite SAVE method based on existing values and $image
      */
-    public static function create(array $attributes = []): Employee
+    public function saveWithImage(TemporaryUploadedFile|null $image, string $mediaName): void
     {
-        $employee = static::query()->create($attributes);
+        $this->save();
 
-        if($attributes['profile_image']){
-            $employee->addMedia($attributes['profile_image']->path())->toMediaCollection('profile_image');
-        }
-
-        return $employee;
-    }
-
-    /**
-     * overwrite update method based on $attribute and $image
-     */
-    public function update(array $attributes = [], array $options = []): void
-    {
-        $this->fill($attributes)->save($options);
-
-        if ($attributes['profile_image']) {
-            $this->clearMediaCollection('profile_image');
-            $this->addMedia($attributes['profile_image']->path())->toMediaCollection('profile_image');
+        if ($image) {
+            $this->clearMediaCollection($mediaName);
+            $this->addMedia($image->path())->toMediaCollection($mediaName);
         }
     }
 

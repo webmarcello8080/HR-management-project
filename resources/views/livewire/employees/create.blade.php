@@ -5,12 +5,12 @@
         <div class="tab @if($formStep == 3) active @endif">Account Access</div>
     </div>
     @if ($formStep == 1)
-        @livewire('employees.create.personalInformation')
+        @livewire('employees.tabs.personalInformation')
     @endif
     @if ($formStep == 2)
-        @livewire('employees.create.professionalInformation', ['employee_id' => $employeeId])
+        @livewire('employees.tabs.professionalInformation', ['employee' => $employee])
     @endif
     @if ($formStep == 3)
-        @livewire('employees.create.accountAccess', ['employee_id' => $employeeId])
+        @livewire('employees.tabs.accountAccess', ['employee' => $employee])
     @endif
 </div>

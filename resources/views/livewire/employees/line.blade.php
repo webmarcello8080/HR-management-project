@@ -8,11 +8,11 @@
         </div>
     </span>
     <span class="table-cell py-2">{{ $employee->employeeInformation?->unique_id }}</span>
-    <span class="table-cell py-2">{{ $employee->employeeInformation?->department->name }}</span>
+    <span class="table-cell py-2">{{ $employee->employeeInformation?->department?->name }}</span>
     <span class="table-cell py-2">{{ $employee->employeeInformation?->designation }}</span>
-    <span class="table-cell py-2">{{ $employee->employeeInformation?->employeeType->name }}</span>
+    <span class="table-cell py-2">{{ $employee->employeeInformation?->employeeType?->name }}</span>
     <span class="table-cell py-2">
-        <span class="budge budge-purple">{{ $employee->employeeInformation?->working_day->name }}</span>
+        <span class="budge budge-purple">{{ $employee->employeeInformation?->working_day?->name }}</span>
     </span>
     <span class="table-cell py-2">V 
         <a class="" href="{{ route('employee.edit', $employee->id) }}">E</a> D</span>

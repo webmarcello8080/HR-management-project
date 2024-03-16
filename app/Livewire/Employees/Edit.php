@@ -8,11 +8,13 @@ use Livewire\Attributes\On;
 
 class Edit extends Component
 {
+    public Employee $employee;
     public $employee_id;
     public $formStep = 1;
 
     public function mount(int $employee_id): void{
         $this->employee_id = $employee_id;
+        $this->employee = Employee::find($employee_id);
     }
 
     #[On('next-step')] 
