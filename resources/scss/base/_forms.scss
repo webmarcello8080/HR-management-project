@@ -6,10 +6,10 @@
     }
 
     &::placeholder{
-        @apply text-gray;
+        @apply text-gray/80;
     } 
 
     &:has(option[value=""]:checked) {
-        @apply text-gray;
+        @apply text-gray/80;
     }
 }

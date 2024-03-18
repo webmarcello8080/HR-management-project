@@ -17,7 +17,7 @@
     <span class="table-cell py-2">
         <div class="flex items-center gap-2">
             @svg('eye', 'w-6 h-6')
-            <a class="" href="{{ route('employee.edit', $employee->id) }}">@svg('edit', 'w-6 h-6')</a>
+            <a href="{{ route('employee.edit', $employee->id) }}">@svg('edit', 'w-6 h-6')</a>
             @svg('trash', 'w-6 h-6')    
         </div>
     </span>
