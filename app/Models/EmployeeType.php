@@ -15,7 +15,8 @@ class EmployeeType extends Model
     /**
      * get the employee information for this Employee Type
      */
-    public function employeeInformation(): HasMany{
+    public function employeeInformation(): HasMany
+    {
         return $this->hasMany(EmployeeInformation::class);
     }
 }
