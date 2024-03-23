@@ -21,11 +21,12 @@ return new class extends Migration
             $table->unsignedBigInteger('employee_type_id')->nullable();
             $table->unsignedBigInteger('department_id')->nullable();
             $table->unsignedBigInteger('location_id')->nullable();
+            $table->timestamps();
+
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('employee_type_id')->references('id')->on('employee_types')->onDelete('set null');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('set null');
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('set null');
-            $table->timestamps();
         });
     }
 

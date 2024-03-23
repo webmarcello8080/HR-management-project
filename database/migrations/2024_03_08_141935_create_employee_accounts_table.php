@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('skype_id')->nullable();
             $table->string('github_id')->nullable();
             $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 
