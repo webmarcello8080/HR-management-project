@@ -21,7 +21,7 @@
 				<!-- Remember Me -->
 				<div class="flex justify-between mb-7">
 					<label for="remember_me" class="inline-flex items-center">
-						<input id="remember_me" type="checkbox" class="rounded border-gray-300 shadow-sm" name="remember">
+						<input id="remember_me" type="checkbox" class="input-checkbox" name="remember">
 						<span class="ml-2">{{ __('Remember me') }}</span>
 					</label>
 					@if (Route::has('password.request'))

@@ -18,7 +18,8 @@ Route::get('/components', function () {return view('components');})->name('compo
 // Employee routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/employee', function () {return view('employees/create');})->name('employee.create');
-    Route::get('/employee/{id}', function () {return view('employees/edit');})->name('employee.edit');
+    Route::get('/employee/{id}/edit', function () {return view('employees/edit');})->name('employee.edit');
+    Route::get('/employee/{id}', function () {return view('employees/show');})->name('employee.show');
     Route::get('/employees', function () {return view('employees/index');})->name('employee.index');    
 });
 

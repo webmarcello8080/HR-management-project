@@ -25,7 +25,10 @@ return new class extends Migration
             $table->string('city');
             $table->string('country')->nullable();
             $table->string('post_code');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

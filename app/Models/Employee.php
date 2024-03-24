@@ -6,8 +6,8 @@ use App\Enums\Gender;
 use App\Enums\MaritalStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -18,6 +18,14 @@ class Employee extends Model implements HasMedia
 
     protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'];
     protected $casts = ['marital_status' => MaritalStatus::class, 'gender' => Gender::class];
+
+    /**
+     * get the user of this employee
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * get the information of this Employee
@@ -45,19 +53,6 @@ class Employee extends Model implements HasMedia
     }
 
     /**
-     * overwrite SAVE method based on existing values and $image
-     */
-    public function saveWithImage(TemporaryUploadedFile|null $image, string $mediaName): void
-    {
-        $this->save();
-
-        if ($image) {
-            $this->clearMediaCollection($mediaName);
-            $this->addMedia($image->path())->toMediaCollection($mediaName);
-        }
-    }
-
-    /**
      * get this employee image url based on image name
      */
     public function getMediaUrl(string $mediaName): string{
@@ -73,7 +68,8 @@ class Employee extends Model implements HasMedia
     /**
      * get this Employee Full Name
      */
-    public function getFullName() : string {
+    public function getFullName() : string 
+    {
         return $this->first_name . ' ' . $this->last_name;
     }
 }

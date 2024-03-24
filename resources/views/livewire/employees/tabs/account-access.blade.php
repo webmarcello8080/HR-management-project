@@ -20,6 +20,16 @@
                 @error('github_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
+        <div class="flex justify-start gap-5 mb-5">
+            <h6 class="mb-0">Select Roles:</h6>
+            @foreach (\App\Models\Role::all() as $role)
+                <label class="inline-flex items-center">
+                    <input wire:model.blur='roles.{{ $role->id }}' value="{{ $role->id }}" type="checkbox" class="input-checkbox" name="roles[]">
+                    <span class="ml-2">{{ $role->name }}</span>
+                </label>
+            @endforeach
+            @error('roles') <span class="error">{{ $message }}</span> @enderror
+        </div>
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
             <button type="submit" class="btn btn-purple btn-big">Add</button>

@@ -21,12 +21,7 @@ class UserRoleSeeder extends Seeder
                     'name' => 'Admin',
                     'email' => 'webmarcello8080+admin@gmail.com',
                     'password' => bcrypt('ciaoMarcello8080!'),
-                ],
-                [
-                    'name' => 'Employee',
-                    'email' => 'webmarcello8080+employee@gmail.com',
-                    'password' => bcrypt('ciaoMarcello8080!'),
-                ],
+                ]
             ]);
             
         } else { echo "users Table is not empty, therefore NOT "; }
@@ -38,11 +33,7 @@ class UserRoleSeeder extends Seeder
                 [
                     'user_id' => 1,
                     'role_id' => 1,
-                ],
-                [
-                    'user_id' => 2,
-                    'role_id' => 2,
-                ],
+                ]
             ]);
             
         } else { echo "role_user Table is not empty, therefore NOT "; }

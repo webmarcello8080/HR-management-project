@@ -10,7 +10,7 @@ class EmployeeAccount extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['email', 'slack_id', 'skype_id', 'github_id', 'employee_id'];
+    protected $fillable = ['slack_id', 'skype_id', 'github_id', 'employee_id'];
 
     /**
      * get the employee of this employee accounts
