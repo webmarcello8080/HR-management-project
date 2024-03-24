@@ -6,15 +6,15 @@ use App\Models\Employee;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
-class Edit extends Component
+class EditEmployee extends Component
 {
     public Employee $employee;
-    public $employee_id;
+    public $id;
     public $formStep = 1;
 
-    public function mount(int $employee_id): void{
-        $this->employee_id = $employee_id;
-        $this->employee = Employee::find($employee_id);
+    public function mount(int $id): void{
+        $this->id = $id;
+        $this->employee = Employee::find($id);
     }
 
     #[On('next-step')] 
@@ -28,6 +28,6 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.employees.edit');
+        return view('livewire.employees.edit-employee');
     }
 }

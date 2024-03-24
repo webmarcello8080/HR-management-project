@@ -5,7 +5,7 @@ namespace App\Livewire\Employees;
 use App\Models\Employee;
 use Livewire\Component;
 
-class Line extends Component
+class LineEmployee extends Component
 {
     public Employee $employee;
 
@@ -15,6 +15,6 @@ class Line extends Component
 
     public function render()
     {
-        return view('livewire.employees.line');
+        return view('livewire.employees.line-employee');
     }
 }

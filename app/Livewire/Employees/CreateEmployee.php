@@ -6,7 +6,7 @@ use App\Models\Employee;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
-class Create extends Component
+class CreateEmployee extends Component
 {
     public Employee $employee;
     public $formStep = 1;
@@ -19,6 +19,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.employees.create');
+        return view('livewire.employees.create-employee');
     }
 }

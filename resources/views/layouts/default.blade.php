@@ -13,7 +13,7 @@
         <main class="external-container flex gap-8">
             @include('layouts.side-menu')
             <div class="grow">
-                @yield('content')
+                {{ $slot }}
             </div>
         </main>
     </body>
