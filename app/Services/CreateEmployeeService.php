@@ -7,7 +7,7 @@ use App\Models\EmployeeAccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class EmployeeService{
+class CreateEmployeeService{
 
     /**
      * create Employee and save related image if it set

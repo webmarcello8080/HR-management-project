@@ -4,7 +4,7 @@ namespace App\Livewire\Employees\Tabs;
 
 use App\Models\Employee;
 use App\Models\EmployeeAccount;
-use App\Services\EmployeeService;
+use App\Services\CreateEmployeeService;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
@@ -51,7 +51,7 @@ class AccountAccess extends Component
         $validated = $this->validate();
         $validated['employee_id'] = $this->employee->id;
 
-        $employeeService = new EmployeeService;
+        $employeeService = new CreateEmployeeService;
         $employeeService->createEmployeeAccount($this->employee_account, $this->employee, $validated);
 
         session()->flash('status', 'Employee successfully created.');

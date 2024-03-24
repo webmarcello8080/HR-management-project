@@ -3,7 +3,7 @@
 namespace App\Livewire\Employees\Tabs;
 
 use App\Models\Employee;
-use App\Services\EmployeeService;
+use App\Services\CreateEmployeeService;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
@@ -81,7 +81,7 @@ class PersonalInformation extends Component
     public function save(){
         $validated = $this->validate();
 
-        $employeeService = new EmployeeService;
+        $employeeService = new CreateEmployeeService;
         $employeeService->createEmployee($this->employee, $validated, 'profile_image');
 
         $this->dispatch('next-step', employee: $this->employee);
