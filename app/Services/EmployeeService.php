@@ -19,7 +19,7 @@ class EmployeeService{
         $employee->save();
 
         // update full name in user table
-        if($employee->user()){
+        if($employee->user){
             $employee->user->name = $employee->getFullName();
             $employee->user->save();
         }
