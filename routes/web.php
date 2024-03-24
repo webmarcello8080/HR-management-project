@@ -19,8 +19,12 @@ Route::get('/components', function () {return view('components');})->name('compo
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/employee', function () {return view('employees/create');})->name('employee.create');
     Route::get('/employee/{id}/edit', function () {return view('employees/edit');})->name('employee.edit');
-    Route::get('/employee/{id}', function () {return view('employees/show');})->name('employee.show');
     Route::get('/employees', function () {return view('employees/index');})->name('employee.index');    
+});
+
+// Routes visible by employee only if page belongs to current employee 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/employee/{id}', function () {return view('employees/show');})->name('employee.show')->middleware('employee.ownership');    
 });
 
 require __DIR__.'/auth.php';

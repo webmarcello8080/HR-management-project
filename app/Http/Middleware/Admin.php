@@ -16,7 +16,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         // check if user is logged and it's not an admin
-        if(auth()->user() && !auth()->user()->hasRole('admin')){
+        if(auth()->check() && !auth()->user()->hasRole('admin')){
             abort(403);
         }
 
