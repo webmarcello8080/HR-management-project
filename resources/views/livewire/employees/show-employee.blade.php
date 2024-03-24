@@ -1,15 +1,25 @@
 <div class="rounded-container">
-    <div class="flex items-center justify-between pb-8 mb-8 border-b border-gray/20">
-        <div class=" flex items-center gap-4">
-            <div class="rounded-lg w-24 f-24 overflow-hidden">
-                <img class="w-full h-full object-cover" src="{{ $employee->getMediaUrl('profile_image') }}" alt="">
-            </div>
-            <div>
-                <h5 class="mb-2">{{ $employee->getFullName() }}</h5>
-                <div class="mb-2 flex gap-2">@svg('briefcase', 'w-6 h-6') <span>{{ $employee?->employeeInformation->designation }}</span></div>
-                <div class="mb-2 flex gap-2">@svg('mail', 'w-6 h-6') <span>{{ $employee?->user->email }}</span></div>
-            </div>
+    @include('partilas\employees\top-section')
+    <div class="flex gap-8">
+        <div class="rounded-xl border border-gray/20 basis-[275px] grow-0 shrink-0 overflow-hidden">
+            <div wire:click='setMenuTab(1)' class="menu-tabs @if($menuTab == 1) active @endif">@svg('user', 'w-6 h-6') <span>Profile</span></div>
+            <div wire:click='setMenuTab(2)' class="menu-tabs @if($menuTab == 2) active @endif">@svg('calendar', 'w-6 h-6') <span>Attendance</span></div>
+            <div wire:click='setMenuTab(3)' class="menu-tabs @if($menuTab == 3) active @endif">@svg('file', 'w-6 h-6') <span>Projects</span></div>
+            <div wire:click='setMenuTab(4)' class="menu-tabs @if($menuTab == 4) active @endif">@svg('notepad', 'w-6 h-6') <span>Leave</span></div>
         </div>
-        <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-big btn-purple">Edit Profile</a>
+        <div class="grow">
+            @if ($menuTab == 1)
+                <h4>something in here 1</h4>
+            @endif
+            @if ($menuTab == 2)
+                <h4>something in here 2</h4>
+            @endif
+            @if ($menuTab == 3)
+                <h4>something in here 3</h4>
+            @endif
+            @if ($menuTab == 4)
+                <h4>something in here 4</h4>
+            @endif
+        </div>
     </div>
 </div>

@@ -32,7 +32,7 @@
         </div>
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
-            <button type="submit" class="btn btn-purple btn-big">Add</button>
+            <button type="submit" class="btn btn-purple btn-big">Save</button>
         </div>
     </form>
 </div>

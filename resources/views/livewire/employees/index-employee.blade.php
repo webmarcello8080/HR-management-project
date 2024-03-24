@@ -3,7 +3,7 @@
         <form action="">
             <input type="text" class="input-element" placeholder="Search"/>
         </form>
-        <div class="flex items-center justify-center gap-5 mb-5">
+        <div class="flex items-center justify-center gap-5">
             <a class="btn btn-purple btn-big" href="{{ route('employee.create') }}">Add New Employee</a>
             <button class="btn btn-transparent btn-big">Filters</button>
         </div>

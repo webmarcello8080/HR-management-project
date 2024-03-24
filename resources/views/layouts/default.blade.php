@@ -11,9 +11,9 @@
     </head>
     <body>
         <main class="external-container flex gap-8">
-            @include('layouts.side-menu')
+            @include('partilas\side-menu')
             <div class="grow">
-                {{ $slot }}
+                @yield('content', $slot ?? '')
             </div>
         </main>
     </body>

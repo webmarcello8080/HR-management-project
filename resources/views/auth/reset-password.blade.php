@@ -2,7 +2,7 @@
 @section('content')
 	<div class="min-h-screen flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
-			@include('auth.partials.validate-errors')
+			@include('auth\partials\validate-errors')
 
 			<h4 class="mb-2">Reset Password</h4>
 			<div class="caption mb-5">
