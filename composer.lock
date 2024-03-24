@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be49b37989696eed6e868686ea72598e",
+    "content-hash": "de4bbe9dafadf63c80d64b8ce6253d29",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -2705,6 +2705,62 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
+        },
+        {
+            "name": "phu1237/laravel-tailwind-auth",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Phu1237/laravel-tailwind-auth.git",
+                "reference": "a801fe12c1c36680041f9edd43f492117ad66a18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Phu1237/laravel-tailwind-auth/zipball/a801fe12c1c36680041f9edd43f492117ad66a18",
+                "reference": "a801fe12c1c36680041f9edd43f492117ad66a18",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^10.0",
+                "illuminate/filesystem": "^10.0",
+                "illuminate/support": "^10.0",
+                "illuminate/validation": "^10.0",
+                "php": "^8.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Phu1237\\TailwindAuth\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phu1237\\TailwindAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phu1237",
+                    "email": "phu1237@gmail.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel",
+                "tailwind"
+            ],
+            "support": {
+                "issues": "https://github.com/phu1237/laravel-tailwind-auth/issues",
+                "source": "https://github.com/phu1237/laravel-tailwind-auth"
+            },
+            "time": "2023-06-12T16:11:15+00:00"
         },
         {
             "name": "psr/clock",

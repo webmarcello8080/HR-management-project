@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/components', function () {return view('components');});
+Route::get('/components', function () {return view('components');})->name('components')->middleware('auth', 'password.confirm');
 
 // Employee routes
-Route::get('/employee', function () {return view('employees/create');})->name('employee.create');
-Route::get('/employee/{id}', function () {return view('employees/edit');})->name('employee.edit');
-Route::get('/employees', function () {return view('employees/index');})->name('employee.index');
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/employee', function () {return view('employees/create');})->name('employee.create');
+    Route::get('/employee/{id}', function () {return view('employees/edit');})->name('employee.edit');
+    Route::get('/employees', function () {return view('employees/index');})->name('employee.index');    
+});
+
+require __DIR__.'/auth.php';

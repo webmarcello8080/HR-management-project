@@ -61,4 +61,18 @@
         <textarea name="" class="input-element" rows="4"></textarea>
     </div>
 </div>
+<div class="mb-4">
+    @auth
+        <h4>you are logged in</h4>
+        @can('admin', Auth::user())
+            <h5>you are an admin</h5>
+        @endcan
+        @can('employee', Auth::user())
+            <h5>you are an employee</h5>
+        @endcan
+    @endauth
+    @guest
+        <h4>you are not logged</h4>
+    @endguest
+</div>
 @endsection

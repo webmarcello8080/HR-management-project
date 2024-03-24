@@ -11,7 +11,9 @@
     </head>
     <body>
         <main class="external-container flex gap-8">
-            @include('layouts.side-menu')
+            <div class="basis-1/2 grow-0 shrink-0 rounded-2xl overflow-hidden">
+				<img class="w-full h-full object-cover" src="{{ asset('/images/homepage.jpg') }}" alt="">
+			</div>
             <div class="grow">
                 @yield('content')
             </div>
