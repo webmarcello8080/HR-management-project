@@ -27,13 +27,14 @@ Route::get('/components', function () {return view('components');})->name('compo
 // Employee routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/employee', CreateEmployee::class )->name('employee.create');
-    Route::get('/employee/{id}/edit', EditEmployee::class )->name('employee.edit');
+    Route::get('/employee/{employee}/edit', EditEmployee::class )->name('employee.edit');
     Route::get('/employees', IndexEmployee::class )->name('employee.index');    
 });
 
 // Vacancy routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/vacancy', CreateVacancy::class )->name('vacancy.create');
+    Route::get('/vacancy/{vacancy}/edit', CreateVacancy::class )->name('vacancy.edit');
     Route::get('/vacancies', IndexVacancy::class)->name('vacancy.index');
 });
 

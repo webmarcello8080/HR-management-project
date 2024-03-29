@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class IndexVacancy extends Component
-{
+{    
     public Collection $activeVacancies;
     public Collection $inactiveVacancies;
     public Collection $completedVacancies;

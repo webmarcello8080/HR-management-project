@@ -1,4 +1,4 @@
-<div class="gray-container mb-4">
+<a href="{{ route('vacancy.edit', $vacancy) }}" class="block no-underline gray-container mb-4">
     <div class="flex items-center gap-5 mb-5">
         @svg('briefcase', 'w-6 h-6')
         <div>
@@ -13,14 +13,14 @@
         @endif
     </div>
     <div class="flex gap-4 justify-between">
-        @if ($vacancy->location)
-            <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4">
+            @if ($vacancy->location)
                 @svg('location', 'w-6 h-6')
                 <div>{{ $vacancy?->location?->name }}</div>
-            </div>
-        @endif
+            @endif
+        </div>
         <div> 
             <span class="font-bold">£{{ $vacancy->amount }}</span>/<span>{{ $vacancy->amount_per }}</span>
         </div>
     </div>
-</div>
+</a>

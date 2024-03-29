@@ -2,6 +2,7 @@
 <div class="rounded-container">
     <div class="flex items-center justify-between gap-5 mb-5">
         <form action="">
+            <input type="text" class="input-element" placeholder="Search"/>
         </form>
         <div class="flex items-center justify-center gap-5">
             <a class="btn btn-purple btn-big" href="{{ route('vacancy.create') }}">Add New Vacancy</a>
