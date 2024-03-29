@@ -18,4 +18,11 @@ class Department extends Model
     public function employeeInformation(): HasMany{
         return $this->hasMany(EmployeeInformation::class);
     }
+
+     /**
+     * get the vacancies for this Department
+     */
+    public function vacancies(): HasMany{
+        return $this->hasMany(Vacancy::class);
+    }
 }
