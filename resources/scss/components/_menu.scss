@@ -1,0 +1,17 @@
+.main-menu{
+    @apply mb-6 p-2;
+
+    .menu-item{
+        @apply py-3 px-5 mb-2 flex items-center gap-4 no-underline;
+
+        &.active{
+            @apply text-purple font-bold bg-gray/5 border-l-4 border-purple;
+
+            svg{
+                path, ellipse, circle{
+                    @apply stroke-purple;
+                }
+            }
+        }
+    }
+}
