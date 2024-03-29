@@ -9,5 +9,7 @@
             <a href="mailto:{{ $employee?->user->email }}" class="mb-2 flex gap-2">@svg('mail', 'w-6 h-6') <span>{{ $employee?->user->email }}</span></a>
         </div>
     </div>
-    <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-big btn-purple">Edit Profile</a>
+    @can('admin')
+        <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-big btn-purple">Edit Profile</a>
+    @endcan
 </div>

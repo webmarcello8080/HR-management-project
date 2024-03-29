@@ -4,11 +4,14 @@ namespace App\Livewire\Employees\Tabs;
 
 use App\Models\Employee;
 use App\Models\EmployeeInformation;
+use App\Traits\ConvertEmptyStringsToNull;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
 class ProfessionalInformation extends Component
 {
+    use ConvertEmptyStringsToNull;
+
     public EmployeeInformation $employee_info;
     public Employee $employee;
     #[Validate]

@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// temp route.
+Route::get('/', function() { return redirect('components');});
+// display all the graphic components of the project
 Route::get('/components', function () {return view('components');})->name('components')->middleware('auth', 'password.confirm');
 
 // Employee routes

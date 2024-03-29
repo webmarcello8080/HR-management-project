@@ -1,3 +1,4 @@
+@section('page-title', 'Edit Employee')
 <div class="rounded-container">
     <div class="flex items-end justify-start gap-5 mb-5 border-b border-gray/20">
         <div class="tab cursor-pointer @if($formStep == 1) active @endif" wire:click='getToStep(1)'>@svg('user', 'w-6 h-6') <span>Personal Information</span></div>
