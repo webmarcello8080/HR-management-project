@@ -67,6 +67,12 @@ class CreateVacancy extends Component
         $this->redirectRoute('vacancy.index');
     }
 
+    public function delete(){
+        $this->vacancy->delete();
+        
+        $this->redirectRoute('vacancy.index');
+    }
+
     public function render()
     {
         return view('livewire.vacancies.create-vacancy');

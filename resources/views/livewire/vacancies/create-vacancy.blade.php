@@ -75,6 +75,9 @@
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
             <button type="submit" class="btn btn-purple btn-big">Save</button>
+            @if ($vacancy->getKey())
+                <a wire:click='delete' wire:confirm='Are you sure you want to delete this vacancy?' class="btn btn-red btn-big">@svg('trash', 'w-6 h-6')</a>
+            @endif
         </div>
     </form>
 </div>

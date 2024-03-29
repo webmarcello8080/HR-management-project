@@ -13,6 +13,16 @@
         @apply bg-purple text-white;
     }
 
+    &.btn-red{
+        @apply bg-red text-white;
+    }
+
+    svg{
+        path, ellipse, circle{
+            @apply stroke-white;
+        }
+    }
+
     &.btn-transparent{
         @apply bg-transparent border border-gray/20;
     }
