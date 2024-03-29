@@ -1,6 +1,6 @@
 <div class="table-row border-b border-gray/20">
     <span class="table-cell py-2">
-        @include('partilas\employees\employee-budge')
+        @include('partials\employees\employee-budge')
     </span>
     <span class="table-cell py-2">{{ $employee->employeeInformation?->unique_id }}</span>
     <span class="table-cell py-2">{{ $employee->employeeInformation?->department?->name }}</span>

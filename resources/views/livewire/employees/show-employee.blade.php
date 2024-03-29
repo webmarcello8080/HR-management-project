@@ -1,6 +1,6 @@
 @section('page-title', 'Employee Information')
 <div class="rounded-container">
-    @include('partilas\employees\top-section')
+    @include('partials\employees\top-section')
     <div class="flex items-start gap-8">
         <div class="rounded-xl border border-gray/20 basis-[275px] grow-0 shrink-0 overflow-hidden">
             <div wire:click='setMenuTab(1)' class="menu-tabs @if($menuTab == 1) active @endif">@svg('user', 'w-6 h-6') <span>Profile</span></div>

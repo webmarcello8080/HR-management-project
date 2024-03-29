@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('department_id')->nullable();
             $table->unsignedBigInteger('location_id')->nullable();
             $table->unsignedBigInteger('employee_type_id')->nullable();
-            $table->decimal('amount', 9, 3);
+            $table->decimal('amount', 9, 2);
             $table->string('amount_per');
             $table->timestamps();
 
