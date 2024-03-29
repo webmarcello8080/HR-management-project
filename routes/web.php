@@ -34,7 +34,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 // Vacancy routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/vacancy', CreateVacancy::class )->name('vacancy.create');
-    Route::get('vacancies', IndexVacancy::class)->name('vacancy,index');
+    Route::get('/vacancies', IndexVacancy::class)->name('vacancy.index');
 });
 
 // Routes visible by employee only if page belongs to current employee 

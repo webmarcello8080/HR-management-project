@@ -4,6 +4,9 @@
         <a href="{{ route('employee.index' )}}" class="menu-item {{ request()->routeIs('employee.*') ? 'active' : '' }}">
             @svg('group', 'w-6 h-6')<span>All Employees</span>
         </a>
+        <a href="{{ route('vacancy.index' )}}" class="menu-item {{ request()->routeIs('vacancy.*') ? 'active' : '' }}">
+            @svg('briefcase', 'w-6 h-6')<span>Vacancies</span>
+        </a>
         <a href="{{ route('components' )}}" class="menu-item {{ request()->routeIs('components') ? 'active' : '' }}">
             @svg('eye', 'w-6 h-6')<span>Components</span>
         </a>

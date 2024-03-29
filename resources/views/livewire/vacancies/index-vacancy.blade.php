@@ -9,7 +9,7 @@
     </div>
     <div class="flex gap-5">
         <div class="rounded-container basis-1/3">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 mb-4">
                 <div class="w-3 h-3 bg-yellow rounded-full"></div>
                 <h6 class="mb-0">Active Vacancies</h6>
             </div>
@@ -18,16 +18,22 @@
             @endforeach
         </div>
         <div class="rounded-container basis-1/3">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 mb-4">
                 <div class="w-3 h-3 bg-red rounded-full"></div>
                 <h6 class="mb-0">Inactive Vacancies</h6>
             </div>
+            @foreach ($inactiveVacancies as $vacancy)
+                @include('partials\vacancies\vacancy-card')
+            @endforeach
         </div>
         <div class="rounded-container basis-1/3">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 mb-4">
                 <div class="w-3 h-3 bg-green rounded-full"></div>
                 <h6 class="mb-0">Completed Vacancies</h6>
-            </div>        
+            </div>
+            @foreach ($completedVacancies as $vacancy)
+                @include('partials\vacancies\vacancy-card')
+            @endforeach
         </div>
     </div>
 </div>
