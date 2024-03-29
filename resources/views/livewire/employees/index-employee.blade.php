@@ -14,9 +14,9 @@
             <span class="caption table-cell py-2">Employee Name</span>
             <span class="caption table-cell py-2">Employee ID</span>
             <span class="caption table-cell py-2">Department</span>
-            <span class="caption table-cell py-2">Designation</span>
             <span class="caption table-cell py-2">Type</span>
             <span class="caption table-cell py-2">Working Day</span>
+            <span class="caption table-cell py-2">Location</span>
             <span class="caption table-cell py-2">Actions</span>
         </div>
         @foreach ($employees as $employee)
