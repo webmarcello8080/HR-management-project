@@ -28,7 +28,7 @@ class ShowDepartment extends Component
     public function updatedSearch(): void
     {
         $searchService = new EmployeeSearchService;
-        $this->employees = $searchService->search(['keyword' => $this->search, 'department' => $this->department]);
+        $this->employees = $searchService->search(['keyword' => $this->search, 'department_id' => $this->department->id]);
     }
 
     public function render(): View

@@ -15,6 +15,7 @@ class EmployeeSearchService{
         if (isset($search['keyword'])) {
             $keyword = $search['keyword'];
 
+            // if keyword is define search by (WHERE name = keyword OR designation = keyword OR department = keyword)
             $employees->where(function ($query) use ($keyword) {
                 // search by partial name and full name
                 $query->where(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $keyword . '%')
@@ -34,11 +35,11 @@ class EmployeeSearchService{
         }
         
         // filter by department mandatory
-        if (isset($search['department'])) {
-            $department = $search['department'];
+        if (isset($search['department_id'])) {
+            $department_id = $search['department_id'];
 
-            $employees->whereHas('employeeInformation', function ($query) use ($department) {
-                $query->where('department_id', $department->id);
+            $employees->whereHas('employeeInformation', function ($query) use ($department_id) {
+                $query->where('department_id', $department_id);
             });
         }
 
