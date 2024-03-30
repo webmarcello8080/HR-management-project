@@ -10,9 +10,9 @@ class ShowEmployee extends Component
     public Employee $employee;
     public $menuTab;
 
-    public function mount($id): void
+    public function mount(Employee $employee): void
     {
-        $this->employee = Employee::findOrFail($id);
+        $this->employee = $employee;
         $this->menuTab = 1;
     }
 

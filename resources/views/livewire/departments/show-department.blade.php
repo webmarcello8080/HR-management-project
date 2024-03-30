@@ -1,4 +1,4 @@
-@section('page-title', 'All Employees')
+@section('page-title', $department->name . ' Department')
 <div class="rounded-container">
     <div class="flex items-center justify-between gap-5 mb-5">
         <div>

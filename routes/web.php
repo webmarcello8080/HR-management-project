@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Departments\IndexDepartment;
+use App\Livewire\Departments\ShowDepartment;
 use App\Livewire\Employees\CreateEmployee;
 use App\Livewire\Employees\EditEmployee;
 use App\Livewire\Employees\IndexEmployee;
@@ -38,9 +40,15 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/vacancies', IndexVacancy::class)->name('vacancy.index');
 });
 
+// Department routes
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/departments', IndexDepartment::class)->name('department.index');
+    Route::get('/department/{department}', ShowDepartment::class)->name('department.show');
+});
+
 // Routes visible by employee only if page belongs to current employee 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/employee/{id}', ShowEmployee::class )->name('employee.show')->middleware('employee.ownership');    
+    Route::get('/employee/{employee}', ShowEmployee::class )->name('employee.show')->middleware('employee.ownership');    
 });
 
 require __DIR__.'/auth.php';

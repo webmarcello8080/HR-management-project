@@ -4,6 +4,12 @@
         <a href="{{ route('employee.index' )}}" class="menu-item {{ request()->routeIs('employee.*') ? 'active' : '' }}">
             @svg('group', 'w-6 h-6')<span>All Employees</span>
         </a>
+        <a href="{{ route('department.index' )}}" class="menu-item {{ request()->routeIs('department.*') ? 'active' : '' }}">
+            @svg('community', 'w-6 h-6')<span>Deparments</span>
+        </a>
+        <a href="{{ route('department.index' )}}" class="menu-item {{ request()->routeIs('department.*') ? 'active' : '' }}">
+            @svg('calendar', 'w-6 h-6')<span>Attendance</span>
+        </a>
         <a href="{{ route('vacancy.index' )}}" class="menu-item {{ request()->routeIs('vacancy.*') ? 'active' : '' }}">
             @svg('briefcase', 'w-6 h-6')<span>Vacancies</span>
         </a>

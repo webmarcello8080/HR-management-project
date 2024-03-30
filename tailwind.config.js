@@ -5,6 +5,11 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+  safelist: [
+    {
+      pattern: /bg-(red|green|yellow)/,
+    },
+  ],
   theme: {
     colors: {
       transparent: 'transparent',
