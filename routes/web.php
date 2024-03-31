@@ -6,6 +6,7 @@ use App\Livewire\Employees\CreateEmployee;
 use App\Livewire\Employees\EditEmployee;
 use App\Livewire\Employees\IndexEmployee;
 use App\Livewire\Employees\ShowEmployee;
+use App\Livewire\Holidays\IndexHoliday;
 use App\Livewire\Vacancies\CreateVacancy;
 use App\Livewire\Vacancies\IndexVacancy;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,11 @@ Route::middleware(['auth', 'admin'])->group(function(){
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/departments', IndexDepartment::class)->name('department.index');
     Route::get('/department/{department}', ShowDepartment::class)->name('department.show');
+});
+
+// holidays routes
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/holidays', IndexHoliday::class)->name('holiday.index');
 });
 
 // Routes visible by employee only if page belongs to current employee 

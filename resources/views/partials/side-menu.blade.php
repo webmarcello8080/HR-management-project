@@ -7,11 +7,11 @@
         <a href="{{ route('department.index' )}}" class="menu-item {{ request()->routeIs('department.*') ? 'active' : '' }}">
             @svg('community', 'w-6 h-6')<span>Deparments</span>
         </a>
-        <a href="{{ route('department.index' )}}" class="menu-item {{ request()->routeIs('department.*') ? 'active' : '' }}">
-            @svg('calendar', 'w-6 h-6')<span>Attendance</span>
-        </a>
         <a href="{{ route('vacancy.index' )}}" class="menu-item {{ request()->routeIs('vacancy.*') ? 'active' : '' }}">
             @svg('briefcase', 'w-6 h-6')<span>Vacancies</span>
+        </a>
+        <a href="{{ route('holiday.index' )}}" class="menu-item {{ request()->routeIs('holiday.*') ? 'active' : '' }}">
+            @svg('note', 'w-6 h-6')<span>Holidays</span>
         </a>
         <a href="{{ route('components' )}}" class="menu-item {{ request()->routeIs('components') ? 'active' : '' }}">
             @svg('eye', 'w-6 h-6')<span>Components</span>
