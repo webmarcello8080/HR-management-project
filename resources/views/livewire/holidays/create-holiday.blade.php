@@ -11,7 +11,7 @@
                 @error('name') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex justify-center gap-5">
-                <button wire:click="close" class="btn btn-small btn-transparent flex-1 flex-grow">Close</button>
+                <a wire:click="close" class="btn btn-small btn-transparent flex-1 flex-grow text-center">Close</a>
                 <button type="submit" class="btn btn-purple btn-small flex-1 flex-grow">Save</button>
             </div>        
         </form>

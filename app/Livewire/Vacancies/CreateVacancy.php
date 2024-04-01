@@ -4,6 +4,7 @@ namespace App\Livewire\Vacancies;
 
 use App\Models\Vacancy;
 use App\Traits\ConvertEmptyStringsToNull;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
@@ -31,7 +32,8 @@ class CreateVacancy extends Component
     #[Validate]
     public $amount_per;
 
-    public function rules(){
+    public function rules():array
+    {
         return [
             'title' => 'required|string|min:3|max:200',
             'expiring_date' => 'nullable|date',
@@ -45,7 +47,8 @@ class CreateVacancy extends Component
         ];
     }
 
-    public function mount(Vacancy $vacancy){
+    public function mount(Vacancy $vacancy):void
+    {
         $this->vacancy = $vacancy ?? new Vacancy();
         $this->title = $this->vacancy->title;
         $this->expiring_date = $this->vacancy->expiring_date;
@@ -58,7 +61,8 @@ class CreateVacancy extends Component
         $this->amount_per = $this->vacancy->amount_per;
     }
 
-    public function save(){
+    public function save():void
+    {
         $validated = $this->validate();
 
         $this->vacancy->fill($validated);
@@ -67,13 +71,13 @@ class CreateVacancy extends Component
         $this->redirectRoute('vacancy.index');
     }
 
-    public function delete(){
+    public function delete():void
+    {
         $this->vacancy->delete();
-        
         $this->redirectRoute('vacancy.index');
     }
 
-    public function render()
+    public function render():View
     {
         return view('livewire.vacancies.create-vacancy');
     }
