@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('content')
-	<div class="min-h-screen flex flex-col sm:justify-center items-center">
+	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
 			@include('auth\partials\validate-errors')
 
@@ -11,7 +11,6 @@
 
 			<form method="POST" action="{{ route('password.confirm') }}">
 				@csrf
-
 				<input id="password" name="password" type="password" class="input-element mb-5" placeholder="Insert password" required autocomplete="current-password">
 
 				<button type="submit" class="btn btn-big btn-purple w-full">

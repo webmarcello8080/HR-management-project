@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('content')
-	<div class="min-h-screen flex flex-col sm:justify-center items-center">
+	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
 			<div class="mb-5">
 				<a href="{{ route('login') }}">< Back</a>
@@ -15,8 +15,6 @@
 
 			<form method="POST" action="{{ route('password.email') }}">
 				@csrf
-
-				<!-- Email Address -->
 				<input id="email" name="email" type="email" class="input-element mb-5" placeholder="Insert email address" value="{{ old('email') }}" required autofocus>
 
 				<button type="submit" class="btn btn-big btn-purple w-full">

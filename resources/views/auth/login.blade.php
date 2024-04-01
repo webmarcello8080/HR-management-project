@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('title', 'Login')
 @section('content')
-	<div class="min-h-screen flex flex-col sm:justify-center items-center">
+	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
 			<h2 class="mb-9">LogoHere</h2>
 			<div class="mb-5">

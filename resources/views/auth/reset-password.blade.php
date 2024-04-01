@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('content')
-	<div class="min-h-screen flex flex-col sm:justify-center items-center">
+	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
 			@include('auth\partials\validate-errors')
 
@@ -11,7 +11,6 @@
 
 			<form method="POST" action="{{ route('password.update') }}">
 				@csrf
-				<!-- Password Reset Token -->
 				<input type="hidden" name="token" value="{{ $request->route('token') }}">
 
 				<input id="email" name="email" type="email" class="input-element mb-5" value="{{ old('email', $request->email) }}" placeholder="Insert email address" required autofocus>
