@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Candidates extends Model
+class Candidate extends Model
 {
     protected $fillable = ['full_name', 'email', 'phone', 'candidate_status', 'vacancy_id'];
     protected $casts = ['candidate_status' => CandidateStatus::class];
