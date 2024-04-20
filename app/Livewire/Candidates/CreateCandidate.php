@@ -11,22 +11,22 @@ class CreateCandidate extends Component
 {
     public Candidate $candidate;
     #[Validate]
-    public string $full_name;
+    public string|null $full_name;
     #[Validate]
-    public string $email;
+    public string|null $email;
     #[Validate]
-    public string $phone;
+    public string|null $phone;
     #[Validate]
-    public int $candidate_status;
+    public $candidate_status;
     #[Validate]
-    public int $vacancy_id;
+    public $vacancy_id;
 
     public function rules(){
         return [
             'full_name' => 'required|min:3',
             'email' => 'required|email',
             'phone' => 'required|min:3',
-            'candidate_status' => 'required|integer',
+            'candidate_status' => 'required',
             'vacancy_id' => 'required|integer',
         ];
     }
@@ -34,6 +34,12 @@ class CreateCandidate extends Component
     public function mount(Candidate $candidate): void
     {
         $this->candidate = $candidate ?? new Candidate();
+        $this->full_name = $this->candidate->full_name;
+        $this->email = $this->candidate->email;
+        $this->phone = $this->candidate->phone;
+        $this->phone = $this->candidate->phone;
+        $this->candidate_status = $this->candidate->candidate_status;
+        $this->vacancy_id = $this->candidate->vacancy_id;
     }
 
     public function save(): void

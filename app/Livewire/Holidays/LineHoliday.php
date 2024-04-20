@@ -10,12 +10,12 @@ class LineHoliday extends Component
 {
     public Holiday $holiday;
 
-    public function mount(Holiday $holiday):void
+    public function mount(Holiday $holiday): void
     {
         $this->holiday = $holiday;
     }
 
-    public function delete():void
+    public function delete(): void
     {
         $this->holiday->delete();
         $this->dispatch('refreshParent');
