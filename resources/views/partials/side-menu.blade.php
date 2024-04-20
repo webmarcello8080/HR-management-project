@@ -20,9 +20,4 @@
             @svg('eye', 'w-6 h-6')<span>Components</span>
         </a>
     </nav>
-    
-    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
 </div>
