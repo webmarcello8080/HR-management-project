@@ -45,6 +45,6 @@ class Vacancy extends Model
      */
     public function candidates(): HasMany
     {
-        return $this->hasMany(Candidates::class);
+        return $this->hasMany(Candidate::class);
     }
 }
