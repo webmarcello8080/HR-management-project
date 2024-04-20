@@ -1,4 +1,5 @@
 @section('page-title', 'Create/Edit Candidate')
+@section('page-subtitle', 'All Candidate > Create/Edit Candidate')
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">

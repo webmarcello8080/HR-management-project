@@ -1,4 +1,5 @@
 @section('page-title', 'All Departments')
+@section('page-subtitle', 'See All Departments')
 <div class="rounded-container grid grid-cols-2 gap-5">
     @foreach ($departments as $department)
         <div class="rounded-container">

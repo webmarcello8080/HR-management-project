@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('page-title', 'Components Page')
+@section('page-subtitle', 'All the Components')
 @section('content')
 <div class="mb-4">
     <h1>Another Heading Text</h1>

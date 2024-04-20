@@ -1,4 +1,5 @@
 @section('page-title', 'All Vacancies')
+@section('page-subtitle', 'See All Vacancies')
 <div class="rounded-container">
     <div class="flex items-center justify-between gap-5 mb-5">
         <div>

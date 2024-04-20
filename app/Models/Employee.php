@@ -16,7 +16,7 @@ class Employee extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
-    protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'];
+    protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code', 'user_id'];
     protected $casts = ['marital_status' => MaritalStatus::class, 'gender' => Gender::class];
 
     /**
@@ -55,7 +55,8 @@ class Employee extends Model implements HasMedia
     /**
      * get this employee image url based on image name
      */
-    public function getMediaUrl(string $mediaName): string{
+    public function getMediaUrl(string $mediaName): string
+    {
         $media = $this->getMedia($mediaName);
 
         if(isset($media[0])){

@@ -1,4 +1,5 @@
 @section('page-title', $department->name . ' Department')
+@section('page-subtitle', 'All Departments > ' . $department->name)
 <div class="rounded-container">
     <div class="flex items-center justify-between gap-5 mb-5">
         <div>

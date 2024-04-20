@@ -1,4 +1,5 @@
 @section('page-title', 'Employee Information')
+@section('page-subtitle', 'All Employees > ' . $employee->getFullName() . ' Information')
 <div class="rounded-container">
     @include('partials\employees\top-section')
     <div class="flex items-start gap-8">
