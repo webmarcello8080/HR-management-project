@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Candidates\CreateCandidate;
 use App\Livewire\Departments\IndexDepartment;
 use App\Livewire\Departments\ShowDepartment;
 use App\Livewire\Employees\CreateEmployee;
@@ -45,6 +46,11 @@ Route::middleware(['auth', 'admin'])->group(function(){
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/departments', IndexDepartment::class)->name('department.index');
     Route::get('/department/{department}', ShowDepartment::class)->name('department.show');
+});
+
+// Candidate routes
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/candidate', CreateCandidate::class)->name('candidate.create');
 });
 
 // holidays routes

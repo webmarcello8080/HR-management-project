@@ -1,4 +1,4 @@
-@section('page-title', 'Manage Employee')
+@section('page-title', 'Create/Edit Vancancy')
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">

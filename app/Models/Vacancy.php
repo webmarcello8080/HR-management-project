@@ -7,6 +7,7 @@ use App\Enums\WorkingDay;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Vacancy extends Model
 {
@@ -37,5 +38,13 @@ class Vacancy extends Model
     public function employeeType(): BelongsTo
     {
         return $this->belongsTo(EmployeeType::class);
+    }
+
+    /**
+     * get the candidates fot this vacancy
+     */
+    public function candidates(): HasMany
+    {
+        return $this->hasMany(Candidates::class);
     }
 }
