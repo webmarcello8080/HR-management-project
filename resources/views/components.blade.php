@@ -65,10 +65,10 @@
 <div class="mb-4">
     @auth
         <h4>you are logged in</h4>
-        @can('admin', Auth::user())
+        @can('admin')
             <h5>you are an admin</h5>
         @endcan
-        @can('employee', Auth::user())
+        @can('employee')
             <h5>you are an employee</h5>
         @endcan
     @endauth
