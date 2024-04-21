@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use App\Models\Employee;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 class EmployeeSearchService{
 
-    public function search(array $search): Collection
+    public function search(array $search): Builder
     {
         $employees = Employee::query();
 
@@ -43,6 +43,6 @@ class EmployeeSearchService{
             });
         }
 
-        return $employees->get();
+        return $employees;
     }
 }

@@ -9,14 +9,8 @@ use Livewire\Attributes\On;
 
 class IndexHoliday extends Component
 {
-    public Collection $holidays;
-    public int $year;
+    public int $year = 0;
     public bool $showModal = false;
-
-    public function mount(): void
-    {
-        $this->year = date('Y');
-    }
 
     #[On('closeModal')]
     public function toggleModal(): void
@@ -27,8 +21,13 @@ class IndexHoliday extends Component
     #[On('refreshParent')]
     public function render()
     {
-        $this->holidays = Holiday::filterByYear($this->year);
+        if(!$this->year){
+            $this->year = date('Y');
+        }
 
-        return view('livewire.holidays.index-holiday');
+        return view('livewire.holidays.index-holiday', [
+            'holidays' => Holiday::filterByYear($this->year),
+            'year' => $this->year,
+        ]);
     }
 }

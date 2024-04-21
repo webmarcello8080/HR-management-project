@@ -23,4 +23,5 @@
             @livewire('candidates.line-candidate', ['candidate' => $candidate], key($candidate->id))
         @endforeach
     </div>
+    @include('partials.pagination', ['collection' => $candidates])
 </div>

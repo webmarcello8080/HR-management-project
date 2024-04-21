@@ -4,26 +4,32 @@ namespace App\Livewire\Employees;
 
 use App\Models\Employee;
 use App\Services\EmployeeSearchService;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class IndexEmployee extends Component
 {
-    public Collection $employees;
+    use WithPagination;
+
     public string $search = '';
 
-    public function mount(){
-        $this->employees = Employee::all();
+    public function updatedSearch():void
+    {
+        $this->resetPage();
     }
 
-    public function updatedSearch(): void
+    public function render(): View
     {
-        $searchService = new EmployeeSearchService;
-        $this->employees = $searchService->search(['keyword' => $this->search]);
-    }
+        if(!$this->search){
+            $employees = Employee::paginate(3);
+        } else {
+            $searchService = new EmployeeSearchService;
+            $employees = $searchService->search(['keyword' => $this->search])->paginate(3);
+        }
 
-    public function render()
-    {
-        return view('livewire.employees.index-employee');
+        return view('livewire.employees.index-employee', [
+            'employees' => $employees,
+        ]);
     }
 }

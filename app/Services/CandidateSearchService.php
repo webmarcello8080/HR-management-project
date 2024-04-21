@@ -3,11 +3,11 @@
 namespace App\Services;
 
 use App\Models\Candidate;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class CandidateSearchService{
 
-    public function search($keyword): Collection
+    public function search($keyword): Builder
     {
         $candidate = Candidate::query();
 
@@ -28,6 +28,6 @@ class CandidateSearchService{
             });
         }
 
-        return $candidate->get();
+        return $candidate;
     }
 }

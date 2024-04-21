@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use App\Models\Leave;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 class LeaveSearchService{
 
-    public function search($keyword, $date): Collection
+    public function search($keyword, $date): Builder
     {
         $leave = Leave::query();
 
@@ -31,6 +31,6 @@ class LeaveSearchService{
             });
         }
 
-        return $leave->get();
+        return $leave;
     }
 }

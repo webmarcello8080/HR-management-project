@@ -4,30 +4,34 @@ namespace App\Livewire\Candidates;
 
 use App\Models\Candidate;
 use App\Services\CandidateSearchService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class IndexCandidate extends Component
 {
-    public Collection $candidates;
-    public string $search = '';
+    use WithPagination;
 
-    public function mount(): void
-    {
-        $this->candidates = Candidate::all();
-    }
+    public string $search = '';
 
     public function updatedSearch(): void
     {
-        $searchService = new CandidateSearchService;
-        $this->candidates = $searchService->search($this->search);
+        $this->resetPage();
     }
 
     #[On('refreshParent')]
     public function render(): View
     {
-        return view('livewire.candidates.index-candidate');
+        if(!$this->search){
+            $candidates = Candidate::paginate(3);
+        } else {
+            $searchService = new CandidateSearchService;
+            $candidates = $searchService->search($this->search)->paginate(3);
+        }
+
+        return view('livewire.candidates.index-candidate', [
+            'candidates' => $candidates
+        ]);
     }
 }

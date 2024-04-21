@@ -23,4 +23,5 @@
             @livewire('leaves.line-leave', ['leave' => $leave], key($leave->id))
         @endforeach
     </div>
+    @include('partials.pagination', ['collection' => $leaves])
 </div>
