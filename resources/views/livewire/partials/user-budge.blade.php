@@ -1,6 +1,6 @@
 <div class="flex items-center gap-5">
     <div class="gray-container !p-3">@svg('notification', 'w-6 h-6')</div>
-    <div wire:click='toggleMenu' class="rounded-container !p-2 relative flex items-center gap-2 cursor-pointer">
+    <div wire:click='toggleMenu' class="rounded-container !p-1 relative flex items-center gap-2 cursor-pointer">
         @if (auth()->user()->employee)
             @include('partials.employees.employee-budge', ['employee' => auth()->user()->employee ])
         @else
@@ -8,7 +8,7 @@
         @endif
         @svg('arrow-down', 'w-6 h-6')
         @if ($displayUserMenu)
-            <div class="rounded-container !p-3 absolute bg-white w-full right-0 top-[63px]">
+            <div wire:transition.scale.duration.[700]ms.origin.top class="rounded-container !p-3 absolute bg-white w-full right-0 top-[56px]">
                 @if (auth()->user()->employee)
                     <a class="flex items-center gap-4 no-underline mb-2" href="{{ route('employee.show', auth()->user()->employee) }}">
                         @svg('user', 'w-6 h-6')<span>My Profile</span>
