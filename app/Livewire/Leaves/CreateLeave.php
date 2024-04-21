@@ -23,7 +23,7 @@ class CreateLeave extends Component
     #[Validate]
     public $employee_id;
 
-    public function rules():array
+    public function rules(): array
     {
         return [
             'from_date' => 'required|date',
@@ -35,18 +35,18 @@ class CreateLeave extends Component
         ];
     }
 
-    public function mount(Leave $leave):void
+    public function mount(Leave $leave): void
     {
         $this->leave = $leave ?? new Leave();
-        $this->from_date = $this->leave->from_date;
-        $this->to_date = $this->leave->to_date;
+        $this->from_date = $this->leave->from_date ? $this->leave->from_date->format('Y-m-d') : null;
+        $this->to_date = $this->leave->to_date ? $this->leave->to_date->format('Y-m-d') : null;
         $this->days = $this->leave->days;
         $this->leave_status = $this->leave->leave_status;
         $this->reason = $this->leave->reason;
         $this->employee_id = $this->leave->employee_id;
     }
 
-    public function save():void
+    public function save(): void
     {
         $validated = $this->validate();
 

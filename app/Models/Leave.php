@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Leave extends Model
 {
     protected $fillable = ['from_date', 'to_date', 'days', 'leave_status', 'reason', 'employee_id'];
-    protected $casts = ['leave_status' => LeaveStatus::class, 'from_date' => 'datetime', 'to_date' => 'datetime'];
+    protected $casts = ['leave_status' => LeaveStatus::class, 'from_date' => 'date:Y-m-d', 'to_date' => 'date:Y-m-d'];
 
     use HasFactory;
 
