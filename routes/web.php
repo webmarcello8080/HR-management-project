@@ -9,6 +9,8 @@ use App\Livewire\Employees\EditEmployee;
 use App\Livewire\Employees\IndexEmployee;
 use App\Livewire\Employees\ShowEmployee;
 use App\Livewire\Holidays\IndexHoliday;
+use App\Livewire\Leaves\CreateLeave;
+use App\Livewire\Leaves\IndexLeave;
 use App\Livewire\Vacancies\CreateVacancy;
 use App\Livewire\Vacancies\IndexVacancy;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +58,12 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/candidates', IndexCandidate::class)->name('candidate.index');
 });
 
+// Leave routes
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/leaves', IndexLeave::class)->name('leave.index');
+    Route::get('/leave/{leave}/edit', CreateLeave::class)->name('leave.edit');
+});
+
 // holidays routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/holidays', IndexHoliday::class)->name('holiday.index');
@@ -64,6 +72,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 // Routes visible by employee only if page belongs to current employee 
 Route::middleware(['auth'])->group(function(){
     Route::get('/employee/{employee}', ShowEmployee::class )->name('employee.show')->middleware('employee.ownership');    
+    Route::get('/leave', CreateLeave::class )->name('leave.create');    
 });
 
 require __DIR__.'/auth.php';

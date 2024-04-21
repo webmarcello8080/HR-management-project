@@ -7,7 +7,7 @@
     <span class="table-cell py-3">
         <div class="budge budge-{{ $statusColours[$candidate->candidate_status->value - 1] }}">{{ $candidate->candidate_status->name }}</div>
     </span>
-    <span class="table-cell py-3">
+    <span class="table-cell align-middle py-3">
         <div class="flex items-center gap-2">
             <a href="{{ route('candidate.edit', $candidate) }}">@svg('edit', 'w-6 h-6')</a>
             <a class="cursor-pointer" wire:click='delete' wire:confirm='Are you sure you want to delete this candidate?'>@svg('trash', 'w-6 h-6')</a>
