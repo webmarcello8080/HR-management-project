@@ -1,11 +1,11 @@
 <div class="table-row border-b border-b-gray/20 ">
-    @can('admin')
+    @if(request()->routeIs('leave.*'))
         <span class="table-cell align-middle py-3 pl-3">
             @if ($leave->employee)
                 @include('partials.employees.employee-budge', ['employee' => $leave->employee])
             @endif
         </span>
-    @endcan
+    @endif
     <span class="table-cell align-middle py-3">{{ $leave->from_date->format('F d, Y') }}</span>
     <span class="table-cell align-middle py-3">{{ $leave->to_date->format('F d, Y') }}</span>
     <span class="table-cell align-middle py-3">{{ $leave->days }}</span>

@@ -27,6 +27,9 @@
                             <span class="caption table-cell py-2">To Date</span>
                             <span class="caption table-cell py-2">Dayes</span>
                             <span class="caption table-cell py-2">Status</span>
+                            @can('admin')
+                                <span class="caption table-cell py-2">Actions</span>
+                            @endcan
                         </div>
                         @foreach ($employee->leaves as $leave)
                             @livewire('leaves.line-leave', ['leave' => $leave], key($leave->id))

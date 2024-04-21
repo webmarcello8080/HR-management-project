@@ -29,9 +29,6 @@
     {{-- Employee main menu --}}
     @can('employee')
         <nav class="main-menu">
-            <a href="{{ route('employee.show', auth()->user()->employee) }}" class="menu-item {{ request()->routeIs('employee.show') ? 'active' : '' }}">
-                @svg('user', 'w-6 h-6')<span>My Profile</span>
-            </a>
             <a href="{{ route('leave.create' )}}" class="menu-item {{ request()->routeIs('leave.*') ? 'active' : '' }}">
                 @svg('notepad', 'w-6 h-6')<span>New Leave</span>
             </a>
