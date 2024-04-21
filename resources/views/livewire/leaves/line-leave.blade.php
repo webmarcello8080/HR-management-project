@@ -1,5 +1,5 @@
 <div class="table-row border-b border-b-gray/20 ">
-    @if(request()->routeIs('leave.*'))
+    @if($display_user)
         <span class="table-cell align-middle py-3 pl-3">
             @if ($leave->employee)
                 @include('partials.employees.employee-budge', ['employee' => $leave->employee])

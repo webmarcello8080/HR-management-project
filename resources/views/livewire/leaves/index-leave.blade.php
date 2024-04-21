@@ -20,7 +20,7 @@
             <span class="caption table-cell py-2">Actions</span>
         </div>
         @foreach ($leaves as $leave)
-            @livewire('leaves.line-leave', ['leave' => $leave], key($leave->id))
+            @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => true], key($leave->id))
         @endforeach
     </div>
     @include('partials.pagination', ['collection' => $leaves])

@@ -32,7 +32,7 @@
                             @endcan
                         </div>
                         @foreach ($employee->leaves as $leave)
-                            @livewire('leaves.line-leave', ['leave' => $leave], key($leave->id))
+                            @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => false], key($leave->id))
                         @endforeach
                     </div>
                 @endif
