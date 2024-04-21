@@ -20,7 +20,19 @@
                 <h4>something in here 3</h4>
             @endif
             @if ($menuTab == 4)
-                <h4>something in here 4</h4>
+                @if ($employee->leaves)
+                    <div class="table w-full border-collapse">
+                        <div class="table-row border-b border-gray/20">
+                            <span class="caption table-cell py-2">From Date</span>
+                            <span class="caption table-cell py-2">To Date</span>
+                            <span class="caption table-cell py-2">Dayes</span>
+                            <span class="caption table-cell py-2">Status</span>
+                        </div>
+                        @foreach ($employee->leaves as $leave)
+                            @livewire('leaves.line-leave', ['leave' => $leave], key($leave->id))
+                        @endforeach
+                    </div>
+                @endif
             @endif
         </div>
     </div>

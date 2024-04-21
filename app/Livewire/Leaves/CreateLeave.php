@@ -41,9 +41,9 @@ class CreateLeave extends Component
         $this->from_date = $this->leave->from_date ? $this->leave->from_date->format('Y-m-d') : null;
         $this->to_date = $this->leave->to_date ? $this->leave->to_date->format('Y-m-d') : null;
         $this->days = $this->leave->days;
-        $this->leave_status = $this->leave->leave_status;
+        $this->leave_status = auth()->user()->hasRole('employee') ? 1 : $this->leave->leave_status;
         $this->reason = $this->leave->reason;
-        $this->employee_id = $this->leave->employee_id;
+        $this->employee_id = auth()->user()->hasRole('employee') ? auth()->user()->employee->id : $this->leave->employee_id;
     }
 
     public function save(): void
@@ -53,7 +53,11 @@ class CreateLeave extends Component
         $this->leave->fill($validated);
         $this->leave->save();
 
-        $this->redirectRoute('leave.index');
+        if(auth()->user()->hasRole('employee')){
+            $this->redirectRoute('employee.show', auth()->user()->employee);
+        } else {
+            $this->redirectRoute('leave.index');
+        }
     }
 
     public function render(): View
