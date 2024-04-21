@@ -7,6 +7,8 @@ use App\Services\EmployeeSearchService;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\On;
 
 class IndexEmployee extends Component
 {
@@ -19,13 +21,16 @@ class IndexEmployee extends Component
         $this->resetPage();
     }
 
+    #[On('refreshParent')]
     public function render(): View
     {
+        $perPage = Session::get('per_page', 10);
+
         if(!$this->search){
-            $employees = Employee::paginate(3);
+            $employees = Employee::paginate($perPage);
         } else {
             $searchService = new EmployeeSearchService;
-            $employees = $searchService->search(['keyword' => $this->search])->paginate(3);
+            $employees = $searchService->search(['keyword' => $this->search])->paginate($perPage);
         }
 
         return view('livewire.employees.index-employee', [

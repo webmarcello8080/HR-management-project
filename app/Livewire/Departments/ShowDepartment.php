@@ -3,36 +3,39 @@
 namespace App\Livewire\Departments;
 
 use App\Models\Department;
-use App\Models\Employee;
 use App\Services\EmployeeSearchService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\On;
 
 class ShowDepartment extends Component
 {
+    use WithPagination;
+
     public Department $department;
-    public Collection $employees;
     public string $search = '';
 
     public function mount(Department $department): void
     {
         $this->department = $department;
-        $this->employees = Employee::whereHas('employeeInformation', function ($query) use ($department) {
-            $query->WhereHas('department', function ($query) use ($department) {
-                $query->where('id', 'like', '%' . $department->id . '%');
-            });
-        })->get();
     }
 
     public function updatedSearch(): void
     {
-        $searchService = new EmployeeSearchService;
-        $this->employees = $searchService->search(['keyword' => $this->search, 'department_id' => $this->department->id]);
+        $this->resetPage();
     }
 
+    #[On('refreshParent')]
     public function render(): View
     {
-        return view('livewire.departments.show-department');
+        $perPage = Session::get('per_page', 10);
+        $searchService = new EmployeeSearchService;
+        $employees = $searchService->search(['keyword' => $this->search, 'department_id' => $this->department->id])->paginate($perPage);
+
+        return view('livewire.departments.show-department', [
+            'employees' => $employees,
+        ]);
     }
 }

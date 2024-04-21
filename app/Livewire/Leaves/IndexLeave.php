@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Session;
 
 class IndexLeave extends Component
 {
@@ -24,11 +25,13 @@ class IndexLeave extends Component
     #[On('refreshParent')]
     public function render(): View
     {
+        $perPage = Session::get('per_page', 10);
+
         if(!$this->search && !$this->search_date){
-            $leaves = Leave::paginate(3);
+            $leaves = Leave::paginate($perPage);
         } else{
             $searchService = new LeaveSearchService;
-            $leaves = $searchService->search($this->search, $this->search_date)->paginate(3);
+            $leaves = $searchService->search($this->search, $this->search_date)->paginate($perPage);
         }
 
         return view('livewire.leaves.index-leave', [

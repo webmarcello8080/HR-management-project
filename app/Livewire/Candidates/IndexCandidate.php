@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Session;
 
 class IndexCandidate extends Component
 {
@@ -23,11 +24,13 @@ class IndexCandidate extends Component
     #[On('refreshParent')]
     public function render(): View
     {
+        $perPage = Session::get('per_page', 10);
+
         if(!$this->search){
-            $candidates = Candidate::paginate(3);
+            $candidates = Candidate::paginate($perPage);
         } else {
             $searchService = new CandidateSearchService;
-            $candidates = $searchService->search($this->search)->paginate(3);
+            $candidates = $searchService->search($this->search)->paginate($perPage);
         }
 
         return view('livewire.candidates.index-candidate', [

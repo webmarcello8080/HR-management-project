@@ -24,5 +24,5 @@
             @livewire('employees.line-employee', ['employee' => $employee], key($employee->id))
         @endforeach
     </div>
-    @include('partials.pagination', ['collection' => $employees])
+    @include('partials.pagination-bar', ['collection' => $employees])
 </div>
