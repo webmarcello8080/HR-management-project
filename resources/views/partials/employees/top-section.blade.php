@@ -9,7 +9,16 @@
             <a href="mailto:{{ $employee?->user->email }}" class="mb-2 flex gap-2">@svg('mail', 'w-6 h-6') <span>{{ $employee?->user->email }}</span></a>
         </div>
     </div>
-    @can('admin')
-        <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-big btn-purple">Edit Profile</a>
-    @endcan
+    <div class="flex items-center gap-4">
+        @if ($employee->user)
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <input name="email" type="hidden" value="{{ $employee?->user->email }}">
+                <button type="submit" class="btn btn-small btn-purple">Send Password Reset</button>
+            </form> 
+        @endif
+        @can('admin')
+            <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-small btn-purple">Edit Profile</a>
+        @endcan
+    </div>
 </div>
