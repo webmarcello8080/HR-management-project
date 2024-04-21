@@ -7,6 +7,7 @@ use App\Enums\MaritalStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
@@ -39,6 +40,14 @@ class Employee extends Model implements HasMedia
      */
     public function employeeAccount(): HasOne{
         return $this->hasOne(EmployeeAccount::class);
+    }
+
+    /**
+     * get the leaves of this employee
+     */
+    public function leaves(): HasMany
+    {
+        return $this->hasMany(Leave::class);
     }
 
     /**
