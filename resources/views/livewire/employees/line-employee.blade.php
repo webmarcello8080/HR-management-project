@@ -13,7 +13,7 @@
         <div class="flex items-center gap-2">
             <a href="{{ route('employee.show', $employee)}}">@svg('eye', 'w-6 h-6')</a>
             <a href="{{ route('employee.edit', $employee) }}">@svg('edit', 'w-6 h-6')</a>
-            @svg('trash', 'w-6 h-6')    
+            <a class="cursor-pointer" wire:click='delete' wire:confirm='Are you sure you want to delete this employee?'>@svg('trash', 'w-6 h-6')</a>
         </div>
     </span>
 </div>

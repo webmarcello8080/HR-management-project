@@ -28,8 +28,6 @@ use Illuminate\Support\Facades\Route;
 
 // temp route.
 Route::get('/', function() { return redirect('components');});
-// display all the graphic components of the project
-Route::get('/components', function () {return view('components');})->name('components')->middleware('auth', 'password.confirm');
 
 // Employee routes
 Route::middleware(['auth', 'admin'])->group(function(){
@@ -72,7 +70,9 @@ Route::middleware(['auth', 'admin'])->group(function(){
 // Routes visible by employee only if page belongs to current employee 
 Route::middleware(['auth'])->group(function(){
     Route::get('/employee/{employee}', ShowEmployee::class )->name('employee.show')->middleware('employee.ownership');    
-    Route::get('/leave', CreateLeave::class )->name('leave.create');    
+    Route::get('/leave', CreateLeave::class )->name('leave.create');
+    // display all the graphic components of the project
+    Route::get('/components', function () {return view('components');})->name('components')->middleware('password.confirm');
 });
 
 require __DIR__.'/auth.php';
