@@ -25,7 +25,7 @@
                         <div class="table-row border-b border-gray/20">
                             <span class="caption table-cell py-2">From Date</span>
                             <span class="caption table-cell py-2">To Date</span>
-                            <span class="caption table-cell py-2">Dayes</span>
+                            <span class="caption table-cell py-2">Days</span>
                             <span class="caption table-cell py-2">Status</span>
                             @can('admin')
                                 <span class="caption table-cell py-2">Actions</span>

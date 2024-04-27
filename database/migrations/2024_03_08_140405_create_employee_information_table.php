@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('unique_id')->unique();
             $table->string('designation');
             $table->date('joining_date');
+            $table->float('days_of_holiday');
             $table->unsignedSmallInteger('working_day');
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('employee_type_id')->nullable();

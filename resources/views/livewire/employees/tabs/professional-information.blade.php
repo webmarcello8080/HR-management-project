@@ -16,6 +16,12 @@
                 @error('joining_date') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
+                <input type="number" wire:model.blur='days_of_holiday' step="0.1" class="input-element" placeholder="Days of Holiday">
+                @error('days_of_holiday') <span class="error">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="flex justify-end gap-5 mb-5">
+            <div class="flex-1 flex-grow">
                 <select wire:model.blur='working_day' class="input-element">
                     <option value="">Working Days</option>
                     @foreach (\App\Enums\WorkingDay::cases() as $day)
@@ -24,8 +30,6 @@
                 </select>
                 @error('working_day') <span class="error">{{ $message }}</span> @enderror
             </div>
-        </div>
-        <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
                 <select wire:model.blur='employee_type_id' class="input-element">
                     <option value="">Employee Type</option>
@@ -35,6 +39,8 @@
                 </select>
                 @error('employee_type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
+        </div>
+        <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
                 <select wire:model.blur='department_id' class="input-element">
                     <option value="">Department</option>
@@ -44,8 +50,6 @@
                 </select>
                 @error('department_id') <span class="error">{{ $message }}</span> @enderror
             </div>
-        </div>
-        <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
                 <select wire:model.blur='location_id' class="input-element">
                     <option value="">Location</option>

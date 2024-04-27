@@ -15,7 +15,7 @@
             <span class="caption table-cell py-2">Employee</span>
             <span class="caption table-cell py-2">From Date</span>
             <span class="caption table-cell py-2">To Date</span>
-            <span class="caption table-cell py-2">Dayes</span>
+            <span class="caption table-cell py-2">Days</span>
             <span class="caption table-cell py-2">Status</span>
             <span class="caption table-cell py-2">Actions</span>
         </div>

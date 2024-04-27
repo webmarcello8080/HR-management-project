@@ -74,6 +74,14 @@
             </div>
             <div class="flex pb-2 border-b border-gray/20 mb-5 gap-5">
                 <div class="flex-1 flex-grow">
+                    <div class="small-caption">Days of Holiday</div><div>{{ $employee?->employeeInformation?->days_of_holiday }}</div>
+                </div>
+                <div class="flex-1 flex-grow">
+                    <div class="small-caption">Holidays remaining this year</div><div>00</div>
+                </div>
+            </div>
+            <div class="flex pb-2 border-b border-gray/20 mb-5 gap-5">
+                <div class="flex-1 flex-grow">
                     <div class="small-caption">Employee Type</div><div>{{ $employee?->employeeInformation?->employeeType?->name }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
