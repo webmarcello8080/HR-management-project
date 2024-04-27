@@ -9,6 +9,9 @@
             <a href="{{ route('department.index' )}}" class="menu-item {{ request()->routeIs('department.*') ? 'active' : '' }}">
                 @svg('community', 'w-6 h-6')<span>Deparments</span>
             </a>
+            <a href="{{ route('attendance.index' )}}" class="menu-item {{ request()->routeIs('attendance.*') ? 'active' : '' }}">
+                @svg('calendar', 'w-6 h-6')<span>Attendances</span>
+            </a>
             <a href="{{ route('vacancy.index' )}}" class="menu-item {{ request()->routeIs('vacancy.*') ? 'active' : '' }}">
                 @svg('briefcase', 'w-6 h-6')<span>Vacancies</span>
             </a>

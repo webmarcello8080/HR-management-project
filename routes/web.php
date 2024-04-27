@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Attendances\CreateAttendance;
+use App\Livewire\Attendances\IndexAttendance;
 use App\Livewire\Candidates\CreateCandidate;
 use App\Livewire\Candidates\IndexCandidate;
 use App\Livewire\Departments\IndexDepartment;
@@ -62,6 +64,12 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/leave/{leave}/edit', CreateLeave::class)->name('leave.edit');
 });
 
+// Attendance routes
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::get('/attendances', IndexAttendance::class)->name('attendance.index');
+    Route::get('/attendance/{attendance}/edit', CreateAttendance::class)->name('attendance.edit');
+});
+
 // holidays routes
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/holidays', IndexHoliday::class)->name('holiday.index');
@@ -71,6 +79,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 Route::middleware(['auth'])->group(function(){
     Route::get('/employee/{employee}', ShowEmployee::class )->name('employee.show')->middleware('employee.ownership');    
     Route::get('/leave', CreateLeave::class )->name('leave.create');
+    Route::get('/attendance', CreateAttendance::class )->name('attendance.create');
     // display all the graphic components of the project
     Route::get('/components', function () {return view('components');})->name('components')->middleware('password.confirm');
 });
