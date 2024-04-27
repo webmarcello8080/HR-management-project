@@ -14,7 +14,7 @@
                 @livewire('employees.show.information', ['employee' => $employee])
             @endif
             @if ($menuTab == 2)
-                <h4>something in here 2</h4>
+                @include('partials.employees.attendances')
             @endif
             @if ($menuTab == 3)
                 <h4>something in here 3</h4>

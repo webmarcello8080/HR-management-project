@@ -12,7 +12,9 @@ class Attendance extends Model
 
     protected $fillable = ['date', 'start_time', 'finish_time', 'break_time', 'working_hours', 'employee_type_id', 'employee_id'];
     protected $casts = [
-        'date' => 'date'
+        'date' => 'date',
+        'start_time' => 'datetime',
+        'finish_time' => 'datetime',
     ];
 
     /**

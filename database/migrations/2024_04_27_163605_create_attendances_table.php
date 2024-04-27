@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('start_time', precision:0);
             $table->time('finish_time', precision:0);
-            $table->time('break_time', precision:0);
+            $table->float('break_time');
             $table->float('working_hours');
             $table->unsignedBigInteger('employee_type_id')->nullable();
             $table->unsignedBigInteger('employee_id');
