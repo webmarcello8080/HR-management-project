@@ -41,4 +41,16 @@ class EmployeeInformation extends Model
     public function location(): BelongsTo{
         return $this->belongsTo(Location::class);
     }
+
+    /**
+     * get number of days of holiday left for this Employee
+     */
+    public function getHolidayLeft(): float
+    {
+        if($this->days_of_holiday){
+            return $this->days_of_holiday - $this->employee->leaves->sum('days');
+        }
+
+        return 0;
+    }
 }
