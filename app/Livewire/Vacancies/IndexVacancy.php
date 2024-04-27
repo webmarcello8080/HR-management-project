@@ -11,25 +11,21 @@ use Livewire\Component;
 
 class IndexVacancy extends Component
 {    
-    public Collection $vacancies;
-    public array $vacancyStatuses;
     public array $statusColours = ['yellow', 'red', 'green'];
     public string $search = '';
 
-    public function mount(): void
-    {
-        $this->vacancies = Vacancy::all();
-        $this->vacancyStatuses = VacancyStatus::cases();
-    }
-
-    public function updatedSearch(): void
-    {
-        $searchService = new VacancySearchService;
-        $this->vacancies = $searchService->search($this->search);
-    }
-
     public function render(): View
     {
-        return view('livewire.vacancies.index-vacancy');
+        if($this->search){
+            $searchService = new VacancySearchService;
+            $vacancies = $searchService->search($this->search)->orderBy('created_at', 'desc')->get();    
+        } else {
+            $vacancies = Vacancy::orderBy('created_at', 'desc')->get();
+        }
+
+        return view('livewire.vacancies.index-vacancy', [
+            'vacancies' => $vacancies,
+            'vacancyStatuses' => VacancyStatus::cases(),
+        ]);
     }
 }

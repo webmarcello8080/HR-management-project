@@ -3,11 +3,11 @@
 namespace App\Services;
 
 use App\Models\Vacancy;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class VacancySearchService{
 
-    public function search($keyword): Collection
+    public function search($keyword): Builder
     {
         $vacancies = Vacancy::query();
 
@@ -30,6 +30,6 @@ class VacancySearchService{
             });
         }
 
-        return $vacancies->get();
+        return $vacancies;
     }
 }

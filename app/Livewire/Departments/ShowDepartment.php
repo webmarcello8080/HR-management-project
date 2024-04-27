@@ -32,7 +32,7 @@ class ShowDepartment extends Component
     {
         $perPage = Session::get('per_page', 10);
         $searchService = new EmployeeSearchService;
-        $employees = $searchService->search(['keyword' => $this->search, 'department_id' => $this->department->id])->paginate($perPage);
+        $employees = $searchService->search(['keyword' => $this->search, 'department_id' => $this->department->id])->orderBy('first_name')->paginate($perPage);
 
         return view('livewire.departments.show-department', [
             'employees' => $employees,

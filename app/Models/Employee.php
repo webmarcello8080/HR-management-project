@@ -48,7 +48,7 @@ class Employee extends Model implements HasMedia
      */
     public function leaves(): HasMany
     {
-        return $this->hasMany(Leave::class);
+        return $this->hasMany(Leave::class)->orderBy('from_date');
     }
 
     /**

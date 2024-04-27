@@ -27,10 +27,10 @@ class IndexCandidate extends Component
         $perPage = Session::get('per_page', 10);
 
         if(!$this->search){
-            $candidates = Candidate::paginate($perPage);
+            $candidates = Candidate::orderBy('created_at')->paginate($perPage);
         } else {
             $searchService = new CandidateSearchService;
-            $candidates = $searchService->search($this->search)->paginate($perPage);
+            $candidates = $searchService->search($this->search)->orderBy('created_at')->paginate($perPage);
         }
 
         return view('livewire.candidates.index-candidate', [

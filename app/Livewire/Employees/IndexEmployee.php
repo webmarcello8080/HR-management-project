@@ -27,10 +27,10 @@ class IndexEmployee extends Component
         $perPage = Session::get('per_page', 10);
 
         if(!$this->search){
-            $employees = Employee::paginate($perPage);
+            $employees = Employee::orderBy('first_name')->paginate($perPage);
         } else {
             $searchService = new EmployeeSearchService;
-            $employees = $searchService->search(['keyword' => $this->search])->paginate($perPage);
+            $employees = $searchService->search(['keyword' => $this->search])->orderBy('first_name')->paginate($perPage);
         }
 
         return view('livewire.employees.index-employee', [
