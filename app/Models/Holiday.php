@@ -10,7 +10,6 @@ class Holiday extends Model
     use HasFactory;
 
     protected $fillable = ['date', 'name'];
-
     protected $casts = [
         'date' => 'date'
     ];

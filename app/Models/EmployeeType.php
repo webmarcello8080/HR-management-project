@@ -19,4 +19,12 @@ class EmployeeType extends Model
     {
         return $this->hasMany(EmployeeInformation::class);
     }
+
+    /**
+     * get all the attendances for this Employee Type
+     */
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

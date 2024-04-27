@@ -52,6 +52,14 @@ class Employee extends Model implements HasMedia
     }
 
     /**
+     * get the attendances of this employee
+     */
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class)->orderBy('date');
+    }
+
+    /**
      * convert images before save it on server
      */
     public function registerMediaConversions(?Media $media = null): void
