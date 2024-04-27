@@ -17,28 +17,32 @@ class EmployeeInformation extends Model
     /**
      * get the employee of this employee information
      */
-    public function employee(): BelongsTo{
+    public function employee(): BelongsTo
+    {
         return $this->belongsTo(Employee::class);
     }
 
     /** 
      * get the employee type of this Employee information 
      */
-    public function employeeType(): BelongsTo{
+    public function employeeType(): BelongsTo
+    {
         return $this->belongsTo(EmployeeType::class);
     }
 
     /** 
      * get the department of this Employee information 
      */
-    public function department(): BelongsTo{
+    public function department(): BelongsTo
+    {
         return $this->belongsTo(Department::class);
     }
 
     /** 
      * get the location of this Employee information 
      */
-    public function location(): BelongsTo{
+    public function location(): BelongsTo
+    {
         return $this->belongsTo(Location::class);
     }
 
