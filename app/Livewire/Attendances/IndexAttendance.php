@@ -28,10 +28,10 @@ class IndexAttendance extends Component
         $perPage = Session::get('per_page', 10);
 
         if(!$this->search && !$this->search_date){
-            $attendances = Attendance::orderBy('date')->paginate($perPage);
+            $attendances = Attendance::orderBy('date', 'desc')->paginate($perPage);
         } else{
             $searchService = new AttendanceSearchService;
-            $attendances = $searchService->search($this->search, $this->search_date)->orderBy('date')->paginate($perPage);
+            $attendances = $searchService->search($this->search, $this->search_date)->orderBy('date', 'desc')->paginate($perPage);
         }
 
         return view('livewire.attendances.index-attendance', [

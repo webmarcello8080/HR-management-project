@@ -28,10 +28,10 @@ class IndexLeave extends Component
         $perPage = Session::get('per_page', 10);
 
         if(!$this->search && !$this->search_date){
-            $leaves = Leave::orderBy('from_date')->paginate($perPage);
+            $leaves = Leave::orderBy('from_date', 'desc')->paginate($perPage);
         } else{
             $searchService = new LeaveSearchService;
-            $leaves = $searchService->search($this->search, $this->search_date)->orderBy('from_date')->paginate($perPage);
+            $leaves = $searchService->search($this->search, $this->search_date)->orderBy('from_date', 'desc')->paginate($perPage);
         }
 
         return view('livewire.leaves.index-leave', [
