@@ -20,7 +20,7 @@ class UserRoleSeeder extends Seeder
                 [
                     'name' => 'Admin',
                     'email' => 'webmarcello8080+admin@gmail.com',
-                    'password' => bcrypt('ciaoMarcello8080!'),
+                    'password' => bcrypt('SD4343jdjsJSJD!!'),
                 ]
             ]);
             
