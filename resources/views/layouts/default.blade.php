@@ -11,7 +11,7 @@
     </head>
     <body>
         <main class="external-container flex items-start gap-8">
-            @include('partials\side-menu')
+            @include('partials.side-menu')
             <div class="grow">
                 @include('partials.top-bar')
                 @yield('content', $slot ?? '')
