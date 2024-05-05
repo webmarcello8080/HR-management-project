@@ -17,7 +17,7 @@
                 <a class="flex items-center gap-4 no-underline" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     @svg('logout', 'w-6 h-6')Logout
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" class="hidden" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
             </div>

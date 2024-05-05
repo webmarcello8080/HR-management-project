@@ -25,6 +25,6 @@
         @endif
     </div>
     @if($showModal)
-        @livewire('holidays.create-holiday')
+        @livewire('holidays.create-holiday', key('holiday-modal'))
     @endif
 </div>
