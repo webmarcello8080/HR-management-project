@@ -7,8 +7,9 @@
             <div>{{ auth()->user()->name }}</div>
         @endif
         @svg('arrow-down', 'w-6 h-6')
+        {{ $displayUserMenu }}
         @if ($displayUserMenu)
-            <div wire:transition.scale.duration.[700]ms.origin.top class="rounded-container !p-4 absolute bg-white w-full right-0 top-[56px]">
+            <div class="rounded-container !p-4 absolute bg-white w-full right-0 top-[56px]">
                 @if (auth()->user()->employee)
                     <a class="flex items-center gap-4 no-underline mb-4" href="{{ route('employee.show', auth()->user()->employee) }}">
                         @svg('user', 'w-6 h-6')<span>My Profile</span>
