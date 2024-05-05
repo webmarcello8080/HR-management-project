@@ -10,18 +10,6 @@
             <a class="btn btn-purple btn-big" href="{{ route('leave.create') }}">Add New Leave</a>
         </div>
     </div>
-    <div class="table w-full border-collapse">
-        <div class="table-row border-b border-gray/20">
-            <span class="caption table-cell py-2">Employee</span>
-            <span class="caption table-cell py-2">From Date</span>
-            <span class="caption table-cell py-2">To Date</span>
-            <span class="caption table-cell py-2">Days</span>
-            <span class="caption table-cell py-2">Status</span>
-            <span class="caption table-cell py-2">Actions</span>
-        </div>
-        @foreach ($leaves as $leave)
-            @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => true], key($leave->id))
-        @endforeach
-    </div>
+    @include('partials.leaves.table', ['leaves' => $leaves, 'display_user' => true])
     @include('partials.pagination-bar', ['collection' => $leaves])
 </div>
