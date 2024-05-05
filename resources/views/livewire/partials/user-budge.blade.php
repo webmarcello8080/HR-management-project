@@ -7,7 +7,6 @@
             <div>{{ auth()->user()->name }}</div>
         @endif
         @svg('arrow-down', 'w-6 h-6')
-        {{ $displayUserMenu }}
         @if ($displayUserMenu)
             <div class="rounded-container !p-4 absolute bg-white w-full right-0 top-[56px]">
                 @if (auth()->user()->employee)
