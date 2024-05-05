@@ -11,7 +11,7 @@
         </div>
         <div class="grow">
             @if ($menuTab == 1)
-                @livewire('employees.show.information', ['employee' => $employee])
+                @livewire('employees.show.information', ['employee' => $employee], key('employee-' . $employee->id))
             @endif
             @if ($menuTab == 2)
                 @include('partials.attendances.table', ['attendances' => $employee->attendances, 'display_user' => false])

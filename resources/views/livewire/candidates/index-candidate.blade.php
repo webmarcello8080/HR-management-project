@@ -21,7 +21,7 @@
         </div>
         @if ($candidates->count())
             @foreach ($candidates as $candidate)
-                @livewire('candidates.line-candidate', ['candidate' => $candidate], key($candidate->id))
+                @livewire('candidates.line-candidate', ['candidate' => $candidate], key('candidate-' . $candidate->id))
             @endforeach            
         @else
             <h6 class="my-5 caption">No candidates found</h6>

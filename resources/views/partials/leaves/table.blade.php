@@ -13,7 +13,7 @@
     </div>
     @if (count($leaves))
         @foreach ($leaves as $leave)
-            @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => $display_user], key($leave->id))
+            @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => $display_user], key('leave-' . $leave->id))
         @endforeach 
     @else
         <h6 class="my-5 caption">No leaves found</h6>

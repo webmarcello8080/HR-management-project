@@ -18,7 +18,7 @@
         </div>
         @if ($holidays->count())
             @foreach ($holidays as $holiday)
-                @livewire('holidays.line-holiday', ['holiday' => $holiday], key($holiday->id))
+                @livewire('holidays.line-holiday', ['holiday' => $holiday], key('holiday-' . $holiday->id))
             @endforeach   
         @else
             <h6 class="my-5 caption">No holidays found</h6>
