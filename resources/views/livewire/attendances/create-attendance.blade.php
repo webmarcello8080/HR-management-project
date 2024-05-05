@@ -40,7 +40,7 @@
                 <div class="flex-1 flex-grow">
                     <select wire:model.blur='employee_id' class="input-element">
                         <option value="">Select Employee</option>
-                        @foreach (\App\Models\Employee::all() as $employee)
+                        @foreach (\App\Models\Employee::orderBy('first_name')->get() as $employee)
                             <option value="{{ $employee->id }}">{{ $employee->getFullName() }}</option>
                         @endforeach
                     </select>
@@ -48,6 +48,7 @@
                 </div>
             @endcan
         </div>
+        <x-select-search :data="\App\Models\Employee::orderBy('first_name')->pluck('first_name')->toArray()" wire:model="values" placeholder="Select something!"/>
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
             <button type="submit" class="btn btn-purple btn-big">Save</button>

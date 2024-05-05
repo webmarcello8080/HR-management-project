@@ -29,9 +29,9 @@
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <select wire:model.blur='vacancy_id' class="input-element">
+                <select wire:model.blur='vacancy_id' class="input-element js-select-2">
                     <option value="">Vacancy</option>
-                    @foreach (\App\Models\Vacancy::all() as $vacancy)
+                    @foreach (\App\Models\Vacancy::orderBy('created_at')->get() as $vacancy)
                         <option value="{{ $vacancy->id }}">{{ $vacancy->title }}</option>
                     @endforeach
                 </select>

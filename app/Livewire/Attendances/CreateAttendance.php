@@ -39,7 +39,7 @@ class CreateAttendance extends Component
         ];
     }
 
-    public function mount(Attendance $attendance)
+    public function mount(Attendance $attendance): void
     {
         $this->attendance = $attendance ?? new Attendance();
         $this->date = $this->attendance->date ? $this->attendance->date->format('Y-m-d') : null;

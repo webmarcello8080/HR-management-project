@@ -46,7 +46,7 @@
             <div class="flex-1 flex-grow">
                 <select wire:model.blur='department_id' class="input-element">
                     <option value="">Department</option>
-                    @foreach (\App\Models\Department::all() as $department)
+                    @foreach (\App\Models\Department::orderBy('name')->get() as $department)
                         <option value="{{ $department->id }}">{{ $department->name }}</option>
                     @endforeach
                 </select>
@@ -66,7 +66,7 @@
             <div class="flex-1 flex-grow">
                 <select wire:model.blur='location_id' class="input-element">
                     <option value="">Location</option>
-                    @foreach (\App\Models\Location::all() as $location)
+                    @foreach (\App\Models\Location::orderBy('name')->get() as $location)
                         <option value="{{ $location->id }}">{{ $location->name }}</option>
                     @endforeach
                 </select>

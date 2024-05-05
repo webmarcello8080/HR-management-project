@@ -22,7 +22,7 @@
         </div>
         <div class="flex justify-start gap-5 mb-5">
             <h6 class="mb-0">Select Roles:</h6>
-            @foreach (\App\Models\Role::all() as $role)
+            @foreach (\App\Models\Role::orderBy('name')->get() as $role)
                 <label class="inline-flex items-center">
                     <input wire:model.blur='roles.{{ $role->id }}' value="{{ $role->id }}" type="checkbox" class="input-checkbox" name="roles[]">
                     <span class="ml-2">{{ $role->name }}</span>

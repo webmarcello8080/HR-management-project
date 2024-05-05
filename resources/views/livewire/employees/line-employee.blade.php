@@ -1,6 +1,8 @@
 <div class="table-row border-b border-gray/20">
     <span class="table-cell align-middle py-2">
-        @include('partials\employees\employee-budge')
+        <a class="no-underline" href="{{ route('employee.show', $employee)}}">
+            @include('partials\employees\employee-budge')
+        </a>
     </span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->unique_id }}</span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->department?->name }}</span>

@@ -40,7 +40,7 @@
                 <div class="flex-1 flex-grow">
                     <select wire:model.blur='employee_id' class="input-element">
                         <option value="">Select Employee</option>
-                        @foreach (\App\Models\Employee::all() as $employee)
+                        @foreach (\App\Models\Employee::orderBy('first_name')->get() as $employee)
                             <option value="{{ $employee->id }}">{{ $employee->getFullName() }}</option>
                         @endforeach
                     </select>
