@@ -11,5 +11,5 @@
         </div>
     </div>
     @include('partials.leaves.table', ['leaves' => $leaves, 'display_user' => true])
-    @include('partials.pagination-bar', ['collection' => $leaves])
+    @include('partials.bottom-table-bar', ['collection' => $leaves])
 </div>

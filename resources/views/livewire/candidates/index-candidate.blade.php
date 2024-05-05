@@ -27,5 +27,5 @@
             <h6 class="my-5 caption">No candidates found</h6>
         @endif
     </div>
-    @include('partials.pagination-bar', ['collection' => $candidates])
+    @include('partials.bottom-table-bar', ['collection' => $candidates])
 </div>

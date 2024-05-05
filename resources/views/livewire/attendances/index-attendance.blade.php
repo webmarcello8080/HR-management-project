@@ -11,5 +11,5 @@
         </div>
     </div>
     @include('partials.attendances.table',  ['attendances' => $attendances, 'display_user' => true])
-    @include('partials.pagination-bar', ['collection' => $attendances])
+    @include('partials.bottom-table-bar', ['collection' => $attendances])
 </div>

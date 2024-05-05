@@ -16,4 +16,4 @@
         <h6 class="my-5 caption">No employees found</h6>
     @endif
 </div>
-@include('partials.pagination-bar', ['collection' => $employees])
+@include('partials.bottom-table-bar', ['collection' => $employees])
