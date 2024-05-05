@@ -12,7 +12,7 @@
             </div>
             @foreach ($department->employeeInformation as $employeeInformation)
                 <a href="{{ route('employee.show', $employeeInformation->employee) }}" class="mt-4 flex items-center justify-between no-underline">
-                    @include('partials\employees\employee-budge', ['employee' => $employeeInformation->employee])
+                    @include('partials.employees.employee-budge', ['employee' => $employeeInformation->employee])
                     @svg('arrow-right', 'w-6 h-6')
                 </a>
             @endforeach
