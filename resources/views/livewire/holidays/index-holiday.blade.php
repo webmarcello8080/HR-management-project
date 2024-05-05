@@ -16,9 +16,13 @@
             <span class="caption table-cell py-2">Holiday Name</span>
             <span class="caption table-cell py-2"></span>
         </div>
-        @foreach ($holidays as $holiday)
-            @livewire('holidays.line-holiday', ['holiday' => $holiday], key($holiday->id))
-        @endforeach
+        @if ($holidays->count())
+            @foreach ($holidays as $holiday)
+                @livewire('holidays.line-holiday', ['holiday' => $holiday], key($holiday->id))
+            @endforeach   
+        @else
+            <h6 class="my-5 caption">No holidays found</h6>
+        @endif
     </div>
     @if($showModal)
         @livewire('holidays.create-holiday')

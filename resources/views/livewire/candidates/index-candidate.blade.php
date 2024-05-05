@@ -19,9 +19,13 @@
             <span class="caption table-cell py-2">Status</span>
             <span class="caption table-cell py-2">Actions</span>
         </div>
-        @foreach ($candidates as $candidate)
-            @livewire('candidates.line-candidate', ['candidate' => $candidate], key($candidate->id))
-        @endforeach
+        @if ($candidates->count())
+            @foreach ($candidates as $candidate)
+                @livewire('candidates.line-candidate', ['candidate' => $candidate], key($candidate->id))
+            @endforeach            
+        @else
+            <h6 class="my-5 caption">No candidates found</h6>
+        @endif
     </div>
     @include('partials.pagination-bar', ['collection' => $candidates])
 </div>

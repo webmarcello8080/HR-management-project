@@ -20,9 +20,13 @@
             <span class="caption table-cell py-2">Type</span>
             <span class="caption table-cell py-2">Actions</span>
         </div>
-        @foreach ($attendances as $attendance)
-            @livewire('attendances.line-attendance', ['attendance' => $attendance, 'display_user' => true], key($attendance->id))
-        @endforeach
+        @if ($attendances->count())
+            @foreach ($attendances as $attendance)
+                @livewire('attendances.line-attendance', ['attendance' => $attendance, 'display_user' => true], key($attendance->id))
+            @endforeach
+        @else
+            <h6 class="my-5 caption">No attendances found</h6>
+        @endif
     </div>
     @include('partials.pagination-bar', ['collection' => $attendances])
 </div>
