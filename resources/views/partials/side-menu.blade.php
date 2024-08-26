@@ -1,4 +1,4 @@
-<div class="grey-container basis-72 grow-0 shrink-0">
+<div class="grey-container min-h-[calc(100vh-1.25rem)] sticky top-5 basis-72 grow-0 shrink-0">
     <h2 class="mb-8">LogoHere</h2>
     {{-- Admin main menu --}}
     @can('admin')
