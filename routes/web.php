@@ -28,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// temp route.
-Route::get('/', function() { return redirect('components');});
+// root route - this will go to the dashboard when it's ready
+Route::get('/', function() { return redirect('components');})->name('home');
 
 // Employee routes
 Route::middleware(['auth', 'admin'])->group(function(){
@@ -81,7 +81,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/leave', CreateLeave::class )->name('leave.create');
     Route::get('/attendance', CreateAttendance::class )->name('attendance.create');
     // display all the graphic components of the project
-    Route::get('/components', function () {return view('components');})->name('components')->middleware('password.confirm');
+    Route::get('/components', function () {return view('components.components');})->name('components')->middleware('password.confirm');
 });
 
 require __DIR__.'/auth.php';

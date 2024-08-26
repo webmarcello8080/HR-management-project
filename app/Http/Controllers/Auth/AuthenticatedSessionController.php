@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return to_route('components');
+        return to_route('employee.show', auth()->user()->employee);
     }
 
     /**
