@@ -1,7 +1,7 @@
 @section('page-title', 'Employee Information')
 @section('page-subtitle', 'All Employees > ' . $employee->getFullName() . ' Information')
 <div class="rounded-container">
-    @include('partials\employees\top-section')
+    @include('partials\employees\employee-top-section')
     <div class="flex items-start gap-8">
         <div class="rounded-xl border border-grey/20 basis-[275px] grow-0 shrink-0 overflow-hidden">
             <div wire:click='setMenuTab(1)' class="menu-tabs @if($menuTab == 1) active @endif">@svg('user', 'w-6 h-6') <span>Profile</span></div>
