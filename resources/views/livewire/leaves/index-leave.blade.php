@@ -10,6 +10,6 @@
             <a class="btn btn-purple btn-big" href="{{ route('leave.create') }}">Add New Leave</a>
         </div>
     </div>
-    @include('partials.leaves.table', ['leaves' => $leaves, 'display_user' => true])
+    @include('partials.leaves.leave-table', ['leaves' => $leaves, 'display_user' => true])
     @include('partials.bottom-table-bar', ['collection' => $leaves])
 </div>

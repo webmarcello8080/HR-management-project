@@ -14,13 +14,13 @@
                 @livewire('employees.show.information', ['employee' => $employee], key('employee-' . $employee->id))
             @endif
             @if ($menuTab == 2)
-                @include('partials.attendances.table', ['attendances' => $employee->attendances, 'display_user' => false])
+                @include('partials.attendances.attendance-table', ['attendances' => $employee->attendances, 'display_user' => false])
             @endif
             @if ($menuTab == 3)
                 <h4>something in here 3</h4>
             @endif
             @if ($menuTab == 4)
-                @include('partials.leaves.table', ['leaves' => $employee->leaves, 'display_user' => false])
+                @include('partials.leaves.leave-table', ['leaves' => $employee->leaves, 'display_user' => false])
             @endif
         </div>
     </div>

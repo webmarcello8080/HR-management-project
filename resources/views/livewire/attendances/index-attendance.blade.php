@@ -10,6 +10,6 @@
             <a class="btn btn-purple btn-big" href="{{ route('attendance.create') }}">Add New Attendance</a>
         </div>
     </div>
-    @include('partials.attendances.table',  ['attendances' => $attendances, 'display_user' => true])
+    @include('partials.attendances.attendance-table',  ['attendances' => $attendances, 'display_user' => true])
     @include('partials.bottom-table-bar', ['collection' => $attendances])
 </div>

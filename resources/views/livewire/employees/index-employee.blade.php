@@ -10,5 +10,5 @@
             <button class="btn btn-transparent btn-big">Filters</button>
         </div>
     </div>
-    @include('partials.employees.table')
+    @include('partials.employees.employee-table')
 </div>
