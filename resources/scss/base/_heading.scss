@@ -25,16 +25,3 @@ h5, .h5{
 h6, .h6{
     @apply text-base;
 }
-
-.caption{
-    @apply text-grey font-light;
-}
-
-.small-caption{
-    @apply text-grey text-sm font-light;
-}
-
-.error{
-    @apply text-red text-sm;
-}
-

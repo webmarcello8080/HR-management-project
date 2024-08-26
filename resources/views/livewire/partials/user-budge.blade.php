@@ -12,7 +12,7 @@
                     @svg('user', 'w-6 h-6')<span>My Profile</span>
                 </a>
             @endif
-            <a class="flex items-center gap-4 no-underline" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a class="text-red flex items-center gap-4 no-underline" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 @svg('logout', 'w-6 h-6')Logout
             </a>
             <form id="logout-form" class="hidden" action="{{ route('logout') }}" method="POST">

@@ -1,0 +1,19 @@
+.caption{
+    @apply text-grey font-light;
+}
+
+.small-caption{
+    @apply text-grey text-sm font-light;
+}
+
+.error{
+    @apply text-red text-sm;
+}
+
+.text-red{
+    svg{
+        path, ellipse, circle{
+            @apply stroke-red;
+        }
+    }
+}
