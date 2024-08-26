@@ -1,6 +1,6 @@
-<div>
+<div class="pagination-navigation">
     @if ($paginator->hasPages())
-        <div class="flex items-center gap-4" role="navigation" aria-label="Pagination Navigation">
+        <div class="pagination-wrapper " role="navigation" aria-label="Pagination Navigation">
             <span>
                 @if ($paginator->onFirstPage())
                     <span>&#129120;</span>
@@ -11,9 +11,9 @@
  
             @foreach ($paginator->getUrlRange(1, $paginator->lastPage()) as $page => $url)
                 @if ($page == $paginator->currentPage())
-                    <span>{{ $page }}</span>
+                    <span class="current-link">{{ $page }}</span>
                 @else
-                    <a wire:click="gotoPage({{ $page }})" href="#">{{ $page }}</a>
+                    <a class="pagination-link" wire:click="gotoPage({{ $page }})" href="#">{{ $page }}</a>
                 @endif
             @endforeach
 

@@ -1,0 +1,8 @@
+.pagination-navigation{
+    .pagination-wrapper{
+        @apply flex items-center gap-4;
+        .current-link{
+            @apply text-purple border-purple border rounded-lg w-9 h-9 flex items-center justify-center;
+        }
+    }
+}
