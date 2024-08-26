@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="table w-full border-collapse">
-        <div class="table-row border-b border-gray/20">
+        <div class="table-row border-b border-grey/20">
             <span class="caption table-cell py-2">Date</span>
             <span class="caption table-cell py-2">Day</span>
             <span class="caption table-cell py-2">Holiday Name</span>

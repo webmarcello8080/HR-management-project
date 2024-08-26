@@ -3,7 +3,7 @@
 <div class="rounded-container grid grid-cols-2 gap-5">
     @foreach ($departments as $department)
         <div class="rounded-container">
-            <div class="flex items-center justify-between border-b border-gray/20 pb-2">
+            <div class="flex items-center justify-between border-b border-grey/20 pb-2">
                 <div>
                     <h6 class="mb-1">{{ $department->name }}</h6>
                     <div class="small-caption">{{ $department->employeeInformation->count() }} Employees</div>

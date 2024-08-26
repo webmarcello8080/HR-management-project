@@ -24,10 +24,10 @@
     }
 
     &.btn-transparent{
-        @apply bg-transparent border border-gray/20;
+        @apply bg-transparent border border-grey/20;
     }
 
-    &.btn-gray{
-        @apply bg-gray/5;
+    &.btn-grey{
+        @apply bg-grey/5;
     }
 }

@@ -1,16 +1,16 @@
 .input-element{
-    @apply rounded-lg px-4 py-3 border border-gray/20 grow w-full;
+    @apply rounded-lg px-4 py-3 border border-grey/20 grow w-full;
 
     &:focus-visible{
         @apply border-purple border-2 outline-none;
     }
 
     &::placeholder{
-        @apply text-gray/80;
+        @apply text-grey/80;
     } 
 
     &:has(option[value=""]:checked) {
-        @apply text-gray/80;
+        @apply text-grey/80;
     }
 }
 

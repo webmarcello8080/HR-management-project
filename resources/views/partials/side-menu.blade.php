@@ -1,4 +1,4 @@
-<div class="gray-container basis-72 grow-0 shrink-0">
+<div class="grey-container basis-72 grow-0 shrink-0">
     <h2 class="mb-8">LogoHere</h2>
     {{-- Admin main menu --}}
     @can('admin')
@@ -24,9 +24,6 @@
             <a href="{{ route('holiday.index' )}}" class="menu-item {{ request()->routeIs('holiday.*') ? 'active' : '' }}">
                 @svg('note', 'w-6 h-6')<span>Holidays</span>
             </a>
-            <a href="{{ route('components' )}}" class="menu-item {{ request()->routeIs('components') ? 'active' : '' }}">
-                @svg('eye', 'w-6 h-6')<span>Components</span>
-            </a>
         </nav>
     @endcan
     {{-- Employee main menu --}}
@@ -37,9 +34,6 @@
             </a>
             <a href="{{ route('leave.create' )}}" class="menu-item {{ request()->routeIs('leave.*') ? 'active' : '' }}">
                 @svg('notepad', 'w-6 h-6')<span>New Leave</span>
-            </a>
-            <a href="{{ route('components' )}}" class="menu-item {{ request()->routeIs('components') ? 'active' : '' }}">
-                @svg('eye', 'w-6 h-6')<span>Components</span>
             </a>
         </nav>
     @endcan

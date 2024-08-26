@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between pb-8 mb-8 border-b border-gray/20">
+<div class="flex items-center justify-between pb-8 mb-8 border-b border-grey/20">
     <div class=" flex items-center gap-4">
         <div class="rounded-lg w-24 h-24 overflow-hidden">
             <img class="w-full h-full object-cover" src="{{ $employee->getMediaUrl('profile_image') }}" alt="">

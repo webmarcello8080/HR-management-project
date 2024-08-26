@@ -1,4 +1,4 @@
-<div class="table-row border-b border-gray/20">
+<div class="table-row border-b border-grey/20">
     <span class="table-cell align-middle py-2">
         <a class="no-underline" href="{{ route('employee.show', $employee)}}">
             @include('partials\employees\employee-budge')

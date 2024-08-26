@@ -1,4 +1,4 @@
-<div class="table-row border-b border-b-gray/20 ">
+<div class="table-row border-b border-b-grey/20 ">
     @if($display_user)
         <span class="table-cell align-middle py-2 pl-3">
             @if ($attendance->employee)

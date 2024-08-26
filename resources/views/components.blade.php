@@ -24,7 +24,7 @@
     <div class="budge budge-yellow">Something</div>
     <div class="budge budge-purple">Something</div>
     <div class="flex items-center justify-center gap-4">
-        <div class="gray-container">
+        <div class="grey-container">
             <h5>Something in here</h5>
             <a href="" class="btn btn-purple btn-small">Click</a>
             <button class="btn btn-purple btn-small">Save</button>
@@ -36,10 +36,10 @@
         <div class="rounded-container">
             <a href="" class="btn btn-transparent btn-big">Click</a>
             <button class="btn btn-transparent btn-big">Save</button>
-            <a href="" class="btn btn-gray btn-small">Click</a>
-            <button class="btn btn-gray btn-small">Save</button>
-            <a href="" class="btn btn-gray btn-big">Click</a>
-            <button class="btn btn-gray btn-big">Save</button>
+            <a href="" class="btn btn-grey btn-small">Click</a>
+            <button class="btn btn-grey btn-small">Save</button>
+            <a href="" class="btn btn-grey btn-big">Click</a>
+            <button class="btn btn-grey btn-big">Save</button>
             <div class="caption">This is a caption</div>
             <div class="small-caption">This is a caption</div>
         </div>

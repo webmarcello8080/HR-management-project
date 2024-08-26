@@ -18,7 +18,7 @@
             {{-- if media exists you can delete it from server and DB --}}
             @if ($existing_media)
                 <div>
-                    <a class="btn btn-small btn-gray" wire:click='removeMedia'>Remove File</a>
+                    <a class="btn btn-small btn-grey" wire:click='removeMedia'>Remove Image</a>
                 </div>
             @endif
         </div>

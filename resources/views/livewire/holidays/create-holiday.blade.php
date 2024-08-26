@@ -1,6 +1,6 @@
 <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
     <div class="bg-white rounded-lg p-4 w-full max-w-md mx-auto">
-        <h6 class="border-b border-gray/20 pb-4 mb-4">Add New Holiday</h6>
+        <h6 class="border-b border-grey/20 pb-4 mb-4">Add New Holiday</h6>
         <form wire:submit='save'>
             <div class="flex-1 flex-grow mb-5">
                 <input type="text" wire:model.blur='date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date">

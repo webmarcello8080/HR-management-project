@@ -1,4 +1,4 @@
-<a href="{{ route('vacancy.edit', $vacancy) }}" class="block no-underline gray-container mb-4">
+<a href="{{ route('vacancy.edit', $vacancy) }}" class="block no-underline grey-container mb-4">
     <div class="flex items-center gap-5 mb-5">
         @svg('briefcase', 'w-6 h-6')
         <div>

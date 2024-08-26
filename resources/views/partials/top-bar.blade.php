@@ -4,7 +4,7 @@
         <div class="small-caption">@yield('page-subtitle')</div>
     </div>
     <div class="flex items-center gap-5">
-        <div class="gray-container !p-3">@svg('notification', 'w-6 h-6')</div>
+        <div class="grey-container !p-3">@svg('notification', 'w-6 h-6')</div>
         @livewire('partials.user-budge', key('user-budge'))
     </div>
 </div>
