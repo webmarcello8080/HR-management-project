@@ -38,12 +38,7 @@
             </div>
             @can('admin')
                 <div class="flex-1 flex-grow">
-                    <select wire:model.blur='employee_id' class="input-element">
-                        <option value="">Select Employee</option>
-                        @foreach (\App\Models\Employee::orderBy('first_name')->get() as $employee)
-                            <option value="{{ $employee->id }}">{{ $employee->getFullName() }}</option>
-                        @endforeach
-                    </select>
+                    <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.save()" placeholder="Select Employee"/>
                     @error('employee_id') <span class="error">{{ $message }}</span> @enderror
                 </div>
             @endcan

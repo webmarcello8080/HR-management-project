@@ -22,17 +22,21 @@
     @keydown.enter="selectOption(Object.keys(options)[currentIndex])"
 >
 
-    <div class="relative content-center w-full p-1 text-left bg-white border rounded-md sm:text-sm sm:leading-5"
-        x-bind:class="{'border-blue-300 ring ring-blue-200 ring-opacity-50':open, 'bg-grey-200 cursor-default':disabled}"
+    <div class="relative content-center w-full bg-white sm:leading-5 input-element"
+        x-bind:class="{'!border-purple !border-2 !outline-none':open, 'bg-grey/20 cursor-default':disabled}"
         @click.prevent="toggleSelect()"
     >
+        <div class="absolute right-3 top-3">
+            @svg('arrow-down', 'w-6 h-6')
+        </div>
+
         <div id="placeholder">
-            <div class="inline-block m-1" x-show="selected.length === 0" x-text="placeholder">&nbsp;</div>
+            <div class="text-grey/80" x-show="selected.length === 0" x-text="placeholder">&nbsp;</div>
         </div>
         @isset($attributes['multiple'])
             <div class="flex flex-wrap space-x-1" x-cloak x-show="selected.length > 0">
                 <template x-for="(key, index) in selected" :key="index">
-                    <div class="text-grey-800 rounded-full truncate bg-blue-300 px-2 py-0.5 my-0.5 flex flex-row items-center">
+                    <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
                         <div class="px-2 truncate" x-text="data[key]"></div>
                         <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption(index)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class = 'h-4 fill-current'><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"/></svg></div>
                     </div>
@@ -40,7 +44,7 @@
             </div>
         @else
             <div class="flex flex-wrap" x-cloak x-show="selected">
-                <div class="text-grey-800 rounded-full truncate bg-blue-300 px-2 py-0.5 my-0.5 flex flex-row items-center">
+                <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
                     <div class="px-2 truncate" x-text="data[selected]"></div>
                     <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="h-4" @click.prevent.stop="deselectOption()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class = 'h-4 fill-current'><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"/></svg></div>
                 </div>
@@ -48,32 +52,36 @@
         @endif
 
         <div
-            class="mt-0.5 w-full bg-white border-grey-300 rounded-b-md border absolute top-full left-0 z-30"
+            class="mt-0.5 w-full bg-white rounded-b-md border absolute top-full left-0 z-30"
             x-show="open"
             x-cloak
         >
 
-            <div class="relative z-30 w-full p-2 bg-white">
-                <input type="search" x-model="search" x-on:click.prevent.stop="open=true" class="block w-full p-2 border border-grey-300 rounded-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm sm:leading-5">
-            </div>
+            @if (count($data) >= 8)
+                <div class="relative z-30 w-full p-2 bg-white">
+                    <input type="search" x-model="search" x-on:click.prevent.stop="open=true" 
+                        class="block w-full p-2 border rounded-md sm:leading-5 focus:border-purple focus:border-2 focus:outline-none"
+                        >
+                </div>
+            @endif
 
-            <div x-ref="dropdown" class="relative z-30 p-2 overflow-y-auto max-h-60" >
+            <div x-ref="dropdown" class="relative z-30 overflow-y-auto max-h-60" >
                 <div x-cloak x-show="Object.keys(options).length === 0" x-text="emptyOptionsMessage">Gragr</div>
                 <template x-for="(key, index) in Object.keys(options)" :key="index" >
                     @isset($attributes['multiple'])
-                    <div
-                        class="px-2 py-1"
-                        x-bind:class="{'bg-grey-300 text-white hover:none':selected.includes(key), 'hover:bg-blue-500 hover:text-white cursor-pointer':!(selected.includes(key)), 'bg-blue-500 text-white':currentIndex==index}"
-                        @click.prevent.stop="selectOption(key)"
-                        x-text="Object.values(options)[index]">
-                    </div>
+                        <div
+                            class="px-4 py-1"
+                            x-bind:class="{'bg-grey/30 text-purple hover:none':selected.includes(key), 'hover:text-purple hover:bg-grey/30 cursor-pointer':!(selected.includes(key)), '':currentIndex==index}"
+                            @click.prevent.stop="selectOption(key)"
+                            x-text="Object.values(options)[index]">
+                        </div>
                     @else
-                    <div
-                        class="px-2 py-1"
-                        x-bind:class="{'bg-grey-300 text-white hover:none':selected==key, 'hover:bg-blue-500 hover:text-white cursor-pointer':!(selected==key), 'bg-blue-500 text-white':currentIndex==index}"
-                        @click.prevent.stop="selectOption(key)"
-                        x-text="Object.values(options)[index]">
-                    </div>
+                        <div
+                            class="px-4 py-1"
+                            x-bind:class="{'bg-grey/30 text-purple hover:none':selected==key, 'hover:text-purple hover:bg-grey/30 cursor-pointer':!(selected==key), '':currentIndex==index}"
+                            @click.prevent.stop="selectOption(key)"
+                            x-text="Object.values(options)[index]">
+                        </div>
                     @endisset
                 </template>
             </div>

@@ -91,4 +91,19 @@ class Employee extends Model implements HasMedia
     {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    /**
+     * get array with all employees full names
+     */
+    public static function getFullNameArray(): array
+    {
+        $employees = Employee::all();
+
+        $fullNameArray = [];
+        foreach($employees as $employee){
+            $fullNameArray[$employee->id] = $employee->getFullName();
+        }
+
+        return $fullNameArray;
+    }
 }
