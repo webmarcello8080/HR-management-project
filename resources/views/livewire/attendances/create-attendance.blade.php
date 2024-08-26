@@ -48,7 +48,6 @@
                 </div>
             @endcan
         </div>
-        <x-select-search :data="\App\Models\Employee::orderBy('first_name')->pluck('first_name')->toArray()" wire:model="values" placeholder="Select something!"/>
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
             <button type="submit" class="btn btn-purple btn-big">Save</button>

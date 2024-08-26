@@ -22,8 +22,7 @@
     @keydown.enter="selectOption(Object.keys(options)[currentIndex])"
 >
 
-    <div
-        class="relative content-center w-full p-1 text-left bg-white border rounded-md sm:text-sm sm:leading-5"
+    <div class="relative content-center w-full p-1 text-left bg-white border rounded-md sm:text-sm sm:leading-5"
         x-bind:class="{'border-blue-300 ring ring-blue-200 ring-opacity-50':open, 'bg-grey-200 cursor-default':disabled}"
         @click.prevent="toggleSelect()"
     >
