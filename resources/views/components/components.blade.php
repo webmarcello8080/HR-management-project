@@ -27,9 +27,9 @@
         <div class="grey-container">
             <h5>Something in here</h5>
             <a href="" class="btn btn-purple btn-small">Click</a>
-            <button class="btn btn-purple btn-small">Save</button>
+            <button class="btn btn-red btn-small">Save</button>
             <a href="" class="btn btn-purple btn-big">Click</a>
-            <button class="btn btn-purple btn-big">Save</button>
+            <button class="btn btn-red btn-big">Save</button>
             <a href="" class="btn btn-transparent btn-small">Click</a>
             <button class="btn btn-transparent btn-small">Save</button>
         </div>

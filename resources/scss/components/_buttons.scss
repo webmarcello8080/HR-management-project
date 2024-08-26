@@ -1,5 +1,5 @@
 .btn{
-    @apply inline-block cursor-pointer no-underline;
+    @apply inline-block cursor-pointer no-underline transition-all duration-300;
 
     &.btn-small{
         @apply py-2 px-3 text-sm rounded-lg;
@@ -17,9 +17,15 @@
         @apply bg-red text-white;
     }
 
-    svg{
-        path, ellipse, circle{
-            @apply stroke-white;
+    &.btn-purple, &.btn-red{
+        svg{
+            path, ellipse, circle{
+                @apply stroke-white;
+            }
+        }
+
+        &:hover{
+            @apply brightness-125;
         }
     }
 
@@ -29,5 +35,17 @@
 
     &.btn-grey{
         @apply bg-grey/5;
+    }
+
+    &.btn-transparent, &.btn-grey{
+        svg{
+            path, ellipse, circle{
+                @apply stroke-dark;
+            }
+        }
+
+        &:hover{
+            @apply brightness-50;
+        }
     }
 }
