@@ -21,6 +21,8 @@ class ProfessionalInformation extends Component
     #[Validate]
     public $joining_date;
     #[Validate]
+    public $annual_salary;
+    #[Validate]
     public $days_of_holiday;
     #[Validate]
     public $working_day;
@@ -37,6 +39,7 @@ class ProfessionalInformation extends Component
         $this->unique_id = $this->employee_info->unique_id;
         $this->designation = $this->employee_info->designation;
         $this->joining_date = $this->employee_info->joining_date;
+        $this->annual_salary = $this->employee_info->annual_salary;
         $this->days_of_holiday = $this->employee_info->days_of_holiday;
         $this->working_day = $this->employee_info->working_day;
         $this->employee_type_id = $this->employee_info->employee_type_id;
@@ -50,6 +53,7 @@ class ProfessionalInformation extends Component
             'designation' => 'required|min:3',
             'joining_date' => 'required|date',
             'days_of_holiday' => 'required|numeric',
+            'annual_salary' => 'nullable|numeric',
             'working_day' => 'required',
             'employee_type_id' => 'nullable',
             'department_id' => 'nullable',

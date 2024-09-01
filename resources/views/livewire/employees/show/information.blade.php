@@ -69,7 +69,7 @@
                     <div class="small-caption">Joining Date</div><div>{{ $employee?->employeeInformation?->joining_date }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Working Days</div><div>{{ $employee?->employeeInformation?->working_day?->name }}</div>
+                    <div class="small-caption">Annual Salary</div><div>{{ $employee?->employeeInformation?->annual_salary }}</div>
                 </div>
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">
@@ -85,10 +85,13 @@
                     <div class="small-caption">Employee Type</div><div>{{ $employee?->employeeInformation?->employeeType?->name }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Department</div><div>{{ $employee?->employeeInformation?->department?->name }}</div>
+                    <div class="small-caption">Working Days</div><div>{{ $employee?->employeeInformation?->working_day?->name }}</div>
                 </div>
             </div>
             <div class="flex pb-2 mb-5 gap-5">
+                <div class="flex-1 flex-grow">
+                    <div class="small-caption">Department</div><div>{{ $employee?->employeeInformation?->department?->name }}</div>
+                </div>
                 <div class="flex-1 flex-grow">
                     <div class="small-caption">Location</div><div>{{ $employee?->employeeInformation?->location?->name }}</div>
                 </div>
