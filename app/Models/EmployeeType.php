@@ -27,4 +27,19 @@ class EmployeeType extends Model
     {
         return $this->hasMany(Attendance::class);
     }
+
+    /**
+     * generate array [ID][Name]
+     */
+    public static function getNameArray(): array
+    {
+        $employeeTypes = EmployeeType::all();
+
+        $employeeTypeArray = [];
+        foreach($employeeTypes as $type){
+            $employeeTypeArray[$type->id] = $type->name;
+        }
+
+        return $employeeTypeArray;
+    }
 }

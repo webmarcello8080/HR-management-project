@@ -4,41 +4,36 @@
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <input type="text" wire:model.blur='date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Attendance Date">
+                <input type="text" wire:model.lazy='date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Attendance Date">
                 @error('date') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <input type="text" wire:model.blur='start_time' onfocus="(this.type='time')" onblur="(this.type='text')" class="input-element" placeholder="Start Time">
+                <input type="text" wire:model.lazy='start_time' onfocus="(this.type='time')" onblur="(this.type='text')" class="input-element" placeholder="Start Time">
                 @error('start_time') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <input type="text" wire:model.blur='finish_time' onfocus="(this.type='time')" onblur="(this.type='text')" class="input-element" placeholder="Finish Time">
+                <input type="text" wire:model.lazy='finish_time' onfocus="(this.type='time')" onblur="(this.type='text')" class="input-element" placeholder="Finish Time">
                 @error('finish_time') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <input type="number" step="0.01" wire:model.blur='break_time' class="input-element" placeholder="Break Time (in minutes)">
+                <input type="number" step="0.01" wire:model.lazy='break_time' class="input-element" placeholder="Break Time (in minutes)">
                 @error('break_time') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <input type="number" step="0.01" wire:model.blur='working_hours' class="input-element" placeholder="Working Hours (in hours)">
+                <input type="number" step="0.01" wire:model.lazy='working_hours' class="input-element" placeholder="Working Hours (in hours)">
                 @error('working_hours') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <select wire:model.blur='employee_type_id' class="input-element">
-                    <option value="">Employee Type</option>
-                    @foreach (\App\Models\EmployeeType::all() as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option>
-                    @endforeach
-                </select>
+                <x-select-search :data="\App\Models\EmployeeType::getNameArray()" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
                 @error('employee_type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
             @can('admin')
                 <div class="flex-1 flex-grow">
-                    <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.save()" placeholder="Select Employee"/>
+                    <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.submit()" placeholder="Select Employee"/>
                     @error('employee_id') <span class="error">{{ $message }}</span> @enderror
                 </div>
             @endcan

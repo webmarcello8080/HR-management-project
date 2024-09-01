@@ -9,9 +9,9 @@
         @apply text-grey/80;
     } 
 
-    &:has(option[value=""]:checked) {
-        @apply text-grey/80;
-    }
+    // &:has(option[value=""]:checked) {
+    //     @apply text-grey/80;
+    // }
 }
 
 .input-checkbox{
