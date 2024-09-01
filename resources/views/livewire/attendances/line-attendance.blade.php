@@ -7,8 +7,8 @@
         </span>
     @endif
     <span class="table-cell align-middle py-2">{{ $attendance->date->format('F d, Y') }}</span>
-    <span class="table-cell align-middle py-2">{{ $attendance->start_time->format('H:i') }}</span>
-    <span class="table-cell align-middle py-2">{{ $attendance->finish_time->format('H:i') }}</span>
+    <span class="table-cell align-middle py-2">{{ $attendance->start_time }}</span>
+    <span class="table-cell align-middle py-2">{{ $attendance->finish_time }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->working_hours }}</span>
     <span class="table-cell align-middle py-2"><span class="budge budge-purple">{{ $attendance?->employeeType->name }}</span></span>
     @can('admin')

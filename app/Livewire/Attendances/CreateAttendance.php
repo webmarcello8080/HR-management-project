@@ -3,6 +3,7 @@
 namespace App\Livewire\Attendances;
 
 use App\Models\Attendance;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -67,6 +68,7 @@ class CreateAttendance extends Component
     public function save(): void
     {
         $validated = $this->validate();
+        dump($validated);
 
         $this->attendance->fill($validated);
         $this->attendance->save();

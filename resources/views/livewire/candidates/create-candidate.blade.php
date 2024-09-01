@@ -18,23 +18,13 @@
                 @error('phone') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <select wire:model.blur='candidate_status' class="input-element">
-                    <option value="">Vacancy Status</option>
-                    @foreach (\App\Enums\CandidateStatus::cases() as $status)
-                        <option value="{{ $status->value }}">{{ $status->name }}</option>
-                    @endforeach
-                </select>
+                <x-select-search :data="\App\Enums\CandidateStatus::toArray()" wire:model="candidate_status" x-on:blur="$wire.submit()" placeholder="Candidate Status"/>
                 @error('candidate_status') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <select wire:model.blur='vacancy_id' class="input-element js-select-2">
-                    <option value="">Vacancy</option>
-                    @foreach (\App\Models\Vacancy::orderBy('created_at')->get() as $vacancy)
-                        <option value="{{ $vacancy->id }}">{{ $vacancy->title }}</option>
-                    @endforeach
-                </select>
+                <x-select-search :data="\App\Models\Vacancy::convertToArray('title')" wire:model="vacancy_id" x-on:blur="$wire.submit()" placeholder="Vacancy"/>
                 @error('vacancy_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>

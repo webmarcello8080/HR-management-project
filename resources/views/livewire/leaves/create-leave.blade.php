@@ -3,11 +3,11 @@
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">
-            <div class="flex-1 flex-grow">
+            <div class="flex-1 flex-grow" wire:ignore>
                 <input type="text" wire:model.blur='from_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date From">
                 @error('from_date') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="flex-1 flex-grow">
+            <div class="flex-1 flex-grow" wire:ignore>
                 <input type="text" wire:model.blur='to_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date To">
                 @error('to_date') <span class="error">{{ $message }}</span> @enderror
             </div>
@@ -19,12 +19,7 @@
             </div>
             @can('admin')
                 <div class="flex-1 flex-grow">
-                    <select wire:model.blur='leave_status' class="input-element">
-                        <option value="">Leave Status</option>
-                        @foreach (\App\Enums\LeaveStatus::cases() as $status)
-                            <option value="{{ $status->value }}">{{ $status->name }}</option>
-                        @endforeach
-                    </select>
+                    <x-select-search :data="\App\Enums\LeaveStatus::toArray()" wire:model="leave_status" x-on:blur="$wire.submit()" placeholder="Leave Status"/>
                     @error('leave_status') <span class="error">{{ $message }}</span> @enderror
                 </div>
             @endcan
@@ -38,12 +33,7 @@
         @can('admin')
             <div class="flex justify-end gap-5 mb-5">
                 <div class="flex-1 flex-grow">
-                    <select wire:model.blur='employee_id' class="input-element">
-                        <option value="">Select Employee</option>
-                        @foreach (\App\Models\Employee::orderBy('first_name')->get() as $employee)
-                            <option value="{{ $employee->id }}">{{ $employee->getFullName() }}</option>
-                        @endforeach
-                    </select>
+                    <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.submit()" placeholder="Select Employee"/>
                     @error('employee_id') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </div>

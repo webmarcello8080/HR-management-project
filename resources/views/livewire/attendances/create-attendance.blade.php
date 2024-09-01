@@ -18,7 +18,7 @@
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <input type="number" step="0.01" wire:model.blur='break_time' class="input-element" placeholder="Break Time (in minutes)">
+                <input type="number" step="1" wire:model.blur='break_time' class="input-element" placeholder="Break Time (in minutes)">
                 @error('break_time') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
@@ -28,7 +28,7 @@
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\EmployeeType::getArrayName()" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
+                <x-select-search :data="\App\Models\EmployeeType::convertToArray('name')" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
                 @error('employee_type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
             @can('admin')
@@ -38,6 +38,9 @@
                 </div>
             @endcan
         </div>
+        @if($errors->any())
+    {!! implode('', $errors->all('<div>:message</div>')) !!}
+@endif
         <div class="flex justify-end gap-5">
             <button type="reset" class="btn btn-transparent btn-big">Cancel</button>
             <button type="submit" class="btn btn-purple btn-big">Save</button>

@@ -5,15 +5,15 @@ namespace App\Traits;
 trait ConvertToArray {
 
     /**
-     * generate array [ID][Name]
+     * generate array [ID][$field]
      */
-    public static function getArrayName(): array
+    public static function convertToArray(string $field): array
     {
-        $departments = static::class::orderBy('name')->get();
+        $departments = static::class::orderBy($field)->get();
 
         $departmentArray = [];
         foreach($departments as $department){
-            $departmentArray[$department->id] = $department->name;
+            $departmentArray[$department->id] = $department->$field;
         }
 
         return $departmentArray;

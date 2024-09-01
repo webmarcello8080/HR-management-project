@@ -26,17 +26,17 @@
                 @error('working_day') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\EmployeeType::getArrayName()" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
+                <x-select-search :data="\App\Models\EmployeeType::convertToArray('name')" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
                 @error('employee_type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\Department::getArrayName()" wire:model="department_id" x-on:blur="$wire.submit()" placeholder="Department"/>
+                <x-select-search :data="\App\Models\Department::convertToArray('name')" wire:model="department_id" x-on:blur="$wire.submit()" placeholder="Department"/>
                 @error('department_id') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\Location::getArrayName()" wire:model="location_id" x-on:blur="$wire.submit()" placeholder="Location"/>
+                <x-select-search :data="\App\Models\Location::convertToArray('name')" wire:model="location_id" x-on:blur="$wire.submit()" placeholder="Location"/>
                 @error('location_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>

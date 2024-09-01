@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\TimeCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,8 +14,8 @@ class Attendance extends Model
     protected $fillable = ['date', 'start_time', 'finish_time', 'break_time', 'working_hours', 'employee_type_id', 'employee_id'];
     protected $casts = [
         'date' => 'date',
-        'start_time' => 'datetime',
-        'finish_time' => 'datetime',
+        'start_time' => TimeCast::class,
+        'finish_time' => TimeCast::class,
     ];
 
     /**
