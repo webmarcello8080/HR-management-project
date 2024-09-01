@@ -68,7 +68,6 @@ class CreateAttendance extends Component
     public function save(): void
     {
         $validated = $this->validate();
-        dump($validated);
 
         $this->attendance->fill($validated);
         $this->attendance->save();
