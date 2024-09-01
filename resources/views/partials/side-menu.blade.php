@@ -12,6 +12,9 @@
             <a href="{{ route('attendance.index' )}}" class="menu-item {{ request()->routeIs('attendance.*') ? 'active' : '' }}">
                 @svg('calendar', 'w-6 h-6')<span>Attendances</span>
             </a>
+            <a href="{{ route('payroll.index' )}}" class="menu-item {{ request()->routeIs('payroll.*') ? 'active' : '' }}">
+                @svg('dollar', 'w-6 h-6')<span>Payrolls</span>
+            </a>
             <a href="{{ route('vacancy.index' )}}" class="menu-item {{ request()->routeIs('vacancy.*') ? 'active' : '' }}">
                 @svg('briefcase', 'w-6 h-6')<span>Vacancies</span>
             </a>
