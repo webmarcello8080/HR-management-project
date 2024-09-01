@@ -11,7 +11,7 @@ class EmployeeInformation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['unique_id', 'designation', 'joining_date', 'days_of_holiday', 'working_day', 'employee_id', 'employee_type_id', 'department_id', 'location_id'];
+    protected $fillable = ['unique_id', 'designation', 'joining_date', 'annual_salary', 'days_of_holiday', 'working_day', 'employee_id', 'employee_type_id', 'department_id', 'location_id'];
     protected $casts = ['working_day' => WorkingDay::class];
 
     /**

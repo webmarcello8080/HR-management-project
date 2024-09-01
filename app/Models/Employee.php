@@ -62,6 +62,14 @@ class Employee extends Model implements HasMedia
     }
 
     /**
+     * get the payrolls of this employee
+     */
+    public function payrolls(): HasMany
+    {
+        return $this->hasMany(Payroll::class);
+    }
+
+    /**
      * convert images before save it on server
      */
     public function registerMediaConversions(?Media $media = null): void
