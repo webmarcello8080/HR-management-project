@@ -32,14 +32,16 @@ class Employee extends Model implements HasMedia
     /**
      * get the information of this Employee
      */
-    public function employeeInformation(): HasOne{
+    public function employeeInformation(): HasOne
+    {
         return $this->hasOne(EmployeeInformation::class);
     }
 
     /**
      * get the accounts of this Employee
      */
-    public function employeeAccount(): HasOne{
+    public function employeeAccount(): HasOne
+    {
         return $this->hasOne(EmployeeAccount::class);
     }
 
@@ -97,7 +99,7 @@ class Employee extends Model implements HasMedia
      */
     public static function getFullNameArray(): array
     {
-        $employees = Employee::all();
+        $employees = Employee::orderBy('last_name')->get();
 
         $fullNameArray = [];
         foreach($employees as $employee){

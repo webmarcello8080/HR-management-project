@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\ConvertToArray;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class EmployeeType extends Model
 {
-    use HasFactory;
+    use HasFactory, ConvertToArray;
 
     protected $fillable = ['name'];
 
@@ -26,20 +27,5 @@ class EmployeeType extends Model
     public function attendances(): HasMany
     {
         return $this->hasMany(Attendance::class);
-    }
-
-    /**
-     * generate array [ID][Name]
-     */
-    public static function getNameArray(): array
-    {
-        $employeeTypes = EmployeeType::all();
-
-        $employeeTypeArray = [];
-        foreach($employeeTypes as $type){
-            $employeeTypeArray[$type->id] = $type->name;
-        }
-
-        return $employeeTypeArray;
     }
 }

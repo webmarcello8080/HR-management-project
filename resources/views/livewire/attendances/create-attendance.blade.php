@@ -28,7 +28,7 @@
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\EmployeeType::getNameArray()" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
+                <x-select-search :data="\App\Models\EmployeeType::getArrayName()" wire:model="employee_type_id" x-on:blur="$wire.submit()" placeholder="Employee Type"/>
                 @error('employee_type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
             @can('admin')
