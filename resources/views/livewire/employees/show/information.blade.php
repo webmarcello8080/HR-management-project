@@ -27,7 +27,7 @@
                     <div class="small-caption">Date of Birth</div><div>{{ $employee->dob }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Marital Status</div><div>{{ $employee->maritial_status?->name }}</div>
+                    <div class="small-caption">Marital Status</div><div>{{ $employee->marital_status?->name }}</div>
                 </div>
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">

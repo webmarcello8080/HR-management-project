@@ -24,7 +24,7 @@ class CreateCandidate extends Component
     public function rules(){
         return [
             'full_name' => 'required|min:3',
-            'email' => 'required|email',
+            'email' => 'required|email:rfc,dns',
             'phone' => 'required|min:3',
             'candidate_status' => 'required',
             'vacancy_id' => 'required|integer',

@@ -38,7 +38,7 @@ class AccountAccess extends Component
 
     public function rules(): array{
         return [
-            'email' => 'required|email|unique:users,email,' . $this->employee?->user?->id,
+            'email' => 'required|email:rfc,dns|unique:users,email,' . $this->employee?->user?->id,
             'roles' => 'required|array',
             'slack_id' => 'nullable|min:3',
             'skype_id' => 'nullable|min:3',

@@ -4,13 +4,15 @@ namespace App\Livewire\Employees\Tabs;
 
 use App\Models\Employee;
 use App\Services\CreateEmployeeService;
+use App\Traits\ConvertEmptyStringsToNull;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 
 class PersonalInformation extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, ConvertEmptyStringsToNull;
 
     public Employee $employee;
     public $existing_media;
@@ -48,7 +50,7 @@ class PersonalInformation extends Component
             'first_name' => 'required|min:3',
             'last_name' => 'required|min:3',
             'mobile_number' => 'nullable|min:3',
-            'email' => 'required|min:3|email|unique:employees,email,' . $this->employee->id,
+            'email' => 'required|min:3|email:rfc,dns|unique:employees,email,' . $this->employee->id,
             'dob' => 'required|date',
             'marital_status' => 'nullable',
             'gender' => 'required',
@@ -78,7 +80,8 @@ class PersonalInformation extends Component
         $this->post_code = $this->employee->post_code;
     }
 
-    public function save(){
+    public function save(): void
+    {
         $validated = $this->validate();
 
         $employeeService = new CreateEmployeeService;
@@ -93,7 +96,7 @@ class PersonalInformation extends Component
         $this->existing_media = '';
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.employees.tabs.personal-information');
     }

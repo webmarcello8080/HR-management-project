@@ -30,11 +30,12 @@
             @svg('arrow-down', 'w-6 h-6')
         </div>
 
-        <div id="placeholder">
-            <div class="text-grey/80" x-show="selected.length === 0" x-text="placeholder">&nbsp;</div>
+        <div class="placeholder">
+            <div class="text-grey/80" x-show="!selected" x-text="placeholder"></div>
         </div>
+
         @isset($attributes['multiple'])
-            <div class="flex flex-wrap space-x-1" x-cloak x-show="selected.length > 0">
+            <div class="flex flex-wrap space-x-1" x-cloak x-show="selected?.length > 0">
                 <template x-for="(key, index) in selected" :key="index">
                     <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
                         <div class="px-2 truncate" x-text="data[key]"></div>
