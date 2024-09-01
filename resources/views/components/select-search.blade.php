@@ -39,7 +39,9 @@
                 <template x-for="(key, index) in selected" :key="index">
                     <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
                         <div class="px-2 truncate" x-text="data[key]"></div>
-                        <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption(index)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class = 'h-4 fill-current'><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"/></svg></div>
+                        <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption(index)">
+                            @svg('x', 'w-3 h-3')
+                        </div>
                     </div>
                 </template>
             </div>
@@ -47,7 +49,9 @@
             <div class="flex flex-wrap" x-cloak x-show="selected">
                 <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
                     <div class="px-2 truncate" x-text="data[selected]"></div>
-                    <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="h-4" @click.prevent.stop="deselectOption()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class = 'h-4 fill-current'><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"/></svg></div>
+                    <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption()">
+                        @svg('x', 'w-3 h-3')
+                    </div>
                 </div>
             </div>
         @endif
@@ -60,14 +64,14 @@
 
             @if (count($data) >= 8)
                 <div class="relative z-30 w-full p-2 bg-white">
-                    <input type="search" x-model="search" x-on:click.prevent.stop="open=true" 
-                        class="block w-full p-2 border rounded-md sm:leading-5 focus:border-purple focus:border-2 focus:outline-none"
+                    <input x-model="search" x-on:click.prevent.stop="open=true" 
+                        class="block w-full p-2 border rounded-md focus:border-purple focus:border-2 focus:outline-none"
                         >
                 </div>
             @endif
 
             <div x-ref="dropdown" class="relative z-30 overflow-y-auto max-h-60" >
-                <div x-cloak x-show="Object.keys(options).length === 0" x-text="emptyOptionsMessage">Gragr</div>
+                <div class="py-2 px-4" x-cloak x-show="Object.keys(options).length === 0" x-text="emptyOptionsMessage">No options</div>
                 <template x-for="(key, index) in Object.keys(options)" :key="index" >
                     @isset($attributes['multiple'])
                         <div
