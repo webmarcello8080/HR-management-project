@@ -1,17 +1,17 @@
 .input-element{
-    @apply rounded-lg px-4 py-3 border border-grey/20 grow w-full;
+    @apply rounded-lg px-4 py-3 border border-grey/20 grow w-full leading-5;
 
     &:focus-visible{
         @apply border-purple border-2 outline-none;
     }
 
     &::placeholder{
-        @apply text-grey/80;
+        @apply text-grey/80 font-extralight;
     } 
+}
 
-    // &:has(option[value=""]:checked) {
-    //     @apply text-grey/80;
-    // }
+.input-label{
+    @apply mb-1 block pl-4 text-grey font-extralight leading-5;
 }
 
 .input-checkbox{

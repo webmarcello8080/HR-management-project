@@ -22,7 +22,7 @@
     @keydown.enter="selectOption(Object.keys(options)[currentIndex])"
 >
 
-    <div class="relative content-center w-full bg-white sm:leading-5 input-element"
+    <div class="relative content-center w-full bg-white input-element"
         x-bind:class="{'!border-purple !border-2 !outline-none':open, 'bg-grey/20 cursor-default':disabled}"
         @click.prevent="toggleSelect()"
     >
@@ -31,7 +31,7 @@
         </div>
 
         <div class="placeholder">
-            <div class="text-grey/80" x-show="!selected" x-text="placeholder"></div>
+            <div class="text-grey/80 font-extralight" x-show="!selected" x-text="placeholder"></div>
         </div>
 
         @isset($attributes['multiple'])

@@ -4,27 +4,32 @@
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
+                <label class="input-label" for="">Full Name</label>
                 <input type="text" wire:model.blur='full_name' class="input-element" placeholder="Full Name">
                 @error('full_name') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
+                <label class="input-label" for="">Email</label>
                 <input type="email" wire:model.blur='email' class="input-element" placeholder="Email">
                 @error('email') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
+                <label class="input-label" for="">Phone Number</label>
                 <input type="text" wire:model.blur='phone' class="input-element" placeholder="Phone Number">
                 @error('phone') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Enums\CandidateStatus::toArray()" wire:model="candidate_status" x-on:blur="$wire.submit()" placeholder="Candidate Status"/>
+                <label class="input-label" for="">Candidate Status</label>
+                <x-select-search :data="\App\Enums\CandidateStatus::toArray()" wire:model="candidate_status" x-on:blur="$wire.submit()" placeholder="Select Candidate Status"/>
                 @error('candidate_status') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-end gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <x-select-search :data="\App\Models\Vacancy::convertToArray('title')" wire:model="vacancy_id" x-on:blur="$wire.submit()" placeholder="Vacancy"/>
+                <label class="input-label" for="">Vacancy</label>
+                <x-select-search :data="\App\Models\Vacancy::convertToArray('title')" wire:model="vacancy_id" x-on:blur="$wire.submit()" placeholder="Select Vacancy"/>
                 @error('vacancy_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>

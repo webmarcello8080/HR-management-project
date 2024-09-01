@@ -47,19 +47,37 @@
 </div>
 <div class="rounded-container mb-4">
     <div class="flex items-center justify-center gap-4 mb-4">
-        <input type="text" name="" class="input-element" placeholder="First name">
-        <input type="email" name="" class="input-element" placeholder="Email address">
-        <input type="tel" name="" class="input-element" placeholder="Telephone">    
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">First name</label>
+            <input type="text" name="" class="input-element" placeholder="First name">
+        </div>
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">Email address</label>
+            <input type="email" name="" class="input-element" placeholder="Email address">
+        </div>
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">Telephone</label>
+            <input type="tel" name="" class="input-element" placeholder="Telephone">
+        </div>
     </div>
     <div class="flex items-center justify-center gap-4">
-        <input type="text" name="" onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date">
-        <select name="" class="input-element">
-            <option value="" disabled selected>select something</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-        <textarea name="" class="input-element" rows="4"></textarea>
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">Date</label>
+            <input type="text" name="" onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date">
+        </div>
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">select something</label>
+            <select name="" class="input-element">
+                <option value="" disabled selected>select something</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="flex-1 flex-grow">
+            <label class="input-label" for="">textarea</label>
+            <textarea name="" class="input-element" rows="4"></textarea>
+        </div>
     </div>
 </div>
 <div class="mb-4">
