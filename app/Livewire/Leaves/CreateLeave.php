@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Leaves;
 
+use App\Http\Requests\LeaveRequest;
 use App\Models\Leave;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
@@ -25,14 +26,7 @@ class CreateLeave extends Component
 
     public function rules(): array
     {
-        return [
-            'from_date' => 'required|date',
-            'to_date' => 'required|date|after_or_equal:from_date',
-            'days' => 'required|numeric',
-            'leave_status' => 'required',
-            'reason' => 'nullable|string',
-            'employee_id' => 'required|integer',
-        ];
+        return (new LeaveRequest())->rules();
     }
 
     public function mount(Leave $leave): void

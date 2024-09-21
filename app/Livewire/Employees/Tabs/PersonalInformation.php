@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Employees\Tabs;
 
+use App\Http\Requests\EmployeePersonalInformationRequest;
 use App\Models\Employee;
 use App\Services\CreateEmployeeService;
 use App\Traits\ConvertEmptyStringsToNull;
@@ -45,21 +46,7 @@ class PersonalInformation extends Component
 
     public function rules()
     {
-        return [
-            'profile_image' => 'nullable|image|max:2048',
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
-            'mobile_number' => 'nullable|min:3',
-            'email' => 'required|min:3|email:rfc,dns|unique:employees,email,' . $this->employee->id,
-            'dob' => 'required|date',
-            'marital_status' => 'nullable',
-            'gender' => 'required',
-            'nationality' => 'nullable|min:3',
-            'address' => 'required|min:3',
-            'city' => 'required|min:3',
-            'country' => 'nullable|min:3',
-            'post_code' => 'required|min:3',
-        ];
+        return (new EmployeePersonalInformationRequest())->setEmployee($this->employee)->rules();
     }
 
     public function mount(Employee $employee = null)

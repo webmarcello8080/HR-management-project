@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Vacancies;
 
+use App\Http\Requests\VacancyRequest;
 use App\Models\Vacancy;
 use App\Traits\ConvertEmptyStringsToNull;
 use Illuminate\View\View;
@@ -34,17 +35,7 @@ class CreateVacancy extends Component
 
     public function rules():array
     {
-        return [
-            'title' => 'required|string|min:3|max:200',
-            'expiring_date' => 'nullable|date',
-            'vacancy_status' => 'required',
-            'working_day' => 'required',
-            'department_id' => 'nullable',
-            'location_id' => 'nullable',
-            'employee_type_id' => 'nullable',
-            'amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'amount_per' => 'required|string|min:3',
-        ];
+        return (new VacancyRequest())->rules();
     }
 
     public function mount(Vacancy $vacancy):void

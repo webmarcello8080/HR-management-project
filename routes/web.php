@@ -33,55 +33,42 @@ use Illuminate\Support\Facades\Route;
 // root route - this will go to the dashboard when it's ready
 Route::get('/', function() { return redirect('components');})->name('home');
 
-// Employee routes
 Route::middleware(['auth', 'admin'])->group(function(){
+    // Employee routes
     Route::get('/employee', CreateEmployee::class )->name('employee.create');
     Route::get('/employee/{employee}/edit', EditEmployee::class )->name('employee.edit');
-    Route::get('/employees', IndexEmployee::class )->name('employee.index');    
-});
+    Route::get('/employees', IndexEmployee::class )->name('employee.index');
 
-// Vacancy routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // Vacancy routes
     Route::get('/vacancy', CreateVacancy::class )->name('vacancy.create');
     Route::get('/vacancy/{vacancy}/edit', CreateVacancy::class )->name('vacancy.edit');
     Route::get('/vacancies', IndexVacancy::class)->name('vacancy.index');
-});
 
-// Department routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // Department routes
     Route::get('/departments', IndexDepartment::class)->name('department.index');
     Route::get('/department/{department}', ShowDepartment::class)->name('department.show');
-});
 
-// Candidate routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // Candidate routes
     Route::get('/candidate', CreateCandidate::class)->name('candidate.create');
     Route::get('/candidate/{candidate}/edit', CreateCandidate::class)->name('candidate.edit');
     Route::get('/candidates', IndexCandidate::class)->name('candidate.index');
-});
 
-// Leave routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // Leave routes
     Route::get('/leaves', IndexLeave::class)->name('leave.index');
     Route::get('/leave/{leave}/edit', CreateLeave::class)->name('leave.edit');
-});
 
-// Attendance routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // Attendance routes
     Route::get('/attendances', IndexAttendance::class)->name('attendance.index');
     Route::get('/attendance/{attendance}/edit', CreateAttendance::class)->name('attendance.edit');
-});
 
-// holidays routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // holidays routes
     Route::get('/holidays', IndexHoliday::class)->name('holiday.index');
-});
 
-// payrolls routes
-Route::middleware(['auth', 'admin'])->group(function(){
+    // payrolls routes
     Route::get('/payroll', CreatePayroll::class)->name('payroll.create');
     Route::get('/payroll/{payroll}/edit', CreatePayroll::class)->name('payroll.edit');
     Route::get('/payrolls', IndexPayroll::class)->name('payroll.index');
+
 });
 
 // Routes visible by employee only if page belongs to current employee 

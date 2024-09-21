@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Payrolls;
 
+use App\Http\Requests\PayrollRequest;
 use App\Models\Employee;
 use App\Models\Payroll;
 use Livewire\Attributes\Validate;
@@ -28,16 +29,7 @@ class CreatePayroll extends Component
     public $employee_id;
 
     public function rules(){
-        return [
-            'payroll_date' => 'required|date',
-            'annual_salary' => 'required|numeric',
-            'gross_pay' => 'required|numeric',
-            'deduction_percentage' => 'nullable|numeric',
-            'deduction' => 'nullable|numeric',
-            'insurance' => 'nullable|numeric',
-            'net_pay' => 'required|numeric',
-            'employee_id' => 'required|integer',
-        ];
+        return (new PayrollRequest())->rules();
     }
 
     public function mount(Payroll $payroll): void

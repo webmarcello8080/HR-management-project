@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Employees\Tabs;
 
+use App\Http\Requests\EmployeeProfessionalInformationRequest;
 use App\Models\Employee;
 use App\Models\EmployeeInformation;
 use App\Traits\ConvertEmptyStringsToNull;
@@ -33,6 +34,10 @@ class ProfessionalInformation extends Component
     #[Validate]
     public $location_id;
 
+    public function rules(){
+        return (new EmployeeProfessionalInformationRequest())->setEmployee($this->employee)->rules();
+    }
+
     public function mount(Employee $employee){
         $this->employee = $employee;
         $this->employee_info = $employee->employeeInformation ?? new EmployeeInformation();
@@ -45,20 +50,6 @@ class ProfessionalInformation extends Component
         $this->employee_type_id = $this->employee_info->employee_type_id;
         $this->department_id = $this->employee_info->department_id;
         $this->location_id = $this->employee_info->location_id;
-    }
-
-    public function rules(){
-        return [
-            'unique_id' => 'required|min:3|unique:employee_information,unique_id,' . $this->employee_info->id,
-            'designation' => 'required|min:3',
-            'joining_date' => 'required|date',
-            'days_of_holiday' => 'required|numeric',
-            'annual_salary' => 'nullable|numeric',
-            'working_day' => 'required',
-            'employee_type_id' => 'nullable',
-            'department_id' => 'nullable',
-            'location_id' => 'nullable',
-        ];
     }
 
     public function save(){

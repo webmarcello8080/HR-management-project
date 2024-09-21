@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Attendances;
 
+use App\Http\Requests\AttendanceRequest;
 use App\Models\Attendance;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
@@ -9,7 +10,6 @@ use Livewire\Component;
 
 class CreateAttendance extends Component
 {
-
     public Attendance $attendance;
     #[Validate]
     public $date;
@@ -28,15 +28,7 @@ class CreateAttendance extends Component
 
     public function rules(): array
     {
-        return [
-            'date' => 'required|date',
-            'start_time' => 'required|date_format:H:i',
-            'finish_time' => 'required|date_format:H:i|after:start_time',
-            'break_time' => 'required|numeric',
-            'working_hours' => 'required|numeric',
-            'employee_type_id' => 'nullable|integer',
-            'employee_id' => 'required|integer',
-        ];
+        return (new AttendanceRequest())->rules();
     }
 
     public function mount(Attendance $attendance): void

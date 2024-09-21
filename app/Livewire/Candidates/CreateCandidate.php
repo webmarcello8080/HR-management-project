@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Candidates;
 
+use App\Http\Requests\CandidateRequest;
 use App\Models\Candidate;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
@@ -22,13 +23,7 @@ class CreateCandidate extends Component
     public $vacancy_id;
 
     public function rules(){
-        return [
-            'full_name' => 'required|min:3',
-            'email' => 'required|email:rfc,dns',
-            'phone' => 'required|min:3',
-            'candidate_status' => 'required',
-            'vacancy_id' => 'required|integer',
-        ];
+        return (new CandidateRequest())->rules();
     }
 
     public function mount(Candidate $candidate): void

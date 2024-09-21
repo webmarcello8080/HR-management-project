@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Employees\Tabs;
 
+use App\Http\Requests\EmployeeAccountAccessRequest;
 use App\Models\Employee;
 use App\Models\EmployeeAccount;
 use App\Services\CreateEmployeeService;
@@ -24,6 +25,10 @@ class AccountAccess extends Component
     #[Validate]
     public $github_id;
 
+    public function rules(): array{
+        return (new EmployeeAccountAccessRequest())->setEmployee($this->employee)->rules();
+    }
+
     public function mount(Employee $employee): void{
         $this->employee = $employee;
         $this->employee_account = $employee->employeeAccount ?? new EmployeeAccount();
@@ -34,16 +39,6 @@ class AccountAccess extends Component
         // get roles IDs from user
         $roleIds = $employee?->user?->roles()->pluck('roles.id')->toArray();
         $this->roles = $roleIds ? array_fill_keys($roleIds, true) : [];
-    }
-
-    public function rules(): array{
-        return [
-            'email' => 'required|email:rfc,dns|unique:users,email,' . $this->employee?->user?->id,
-            'roles' => 'required|array',
-            'slack_id' => 'nullable|min:3',
-            'skype_id' => 'nullable|min:3',
-            'github_id' => 'nullable|min:3',
-        ];
     }
 
     public function save(): void{

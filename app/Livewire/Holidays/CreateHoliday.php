@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Holidays;
 
+use App\Http\Requests\HolidayRequest;
 use App\Models\Holiday;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -16,10 +17,7 @@ class CreateHoliday extends Component
     public $name;
 
     public function rules(){
-        return [
-            'date' => 'required|date',
-            'name' => 'required|min:3',
-        ];
+        return (new HolidayRequest())->rules();
     }
 
     public function mount():void{
