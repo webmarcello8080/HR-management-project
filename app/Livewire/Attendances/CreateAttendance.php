@@ -34,12 +34,11 @@ class CreateAttendance extends Component
     public function mount(Attendance $attendance): void
     {
         $this->attendance = $attendance ?? new Attendance();
+        $this->fill(
+            $attendance->only('start_time', 'finish_time', 'break_time', 'working_hours', 'employee_type_id'),
+        );
+
         $this->date = $this->attendance->date ? $this->attendance->date->format('Y-m-d') : null;
-        $this->start_time = $this->attendance->start_time;
-        $this->finish_time = $this->attendance->finish_time;
-        $this->break_time = $this->attendance->break_time;
-        $this->working_hours = $this->attendance->working_hours;
-        $this->employee_type_id = $this->attendance->employee_type_id;
         $this->employee_id = auth()->user()->hasRole('employee') ? auth()->user()->employee->id : $this->attendance->employee_id;
     }
 

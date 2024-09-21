@@ -53,18 +53,10 @@ class PersonalInformation extends Component
     {
         $this->employee = $employee ?? new Employee();
         $this->existing_media = $this->employee->exists ? $this->employee->getMediaUrl('profile_image') : null;
-        $this->first_name = $this->employee->first_name;
-        $this->last_name = $this->employee->last_name;
-        $this->mobile_number = $this->employee->mobile_number;
-        $this->email = $this->employee->email;
-        $this->dob = $this->employee->dob;
-        $this->marital_status = $this->employee->marital_status;
-        $this->gender = $this->employee->gender;
-        $this->nationality = $this->employee->nationality;
-        $this->address = $this->employee->address;
-        $this->city = $this->employee->city;
-        $this->country = $this->employee->country;
-        $this->post_code = $this->employee->post_code;
+
+        $this->fill(
+            $employee->only('first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'),
+        );
     }
 
     public function save(): void

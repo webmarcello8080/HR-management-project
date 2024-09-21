@@ -33,9 +33,10 @@ class AccountAccess extends Component
         $this->employee = $employee;
         $this->employee_account = $employee->employeeAccount ?? new EmployeeAccount();
         $this->email = $employee?->user?->email;
-        $this->slack_id = $this->employee_account->slack_id;
-        $this->skype_id = $this->employee_account->skype_id;
-        $this->github_id = $this->employee_account->github_id;
+        $this->fill(
+            $employee->employeeAccount->only('slack_id', 'skype_id', 'github_id'),
+        );
+
         // get roles IDs from user
         $roleIds = $employee?->user?->roles()->pluck('roles.id')->toArray();
         $this->roles = $roleIds ? array_fill_keys($roleIds, true) : [];

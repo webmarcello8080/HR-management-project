@@ -36,13 +36,9 @@ class CreatePayroll extends Component
     {
         $this->payroll = $payroll ?? new Payroll();
         $this->payroll_date = $this->payroll->payroll_date ? $this->payroll->payroll_date->format('Y-m-d') : null;
-        $this->annual_salary = $this->payroll->annual_salary;
-        $this->gross_pay = $this->payroll->gross_pay;
-        $this->deduction_percentage = $this->payroll->deduction_percentage;
-        $this->deduction = $this->payroll->deduction;
-        $this->insurance = $this->payroll->insurance;
-        $this->net_pay = $this->payroll->net_pay;
-        $this->employee_id = $this->payroll->employee_id;
+        $this->fill(
+            $payroll->only('annual_salary', 'gross_pay', 'deduction_percentage', 'deduction', 'insurance', 'net_pay', 'employee_id'),
+        );
     }
 
     public function updated(): void

@@ -41,15 +41,9 @@ class ProfessionalInformation extends Component
     public function mount(Employee $employee){
         $this->employee = $employee;
         $this->employee_info = $employee->employeeInformation ?? new EmployeeInformation();
-        $this->unique_id = $this->employee_info->unique_id;
-        $this->designation = $this->employee_info->designation;
-        $this->joining_date = $this->employee_info->joining_date;
-        $this->annual_salary = $this->employee_info->annual_salary;
-        $this->days_of_holiday = $this->employee_info->days_of_holiday;
-        $this->working_day = $this->employee_info->working_day;
-        $this->employee_type_id = $this->employee_info->employee_type_id;
-        $this->department_id = $this->employee_info->department_id;
-        $this->location_id = $this->employee_info->location_id;
+        $this->fill(
+            $employee->employeeInformation->only('unique_id', 'designation', 'joining_date', 'annual_salary', 'days_of_holiday', 'working_day', 'employee_type_id', 'department_id', 'location_id'),
+        );
     }
 
     public function save(){

@@ -29,12 +29,9 @@ class CreateCandidate extends Component
     public function mount(Candidate $candidate): void
     {
         $this->candidate = $candidate ?? new Candidate();
-        $this->full_name = $this->candidate->full_name;
-        $this->email = $this->candidate->email;
-        $this->phone = $this->candidate->phone;
-        $this->phone = $this->candidate->phone;
-        $this->candidate_status = $this->candidate->candidate_status;
-        $this->vacancy_id = $this->candidate->vacancy_id;
+        $this->fill(
+            $candidate->only('full_name', 'email', 'phone', 'candidate_status', 'vacancy_id'),
+        );
     }
 
     public function save(): void

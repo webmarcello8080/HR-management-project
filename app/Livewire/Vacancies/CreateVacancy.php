@@ -41,15 +41,9 @@ class CreateVacancy extends Component
     public function mount(Vacancy $vacancy):void
     {
         $this->vacancy = $vacancy ?? new Vacancy();
-        $this->title = $this->vacancy->title;
-        $this->expiring_date = $this->vacancy->expiring_date;
-        $this->vacancy_status = $this->vacancy->vacancy_status;
-        $this->working_day = $this->vacancy->working_day;
-        $this->department_id = $this->vacancy->department_id;
-        $this->location_id = $this->vacancy->location_id;
-        $this->employee_type_id = $this->vacancy->employee_type_id;
-        $this->amount = $this->vacancy->amount;
-        $this->amount_per = $this->vacancy->amount_per;
+        $this->fill(
+            $vacancy->only('title', 'expiring_date', 'vacancy_status', 'working_day', 'department_id', 'location_id', 'employee_type_id', 'amount', 'amount_per'),
+        );
     }
 
     public function save():void
