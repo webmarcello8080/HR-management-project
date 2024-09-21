@@ -3,7 +3,6 @@
 namespace App\Livewire\Attendances;
 
 use App\Models\Attendance;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
