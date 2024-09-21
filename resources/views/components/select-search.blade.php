@@ -31,7 +31,7 @@
         </div>
 
         <div class="placeholder">
-            <div class="text-grey/80 font-extralight" x-show="!selected" x-text="placeholder"></div>
+            <div class="text-grey/80 font-light" x-show="!selected" x-text="placeholder"></div>
         </div>
 
         @isset($attributes['multiple'])
