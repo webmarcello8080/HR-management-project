@@ -32,10 +32,10 @@
     {{-- Employee main menu --}}
     @can('employee')
         <nav class="main-menu">
-            <a href="{{ route('attendance.create' )}}" class="menu-item {{ request()->routeIs('attendance.*') ? 'active' : '' }}">
+            <a wire:navigate href="{{ route('attendance.create' )}}" class="menu-item {{ request()->routeIs('attendance.*') ? 'active' : '' }}">
                 @svg('calendar', 'w-6 h-6')<span>New Attendance</span>
             </a>
-            <a href="{{ route('leave.create' )}}" class="menu-item {{ request()->routeIs('leave.*') ? 'active' : '' }}">
+            <a wire:navigate href="{{ route('leave.create' )}}" class="menu-item {{ request()->routeIs('leave.*') ? 'active' : '' }}">
                 @svg('notepad', 'w-6 h-6')<span>New Leave</span>
             </a>
         </nav>
