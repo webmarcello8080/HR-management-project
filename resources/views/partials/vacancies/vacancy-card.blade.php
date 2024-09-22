@@ -1,10 +1,16 @@
-<a href="{{ route('vacancy.edit', $vacancy) }}" class="block no-underline grey-container mb-4">
-    <div class="flex items-center gap-5 mb-5">
-        @svg('briefcase', 'w-6 h-6')
-        <div>
-            <h6 class="mb-0">{{ $vacancy->title }}</h6>
-            <div class="small-caption">{{ $vacancy?->department?->name }}</div>
+<div draggable="true"
+    data-vacancy-id="{{ $vacancy->id }}"
+    ondragstart="drag(event)"
+    class="vacancy-card block no-underline grey-container mb-4 transition duration-300 hover:scale-105 cursor-move">
+    <div class="flex justify-between gap-4 mb-5">
+        <div class="flex items-center gap-5">
+            @svg('briefcase', 'w-6 h-6')
+            <a href="{{ route('vacancy.edit', $vacancy) }}" class="no-underline">
+                <h6 class="mb-0">{{ $vacancy->title }}</h6>
+                <div class="small-caption">{{ $vacancy?->department?->name }}</div>
+            </a>
         </div>
+        @svg('move', 'w-6 h-6')
     </div>
     <div class="flex flex-wrap items-center gap-4 mb-5">
         <div class="budge budge-purple">{{ $vacancy?->working_day?->name }}</div>
@@ -23,4 +29,4 @@
             <span class="font-bold">{{ $vacancy->amount }}</span>/<span>{{ $vacancy->amount_per }}</span>
         </div>
     </div>
-</a>
+</div>

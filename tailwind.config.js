@@ -6,9 +6,8 @@ export default {
     "./resources/**/*.vue",
   ],
   safelist: [
-    {
-      pattern: /bg-(red|green|yellow|teal|purple)/,
-    },
+    {pattern: /bg-(red|green|yellow|teal|purple)/,},
+    {pattern: /border-(red|green|yellow|teal|purple)/,},
   ],
   theme: {
     colors: {

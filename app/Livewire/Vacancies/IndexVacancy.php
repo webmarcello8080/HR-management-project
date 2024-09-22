@@ -5,14 +5,21 @@ namespace App\Livewire\Vacancies;
 use App\Enums\VacancyStatus;
 use App\Models\Vacancy;
 use App\Services\VacancySearchService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class IndexVacancy extends Component
 {    
-    public array $statusColours = ['yellow', 'red', 'green'];
+    public array $statusColours = ['green', 'red', 'yellow'];
     public string $search = '';
+
+    public function updateVacancyStatus(int $vacancyId, int $newStatus)
+    {
+        $vacancy = Vacancy::find($vacancyId);
+        if ($vacancy->vacancy_status != $newStatus) {
+            $vacancy->update(['vacancy_status' => $newStatus]);
+        }
+    }
 
     public function render(): View
     {
