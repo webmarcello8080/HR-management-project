@@ -31,6 +31,8 @@ class CreateHoliday extends Component
         $this->holiday->fill($validated);
         $this->holiday->save();
 
+        session()->flash('status', 'Holiday successfully submitted.');
+
         $this->close();
     }
 

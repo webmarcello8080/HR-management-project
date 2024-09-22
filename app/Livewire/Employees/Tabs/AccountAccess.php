@@ -50,7 +50,7 @@ class AccountAccess extends Component
         $employeeService = new CreateEmployeeService;
         $employeeService->createEmployeeAccount($this->employee_account, $this->employee, $validated);
 
-        session()->flash('status', 'Employee successfully created.');
+        session()->flash('status', 'Employee successfully submitted.');
  
         $this->redirectRoute('employee.index');
     }

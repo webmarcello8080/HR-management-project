@@ -41,6 +41,8 @@ class CreateCandidate extends Component
         $this->candidate->fill($validated);
         $this->candidate->save();
 
+        session()->flash('status', 'Candidate successfully submitted.');
+
         $this->redirectRoute('candidate.index');
     }
 

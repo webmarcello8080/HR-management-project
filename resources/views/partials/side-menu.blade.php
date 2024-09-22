@@ -1,8 +1,8 @@
-<div class="grey-container min-h-[calc(100vh-40px)] sticky top-5 basis-72 grow-0 shrink-0">
+<div id="side-bar" class="grey-container min-h-[calc(100vh-40px)] sticky top-5 basis-72 grow-0 shrink-0">
     <h2 class="mb-8"><a class="no-underline" href="{{ route('home') }}">LogoHere</a></h2>
     {{-- Admin main menu --}}
     @can('admin')
-        <nav class="main-menu">
+        <nav id="side-nav" class="main-menu">
             <a wire:navigate href="{{ route('employee.index' )}}" class="menu-item {{ request()->routeIs('employee.*') ? 'active' : '' }}">
                 @svg('group', 'w-6 h-6')<span>All Employees</span>
             </a>
@@ -31,7 +31,7 @@
     @endcan
     {{-- Employee main menu --}}
     @can('employee')
-        <nav class="main-menu">
+        <nav id="side-nav" class="main-menu">
             <a wire:navigate href="{{ route('attendance.create' )}}" class="menu-item {{ request()->routeIs('attendance.*') ? 'active' : '' }}">
                 @svg('calendar', 'w-6 h-6')<span>New Attendance</span>
             </a>

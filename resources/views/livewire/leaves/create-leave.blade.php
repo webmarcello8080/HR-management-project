@@ -3,14 +3,18 @@
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">
-            <div class="flex-1 flex-grow" wire:ignore>
+            <div class="flex-1 flex-grow">
                 <label class="input-label" for="">Date From</label>
-                <input type="text" wire:model.blur='from_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date From">
+                <div wire:ignore>
+                    <input type="text" wire:model.blur='from_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date From">
+                </div>
                 @error('from_date') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="flex-1 flex-grow" wire:ignore>
+            <div class="flex-1 flex-grow">
                 <label class="input-label" for="">Date To</label>
-                <input type="text" wire:model.blur='to_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date To">
+                <div wire:ignore>
+                    <input type="text" wire:model.blur='to_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Date To">
+                </div>
                 @error('to_date') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>

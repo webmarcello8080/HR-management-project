@@ -2,7 +2,7 @@
 @section('content')
 	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
-			@include('partials\validate-errors')
+			@include('partials\messages\validate-errors')
 
 			<h4 class="mb-2">Comfirm Password</h4>
 			<div class="caption mb-5">

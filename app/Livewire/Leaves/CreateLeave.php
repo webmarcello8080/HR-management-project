@@ -48,6 +48,8 @@ class CreateLeave extends Component
         $this->leave->fill($validated);
         $this->leave->save();
 
+        session()->flash('status', 'Leave successfully submitted.');
+
         if(auth()->user()->hasRole('employee')){
             $this->redirectRoute('employee.show', auth()->user()->employee);
         } else {

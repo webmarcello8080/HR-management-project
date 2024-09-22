@@ -53,6 +53,8 @@ class CreateVacancy extends Component
         $this->vacancy->fill($validated);
         $this->vacancy->save();
 
+        session()->flash('status', 'Vacancy successfully submitted.');
+
         $this->redirectRoute('vacancy.index');
     }
 

@@ -9,7 +9,7 @@
 				<div class="caption">Please login here</div>
 			</div>
 
-			@include('partials\validate-errors')
+			@include('partials\messages\validate-errors')
 
 			<form method="POST" action="{{ route('login') }}">
 				@csrf

@@ -64,6 +64,8 @@ class CreatePayroll extends Component
         $this->payroll->fill($validated);
         $this->payroll->save();
 
+        session()->flash('status', 'Payroll successfully submitted.');
+
         $this->redirectRoute('payroll.index');
     }
 

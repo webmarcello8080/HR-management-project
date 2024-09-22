@@ -7,7 +7,7 @@ export default {
   ],
   safelist: [
     {
-      pattern: /bg-(red|green|yellow)/,
+      pattern: /bg-(red|green|yellow|teal|purple)/,
     },
   ],
   theme: {
@@ -19,6 +19,7 @@ export default {
       'grey': '#A2A1A8',
       'purple': '#7152F3',
       'green': '#A3D139',
+      'teal': '#38B2AC',
       'red': '#F45B69',
       'magenta': '#B21589',
       'yellow': '#EFBE12',

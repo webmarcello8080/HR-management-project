@@ -62,6 +62,8 @@ class CreateAttendance extends Component
         $this->attendance->fill($validated);
         $this->attendance->save();
 
+        session()->flash('status', 'Attendance successfully submitted.');
+
         if(auth()->user()->hasRole('employee')){
             $this->redirectRoute('employee.show', auth()->user()->employee);
         } else {
