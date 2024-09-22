@@ -1,4 +1,4 @@
-<div id="top-bar" class=" mb-11">
+<div id="top-bar" class=" mb-8">
     <div class="flex items-center justify-between">
         <div>
             <h6 class="mb-0">@yield('page-title')</h6>
