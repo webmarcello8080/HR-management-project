@@ -2,7 +2,7 @@
 @section('page-subtitle', 'See All Payrolls')
 <div class="rounded-container">
     <div class="flex items-center justify-between gap-5 mb-5">
-        <div class="flex items-center gap-5">
+        <div class="flex items-center gap-5" wire:ignore>
             <input wire:model.live.debounce.500ms='search' type="text" class="input-element" placeholder="Search"/>
             <input wire:model.live.debounce.500ms='search_date' type="test" onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Search Date"/>
         </div>

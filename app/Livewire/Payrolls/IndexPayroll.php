@@ -3,6 +3,7 @@
 namespace App\Livewire\Payrolls;
 
 use App\Models\Payroll;
+use App\Services\PayrollSearchService;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -28,8 +29,8 @@ class IndexPayroll extends Component
         if(!$this->search && !$this->search_date){
             $payrolls = Payroll::orderBy('payroll_date', 'desc')->paginate($perPage);
         } else{
-            // $searchService = new PayrollSearchService;
-            // $payrolls = $searchService->search($this->search, $this->search_date)->orderBy('payroll_date', 'desc')->paginate($perPage);
+            $searchService = new PayrollSearchService;
+            $payrolls = $searchService->search($this->search, $this->search_date)->orderBy('payroll_date', 'desc')->paginate($perPage);
         }
 
         return view('livewire.payrolls.index-payroll', [

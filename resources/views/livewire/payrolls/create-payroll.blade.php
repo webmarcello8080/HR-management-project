@@ -3,14 +3,14 @@
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="flex justify-center gap-5 mb-5">
-            <div class="flex-1 flex-grow" wire:ignore>
-                <label class="input-label" for="">Payroll Date</label>
+            <div class="flex-1 flex-grow">
+                <label class="input-label" for="payroll_date">Payroll Date</label>
                 <input type="text" wire:model.blur='payroll_date' onfocus="(this.type='date')" onblur="(this.type='text')" class="input-element" placeholder="Payroll Date">
                 @error('payroll_date') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
                 <label class="input-label" for="">Select Employee</label>
-                <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.submit()" placeholder="Select Employee"/>
+                <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.updated()" placeholder="Select Employee"/>
                 @error('employee_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>

@@ -11,6 +11,7 @@ use Livewire\Component;
 class CreatePayroll extends Component
 {
     public Payroll $payroll;
+    
     #[Validate]
     public $payroll_date;
     #[Validate]
