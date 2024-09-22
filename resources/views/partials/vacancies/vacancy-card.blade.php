@@ -20,7 +20,7 @@
             @endif
         </div>
         <div> 
-            <span class="font-bold">£{{ $vacancy->amount }}</span>/<span>{{ $vacancy->amount_per }}</span>
+            <span class="font-bold">{{ $vacancy->amount }}</span>/<span>{{ $vacancy->amount_per }}</span>
         </div>
     </div>
 </a>
