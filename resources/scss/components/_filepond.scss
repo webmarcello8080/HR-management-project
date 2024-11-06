@@ -1,0 +1,7 @@
+.filepond--root{
+    @apply w-[340px] !mb-0 !font-light !font-lexend;
+
+    .filepond--credits{
+        @apply hidden;
+    }
+}

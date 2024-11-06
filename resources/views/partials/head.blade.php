@@ -4,9 +4,6 @@
 
     <title>@yield('page-title') | {{ config('app.name') }}</title>
 
-    @if(app(App\Settings\GeneralSettings::class)->favicon)
-        <link rel="icon" href="{{ app(App\Settings\GeneralSettings::class)->favicon }}" type="image/x-icon">
-    @endif
-
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @filepondScripts
 </head>

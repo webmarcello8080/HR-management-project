@@ -27,9 +27,9 @@ class GeneralSettings extends Settings
     public string $company_email;
 
     /**
-     * @var string The favicon of the site
+     * @var string The logo of the site
      */
-    public ?string $favicon = null;
+    public ?string $logo = null;
 
     public static function group(): string
     {
