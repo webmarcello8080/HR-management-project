@@ -10,19 +10,19 @@
         </div>
     </div>
     <div class="flex gap-5">
-        @foreach ($vacancyStatuses as $key => $status)
+        @foreach (\App\Enums\VacancyStatus::cases() as $status)
             <div class="vacancy-status-drop-area rounded-container transition-all duration-300 basis-1/3"
-                ondrop="drop(event, {{ $key }})" 
+                ondrop="drop(event, {{ $status->value }})" 
                 ondragover="allowDrop(event)"
                 ondragenter="highlightDropZone(event)"
                 ondragleave="removeHighlightDropZone(event)"
                 >
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-3 h-3 bg-{{ $statusColours[$key - 1] }} rounded-full"></div>
-                    <h6 class="mb-0">{{ $status }} Vacancies</h6>
+                    <div class="w-3 h-3 bg-{{ $status->colour() }} rounded-full"></div>
+                    <h6 class="mb-0">{{ $status->label() }} Vacancies</h6>
                 </div>
                 @foreach ($vacancies as $vacancy)
-                    @if ($vacancy->vacancy_status->value == $key)
+                    @if ($vacancy->vacancy_status->value == $status->value)
                         @include('partials\vacancies\vacancy-card')
                     @endif
                 @endforeach

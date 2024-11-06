@@ -20,4 +20,13 @@ enum VacancyStatus: int
             self::Completed => 'Completed',
         };
     }
+
+    public function colour(): string
+    {
+        return match ($this) {
+            self::Active => 'green',
+            self::Inactive => 'red',
+            self::Completed => 'yellow',
+        };
+    }
 }
