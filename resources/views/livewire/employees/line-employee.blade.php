@@ -8,7 +8,7 @@
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->department?->name }}</span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->employeeType?->name }}</span>
     <span class="table-cell align-middle py-2">
-        <span class="budge budge-purple">{{ $employee->employeeInformation?->working_day?->name }}</span>
+        <span class="budge budge-purple">{{ $employee->employeeInformation?->working_day?->label() }}</span>
     </span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->location?->name }}</span>
     <span class="table-cell align-middle py-2">
