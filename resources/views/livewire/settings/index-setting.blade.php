@@ -39,7 +39,22 @@
                     <h6 class="mb-0">Favicon</h6>
                     <div class="small-caption">Insert a small icon for the favicon</div>    
                 </div>
-                <div>here</div>
+                <div class="flex gap-4 items-center">
+                    @if ($favicon && !$errors->get('favicon'))
+                        <div class="w-16 h-16">
+                            <img class="w-full h-full object-cover" src="{{ $favicon }}">
+                        </div>
+                    @endif
+                    <div class="flex flex-col">
+                        <input type="file" wire:model.blur='favicon' >
+                        @error('favicon') <span class="error">{{ $message }}</span> @enderror    
+                    </div>
+                    @if ($favicon)
+                        <div>
+                            <a class="btn btn-small btn-grey" wire:confirm="Are you sure you want to permanently remove this image?" wire:click='removeFavicon'>Remove Image</a>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
         <div class="flex justify-end gap-5">

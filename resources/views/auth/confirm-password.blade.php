@@ -1,4 +1,5 @@
 @extends('layouts.auth')
+@section('page-title', 'Confirm Password')
 @section('content')
 	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
