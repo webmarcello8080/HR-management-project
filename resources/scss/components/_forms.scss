@@ -6,12 +6,12 @@
     }
 
     &::placeholder{
-        @apply text-grey/80 font-light;
+        @apply text-grey/80;
     } 
 }
 
 .input-label{
-    @apply mb-1 block pl-4 text-grey font-light leading-5;
+    @apply mb-1 block pl-4 text-grey leading-5;
 }
 
 .input-checkbox{

@@ -1,9 +1,13 @@
 @section('page-title', 'Settings')
-@section('page-subtitle', 'AllSystem Settings')
+@section('page-subtitle', 'All System Settings')
 <div class="rounded-container">
     <form wire:submit='save'>
         <div class="setting-container">
-            <h6>Company Information</h6>
+            <div class="mb-5">
+                <h6 class="mb-0">Company Information</h6>
+                <div class="small-caption">Insert your company information</div>    
+            </div>
+            {{-- {{var_dump($settings)}} --}}
             <div class="flex justify-center gap-5 mb-5">
                 <div class="flex-1 flex-grow">
                     <label class="input-label" for="">Company Name</label>
@@ -27,6 +31,15 @@
                     <input type="text" wire:model.blur='company_email' class="input-element" placeholder="Company Email">
                     @error('company_email') <span class="error">{{ $message }}</span> @enderror
                 </div>
+            </div>
+        </div>
+        <div class="setting-container">
+            <div class="flex flex-wrap items-center justify-between pb-5">
+                <div>
+                    <h6 class="mb-0">Favicon</h6>
+                    <div class="small-caption">Insert a small icon for the favicon</div>    
+                </div>
+                <div>here</div>
             </div>
         </div>
         <div class="flex justify-end gap-5">
