@@ -45,7 +45,7 @@ class IndexSetting extends Component
         $settings = new GeneralSettings();
 
         if ($this->logo) {
-            $validated['logo'] = asset('storage/' . $this->logo->store('settings', 'logo','public'));
+            $validated['logo'] = asset('storage/' . $this->logo->storeAs('settings', 'logo', 'public'));
         }
 
         $settings->fill($validated);
