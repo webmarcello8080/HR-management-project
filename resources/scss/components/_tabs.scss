@@ -2,7 +2,7 @@
     @apply py-2 flex gap-2 items-center;
 
     &.active{
-        @apply text-purple border-b-2 border-purple font-bold;
+        @apply text-purple border-b-2 border-purple font-semibold;
 
         svg{
             path, ellipse, circle{

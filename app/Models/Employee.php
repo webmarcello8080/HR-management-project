@@ -91,7 +91,7 @@ class Employee extends Model implements HasMedia
             return $media[0]->getUrl('thumb');
         }
 
-        return asset('/images/placeholder.jpg');
+        return asset('/images/placeholders/user-placeholder.jpg');
     }
 
     /**

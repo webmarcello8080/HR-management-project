@@ -24,7 +24,7 @@
             <h6 class="my-5 caption">No holidays found</h6>
         @endif
     </div>
-    <div class="flex flex-wrap gap-5 items-center font-bold">
+    <div class="flex flex-wrap gap-5 items-center font-semibold">
         <div class="flex items-center gap-2"><span class="bg-purple w-3 h-3 rounded-full"></span>Upcoming</div>
         <div class="flex items-center gap-2"><span class="bg-grey/20 w-3 h-3 rounded-full"></span>Past holidays</div>
     </div>

@@ -11,7 +11,7 @@
                 @svg('warning', 'w-6 h-6')
             </div>
             <div>
-                <div class="font-medium error">
+                <div class="font-semibold error">
                     {{ __('Whoops! Something went wrong.') }}
                 </div>
                 <ul class="error">
