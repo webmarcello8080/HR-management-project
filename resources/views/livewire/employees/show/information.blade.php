@@ -77,7 +77,7 @@
                     <div class="small-caption">Days of Holiday</div><div>{{ $employee?->employeeInformation?->days_of_holiday }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Holidays remaining this year</div><div>{{ $employee?->employeeInformation?->getHolidayLeft() }}</div>
+                    <div class="small-caption">Holidays remaining this year</div><div>{{ $employee?->employeeInformation?->getHolidayLeft(date('Y')) }}</div>
                 </div>
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">

@@ -47,12 +47,23 @@ class EmployeeInformation extends Model
     }
 
     /**
+     * get the number of leave days for given year
+     */
+    public function leaveDaysForYear($year)
+    {
+        return $this->employee->leaves()
+            ->whereYear('from_date', $year)
+            ->where('leave_status', 2)
+            ->sum('days');
+    }
+
+    /**
      * get number of days of holiday left for this Employee
      */
-    public function getHolidayLeft(): float
+    public function getHolidayLeft($year): float
     {
         if($this->days_of_holiday){
-            return $this->days_of_holiday - $this->employee->leaves->sum('days');
+            return $this->days_of_holiday - $this->leaveDaysForYear($year);
         }
 
         return 0;
