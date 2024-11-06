@@ -7,6 +7,8 @@ trait EnumFunctions {
     /**
      * Transform an Enum in an array value/name or value/label if method label exists
      * [ 1 => 'Name1', 2 => 'Name2', ...]
+     * 
+     * usage: "LeaveStatus::toArray()"
      */
     public static function toArray(): array
     {

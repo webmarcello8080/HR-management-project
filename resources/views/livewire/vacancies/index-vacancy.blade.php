@@ -10,19 +10,19 @@
         </div>
     </div>
     <div class="flex gap-5">
-        @foreach ($vacancyStatuses as $status)
+        @foreach ($vacancyStatuses as $key => $status)
             <div class="vacancy-status-drop-area rounded-container transition-all duration-300 basis-1/3"
-                ondrop="drop(event, {{ $status->value }})" 
+                ondrop="drop(event, {{ $key }})" 
                 ondragover="allowDrop(event)"
                 ondragenter="highlightDropZone(event)"
                 ondragleave="removeHighlightDropZone(event)"
                 >
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-3 h-3 bg-{{ $statusColours[$status->value - 1] }} rounded-full"></div>
-                    <h6 class="mb-0">{{ $status->name }} Vacancies</h6>
+                    <div class="w-3 h-3 bg-{{ $statusColours[$key - 1] }} rounded-full"></div>
+                    <h6 class="mb-0">{{ $status }} Vacancies</h6>
                 </div>
                 @foreach ($vacancies as $vacancy)
-                    @if ($vacancy->vacancy_status->value == $status->value)
+                    @if ($vacancy->vacancy_status->value == $key)
                         @include('partials\vacancies\vacancy-card')
                     @endif
                 @endforeach

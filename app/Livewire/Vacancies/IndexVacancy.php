@@ -32,7 +32,7 @@ class IndexVacancy extends Component
 
         return view('livewire.vacancies.index-vacancy', [
             'vacancies' => $vacancies,
-            'vacancyStatuses' => VacancyStatus::cases(),
+            'vacancyStatuses' => VacancyStatus::toArray(),
         ]);
     }
 }
