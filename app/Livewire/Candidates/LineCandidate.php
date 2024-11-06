@@ -9,7 +9,6 @@ use Livewire\Component;
 class LineCandidate extends Component
 {
     public Candidate $candidate;
-    public array $statusColours = ['green', 'yellow', 'red'];
 
     public function mount(Candidate $candidate): void
     {

@@ -20,4 +20,13 @@ enum LeaveStatus: int
             self::Rejected => 'Rejected',
         };
     }
+
+    public function colour(): string
+    {
+        return match ($this) {
+            self::Pending => 'yellow',
+            self::Approved => 'green',
+            self::Rejected => 'red',
+        };
+    }
 }

@@ -10,7 +10,6 @@ class LineLeave extends Component
 {
     public Leave $leave;
     public bool $display_user;
-    public array $statusColours = ['yellow', 'green', 'red'];
 
     public function mount(Leave $leave, bool $display_user): void
     {

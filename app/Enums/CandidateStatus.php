@@ -20,4 +20,13 @@ enum CandidateStatus: int
             self::Rejected => 'Rejected',
         };
     }
+
+    public function colour(): string
+    {
+        return match ($this) {
+            self::Hired => 'green',
+            self::InProgress => 'yellow',
+            self::Rejected => 'red',
+        };
+    }
 }
