@@ -27,6 +27,9 @@
             <a wire:navigate href="{{ route('holiday.index' )}}" class="menu-item {{ request()->routeIs('holiday.*') ? 'active' : '' }}">
                 @svg('note', 'w-6 h-6')<span>Holidays</span>
             </a>
+            <a wire:navigate href="{{ route('setting.index' )}}" class="menu-item {{ request()->routeIs('setting.*') ? 'active' : '' }}">
+                @svg('setting', 'w-6 h-6')<span>Settings</span>
+            </a>
         </nav>
     @endcan
     {{-- Employee main menu --}}

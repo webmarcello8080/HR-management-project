@@ -15,6 +15,7 @@ use App\Livewire\Leaves\CreateLeave;
 use App\Livewire\Leaves\IndexLeave;
 use App\Livewire\Payrolls\CreatePayroll;
 use App\Livewire\Payrolls\IndexPayroll;
+use App\Livewire\Settings\IndexSetting;
 use App\Livewire\Vacancies\CreateVacancy;
 use App\Livewire\Vacancies\IndexVacancy;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,9 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/payroll', CreatePayroll::class)->name('payroll.create');
     Route::get('/payroll/{payroll}/edit', CreatePayroll::class)->name('payroll.edit');
     Route::get('/payrolls', IndexPayroll::class)->name('payroll.index');
+
+    // settings route
+    Route::get('/settings', IndexSetting::class)->name('setting.index');
 
 });
 
