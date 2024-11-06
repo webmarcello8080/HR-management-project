@@ -12,7 +12,7 @@ class CreateEmployeeService{
     /**
      * create Employee and save related image if it set
      */
-    public function createEmployee(Employee $employee, array $validated, string $mediaName): void
+    public function createEmployee(Employee $employee, array $validated): void
     {
         // save employee information
         $employee->fill($validated);
@@ -22,12 +22,6 @@ class CreateEmployeeService{
         if($employee->user){
             $employee->user->name = $employee->getFullName();
             $employee->user->save();
-        }
-
-        // save image against employee
-        if ($validated['profile_image']) {
-            $employee->clearMediaCollection($mediaName);
-            $employee->addMedia($validated['profile_image']->path())->toMediaCollection($mediaName);
         }
     }
 

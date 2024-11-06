@@ -1,26 +1,8 @@
 <div>
     <form wire:submit='save'>
-        <div class="flex items-center justify-center gap-5 mb-5">
-            @if ($existing_media && !$profile_image)
-                <div class="w-16 h-16">
-                    <img class="w-full h-full object-cover" src="{{ $existing_media }}">
-                </div>
-            @endif
-            @if ($profile_image && !$errors->get('profile_image'))
-                <div class="w-16 h-16">
-                    <img class="w-full h-full object-cover" src="{{ $profile_image->temporaryUrl() }}">
-                </div>
-            @endif
-            <div class="flex-1 flex-grow">
-                <input type="file" wire:model.blur='profile_image' >
-                @error('profile_image') <span class="error">{{ $message }}</span> @enderror
-            </div>
-            {{-- if media exists you can delete it from server and DB --}}
-            @if ($existing_media)
-                <div>
-                    <a class="btn btn-small btn-grey" wire:confirm="Are you sure you want to permanently remove this image?" wire:click='removeMedia'>Remove Image</a>
-                </div>
-            @endif
+        <div class="flex items-center justify-between gap-5 mb-5">
+            <div>Profile Image</div>
+            <x-filepond::upload wire:model="profile_image" />
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">

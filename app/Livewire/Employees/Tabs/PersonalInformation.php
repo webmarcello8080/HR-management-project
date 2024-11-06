@@ -9,16 +9,14 @@ use App\Traits\ConvertEmptyStringsToNull;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
-use Livewire\WithFileUploads;
+use Spatie\LivewireFilepond\WithFilePond;
 
 class PersonalInformation extends Component
 {
-    use WithFileUploads, ConvertEmptyStringsToNull;
+    use WithFilePond, ConvertEmptyStringsToNull;
 
     public Employee $employee;
     public $existing_media;
-    #[Validate]
-    public $profile_image;
     #[Validate]
     public $first_name;
     #[Validate]
@@ -27,6 +25,8 @@ class PersonalInformation extends Component
     public $mobile_number;
     #[Validate]
     public $email;
+    #[Validate]
+    public $profile_image;
     #[Validate]
     public $dob;
     #[Validate]
@@ -52,10 +52,9 @@ class PersonalInformation extends Component
     public function mount(Employee $employee = null)
     {
         $this->employee = $employee ?? new Employee();
-        $this->existing_media = $this->employee->exists ? $this->employee->getMediaUrl('profile_image') : null;
 
         $this->fill(
-            $employee->only('first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'),
+            $employee->only('first_name', 'last_name', 'mobile_number', 'email', 'profile_image', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'),
         );
     }
 
@@ -63,16 +62,14 @@ class PersonalInformation extends Component
     {
         $validated = $this->validate();
 
+        if($this->profile_image){
+            $validated['profile_image'] = asset('storage/' . $this->profile_image->store('profile-image', 'public'));
+        }
+
         $employeeService = new CreateEmployeeService;
-        $employeeService->createEmployee($this->employee, $validated, 'profile_image');
+        $employeeService->createEmployee($this->employee, $validated);
 
         $this->dispatch('next-step', employee: $this->employee);
-    }
-
-    public function removeMedia(): void
-    {
-        $this->employee->clearMediaCollection('profile_image');
-        $this->existing_media = '';
     }
 
     public function render(): View

@@ -10,15 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Employee extends Model implements HasMedia
+class Employee extends Model
 {
-    use HasFactory, InteractsWithMedia, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code', 'user_id'];
+    protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'profile_image', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code', 'user_id'];
     protected $casts = ['marital_status' => MaritalStatus::class, 'gender' => Gender::class];
 
     /**
@@ -70,36 +67,23 @@ class Employee extends Model implements HasMedia
     }
 
     /**
-     * convert images before save it on server
-     */
-    public function registerMediaConversions(?Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-            ->width(368)
-            ->height(232)
-            ->sharpen(10);
-    }
-
-    /**
-     * get this employee image url based on image name
-     */
-    public function getMediaUrl(string $mediaName): string
-    {
-        $media = $this->getMedia($mediaName);
-
-        if(isset($media[0])){
-            return $media[0]->getUrl('thumb');
-        }
-
-        return asset('/images/placeholders/user-placeholder.jpg');
-    }
-
-    /**
      * get this Employee Full Name
      */
     public function getFullName() : string 
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    /**
+     * get this employee image url based on image name
+     */
+    public function getProfileUrl(): string
+    {
+        if($this->profile_image){
+            return $this->profile_image;
+        }
+
+        return asset('/images/placeholders/user-placeholder.jpg');
     }
 
     /**

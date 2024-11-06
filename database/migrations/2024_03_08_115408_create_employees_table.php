@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('mobile_number')->nullable();
             $table->string('email')->unique();
+            $table->string('profile_image');
             $table->date('dob');
             $table->unsignedSmallInteger('marital_status')->nullable();
             $table->unsignedSmallInteger('gender');
