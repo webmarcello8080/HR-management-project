@@ -31,6 +31,11 @@ class GeneralSettings extends Settings
      */
     public ?string $logo = null;
 
+    /**
+     * @var string The favicon of the site
+     */
+    public ?string $favicon = null;
+
     public static function group(): string
     {
         return 'general';

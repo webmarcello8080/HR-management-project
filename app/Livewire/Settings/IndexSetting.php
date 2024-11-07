@@ -24,6 +24,8 @@ class IndexSetting extends Component
     public $company_email;
     #[Validate]
     public $logo;
+    #[Validate]
+    public $favicon;
 
     public function rules(){
         return (new GeneralSettingsRequest())->rules();
@@ -37,6 +39,7 @@ class IndexSetting extends Component
         $this->company_phone = $settings->company_phone;
         $this->company_email = $settings->company_email;
         $this->logo = $settings->logo;
+        $this->favicon = $settings->favicon;
     }
 
     public function save(): void
@@ -48,6 +51,11 @@ class IndexSetting extends Component
         if ($this->logo instanceof TemporaryUploadedFile) {
             $fileExtension =  $this->logo->extension();
             $validated['logo'] = asset('storage/' . $this->logo->storeAs('settings', 'logo.' . $fileExtension, 'public'));
+        }
+
+        if ($this->favicon instanceof TemporaryUploadedFile) {
+            $fileExtension =  $this->favicon->extension();
+            $validated['favicon'] = asset('storage/' . $this->favicon->storeAs('settings', 'favicon.' . $fileExtension, 'public'));
         }
 
         $settings->fill($validated);

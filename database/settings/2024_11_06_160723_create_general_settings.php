@@ -11,5 +11,6 @@ return new class extends SettingsMigration
         $this->migrator->add('general.company_phone', '077 526 2092');
         $this->migrator->add('general.company_email', 'please@change.me');
         $this->migrator->add('general.logo', '');
+        $this->migrator->add('general.favicon', '');
     }
 };
