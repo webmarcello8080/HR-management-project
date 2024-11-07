@@ -1,5 +1,7 @@
 <div id="side-bar" class="grey-container min-h-[calc(100vh-40px)] sticky top-5 basis-72 grow-0 shrink-0">
+    
     @include('partials.logo')
+    
     {{-- Admin main menu --}}
     @can('admin')
         <nav id="side-nav" class="main-menu">
