@@ -1,5 +1,5 @@
 <div id="side-bar" class="grey-container min-h-[calc(100vh-40px)] sticky top-5 basis-72 grow-0 shrink-0">
-    <h2 class="mb-8"><a class="no-underline" href="{{ route('home') }}">LogoHere</a></h2>
+    @include('partials.logo')
     {{-- Admin main menu --}}
     @can('admin')
         <nav id="side-nav" class="main-menu">

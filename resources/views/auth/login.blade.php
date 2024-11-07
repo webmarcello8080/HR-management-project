@@ -3,9 +3,11 @@
 @section('content')
 	<div class="h-full flex flex-col sm:justify-center items-center">
 		<div class="w-full sm:max-w-[500px] p-6">
-			<h2 class="mb-9">LogoHere</h2>
+
+			@include('partials\logo')
+
 			<div class="mb-5">
-				<h4 class="mb-0">Welcome</h4>
+				<h4 class="mb-2">Welcome</h4>
 				<div class="caption">Please login here</div>
 			</div>
 
