@@ -7,6 +7,7 @@ use App\Settings\GeneralSettings;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Spatie\LivewireFilepond\WithFilePond;
 
 class IndexSetting extends Component
@@ -44,7 +45,7 @@ class IndexSetting extends Component
 
         $settings = new GeneralSettings();
 
-        if ($this->logo) {
+        if ($this->logo instanceof TemporaryUploadedFile) {
             $fileExtension =  $this->logo->extension();
             $validated['logo'] = asset('storage/' . $this->logo->storeAs('settings', 'logo.' . $fileExtension, 'public'));
         }

@@ -36,11 +36,10 @@
             <div class="flex flex-wrap items-center justify-between pb-5">
                 <div>
                     <h6 class="mb-0">Logo</h6>
-                    <div class="small-caption">Insert your company logo</div>    
+                    <div class="small-caption">Insert your company logo</div>
+                    @error('logo') <span class="error">{{ $message }}</span> @enderror
                 </div>
-                <div wire:ignore wire:key='logo'>
-                    <x-filepond::upload wire:model="logo" />
-                </div>
+                <x-filepond::upload wire:model="logo" />
             </div>
         </div>
         <div class="flex justify-end gap-5">

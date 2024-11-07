@@ -1,7 +1,10 @@
 <div>
     <form wire:submit='save'>
         <div class="flex items-center justify-between gap-5 mb-5">
-            <div>Profile Image</div>
+            <div>
+                <p>Profile Image</p>
+                @error('profile_image') <span class="error">{{ $message }}</span> @enderror
+            </div>
             <x-filepond::upload wire:model="profile_image" />
         </div>
         <div class="flex justify-center gap-5 mb-5">

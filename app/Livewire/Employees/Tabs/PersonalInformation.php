@@ -9,6 +9,7 @@ use App\Traits\ConvertEmptyStringsToNull;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Spatie\LivewireFilepond\WithFilePond;
 
 class PersonalInformation extends Component
@@ -62,7 +63,7 @@ class PersonalInformation extends Component
     {
         $validated = $this->validate();
 
-        if($this->profile_image){
+        if($this->profile_image instanceof TemporaryUploadedFile){
             $validated['profile_image'] = asset('storage/' . $this->profile_image->store('profile-image', 'public'));
         }
 

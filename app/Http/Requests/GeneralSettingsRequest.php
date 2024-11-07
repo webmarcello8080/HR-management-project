@@ -26,7 +26,7 @@ class GeneralSettingsRequest extends FormRequest
             'company_address' => 'required|string|max:255',
             'company_phone' => 'nullable|string|max:255',
             'company_email' => 'nullable|email:rfc,dns|max:255',
-            'logo' => 'nullable|image|max:1024',
+            'logo' => 'nullable|max:1024',
         ];
     }
 }

@@ -39,7 +39,7 @@ class EmployeePersonalInformationRequest extends FormRequest
             'last_name' => 'required|min:3',
             'mobile_number' => 'nullable|min:3',
             'email' => 'required|min:3|email:rfc,dns|' . Rule::unique('employees')->ignore($employeeId),
-            'profile_image' => 'nullable|image|max:1024',
+            'profile_image' => 'nullable|max:1024',
             'dob' => 'required|date',
             'marital_status' => 'nullable',
             'gender' => 'required',
