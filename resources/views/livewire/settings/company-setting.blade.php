@@ -1,9 +1,6 @@
-<form class="rounded-container mb-5" wire:submit='save'>
+<form wire:submit='save'>
     <div class="setting-container">
-        <div class="mb-5">
-            <h6 class="mb-0">Company Information</h6>
-            <div class="small-caption">Insert your company information</div>    
-        </div>
+        <p class="mb-5">Insert your company information</p>    
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
                 <label class="input-label" for="">Company Name</label>

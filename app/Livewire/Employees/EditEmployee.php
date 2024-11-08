@@ -9,7 +9,7 @@ use Livewire\Attributes\On;
 class EditEmployee extends Component
 {
     public Employee $employee;
-    public $formStep = 1;
+    public int $formStep = 1;
 
     public function mount(Employee $employee): void{
         $this->employee = $employee;
