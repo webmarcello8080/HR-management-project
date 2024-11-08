@@ -17,7 +17,7 @@
         @apply text-purple bg-purple/10;
 
         svg{
-            path, ellipse, circle{
+            path, ellipse, circle, rect{
                 @apply stroke-purple;
             }
         }

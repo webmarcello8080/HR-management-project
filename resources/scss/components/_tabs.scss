@@ -1,16 +1,21 @@
-.tab{
-    @apply py-2 flex gap-2 items-center;
+.tab-wrapper{
+    @apply flex items-end justify-start gap-8 mb-5 border-b border-grey/20;
 
-    &.active{
-        @apply text-purple border-b-2 border-purple font-semibold;
-
-        svg{
-            path, ellipse, circle{
-                @apply stroke-purple;
+    .tab{
+        @apply py-2 flex gap-2 items-center;
+    
+        &.active{
+            @apply text-purple border-b-2 border-purple font-semibold;
+    
+            svg{
+                path, ellipse, circle, rect{
+                    @apply stroke-purple;
+                }
             }
         }
     }
 }
+
 
 .menu-tabs{
     @apply p-4 flex gap-4 cursor-pointer;
@@ -19,7 +24,7 @@
         @apply bg-purple text-white;
 
         svg{
-            path, ellipse, circle{
+            path, ellipse, circle, rect{
                 @apply stroke-white;
             }
         }

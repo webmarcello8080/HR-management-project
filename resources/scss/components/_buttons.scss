@@ -19,7 +19,7 @@
 
     &.btn-purple, &.btn-red{
         svg{
-            path, ellipse, circle{
+            path, ellipse, circle, rect{
                 @apply stroke-white;
             }
         }
@@ -39,7 +39,7 @@
 
     &.btn-transparent, &.btn-grey{
         svg{
-            path, ellipse, circle{
+            path, ellipse, circle, rect{
                 @apply stroke-dark;
             }
         }

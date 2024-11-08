@@ -1,7 +1,7 @@
 @section('page-title', 'Create Employee')
 @section('page-subtitle', 'All Employees > New Employee')
 <div class="rounded-container">
-    <div class="flex items-end justify-start gap-5 mb-5 border-b border-grey/20">
+    <div class="tab-wrapper">
         <div class="tab @if($formStep == 1) active @endif">@svg('user', 'w-6 h-6') <span>Personal Information</span></div>
         <div class="tab @if($formStep == 2) active @endif">@svg('briefcase', 'w-6 h-6') <span>Professional Information</span></div>
         <div class="tab @if($formStep == 3) active @endif">@svg('lock', 'w-6 h-6') <span>Account Access</span></div>
