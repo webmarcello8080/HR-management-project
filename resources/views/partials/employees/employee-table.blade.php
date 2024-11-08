@@ -13,7 +13,7 @@
             @livewire('employees.line-employee', ['employee' => $employee], key('employee-' . $employee->id))
         @endforeach            
     @else
-        <h6 class="my-5 caption">No employees found</h6>
+        <p class="my-5 caption">No employees found</p>
     @endif
 </div>
 @include('partials.bottom-table-bar', ['collection' => $employees])

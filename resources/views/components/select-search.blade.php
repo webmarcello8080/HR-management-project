@@ -38,7 +38,7 @@
             <div class="flex flex-wrap space-x-1" x-cloak x-show="selected?.length > 0">
                 <template x-for="(key, index) in selected" :key="index">
                     <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
-                        <div class="px-2 truncate" x-text="data[key]"></div>
+                        <div class="pr-2 truncate" x-text="data[key]"></div>
                         <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption(index)">
                             @svg('x', 'w-3 h-3')
                         </div>
@@ -48,7 +48,7 @@
         @else
             <div class="flex flex-wrap" x-cloak x-show="selected">
                 <div class="text-grey-800 rounded-full truncate flex flex-row items-center">
-                    <div class="px-2 truncate" x-text="data[selected]"></div>
+                    <div class="pr-2 truncate" x-text="data[selected]"></div>
                     <div x-show="!disabled" x-bind:class="{'cursor-pointer':!disabled}" class="w-4" @click.prevent.stop="deselectOption()">
                         @svg('x', 'w-3 h-3')
                     </div>

@@ -16,6 +16,6 @@
             @livewire('payrolls.line-payroll', ['payroll' => $payroll, 'display_user' => $display_user], key('payroll-' . $payroll->id))
         @endforeach 
     @else
-        <h6 class="my-5 caption">No payrolls found</h6>
+        <p class="my-5 caption">No payrolls found</p>
     @endif
 </div>

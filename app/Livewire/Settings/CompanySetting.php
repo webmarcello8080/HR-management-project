@@ -51,11 +51,6 @@ class CompanySetting extends Component
             $validated['logo'] = asset('storage/' . $this->logo->storeAs('settings', 'logo.' . $fileExtension, 'public'));
         }
 
-        if ($this->favicon instanceof TemporaryUploadedFile) {
-            $fileExtension =  $this->favicon->extension();
-            $validated['favicon'] = asset('storage/' . $this->favicon->storeAs('settings', 'favicon.' . $fileExtension, 'public'));
-        }
-
         $settings->fill($validated);
         $settings->save();
 

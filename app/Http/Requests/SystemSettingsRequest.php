@@ -23,6 +23,7 @@ class SystemSettingsRequest extends FormRequest
     {
         return [
             'favicon' => 'nullable|max:1024',
+            'currency' => 'nullable|integer',
         ];
     }
 }

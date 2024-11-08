@@ -17,6 +17,6 @@
             @livewire('attendances.line-attendance', ['attendance' => $attendance, 'display_user' => $display_user], key('attendance-' . $attendance->id))
         @endforeach
     @else
-        <h6 class="my-5 caption">No attendances found</h6>
+        <p class="my-5 caption">No attendances found</p>
     @endif
 </div>

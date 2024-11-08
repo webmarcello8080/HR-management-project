@@ -16,6 +16,6 @@
             @livewire('leaves.line-leave', ['leave' => $leave, 'display_user' => $display_user], key('leave-' . $leave->id))
         @endforeach 
     @else
-        <h6 class="my-5 caption">No leaves found</h6>
+        <p class="my-5 caption">No leaves found</p>
     @endif
 </div>

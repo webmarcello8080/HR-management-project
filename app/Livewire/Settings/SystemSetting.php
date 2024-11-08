@@ -14,6 +14,8 @@ class SystemSetting extends Component
     use WithFilePond;
 
     #[Validate]
+    public $currency;
+    #[Validate]
     public $favicon;
 
     public function rules(): array
@@ -24,6 +26,7 @@ class SystemSetting extends Component
     public function mount(): void
     {
         $settings = resolve(SystemSettings::class);
+        $this->currency = $settings->currency;
         $this->favicon = $settings->favicon;
     }
 
