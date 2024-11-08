@@ -69,7 +69,7 @@
                     <div class="small-caption">Joining Date</div><div>{{ $employee?->employeeInformation?->joining_date }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Annual Salary</div><div>{{ $employee?->employeeInformation?->annual_salary }}</div>
+                    <div class="small-caption">Annual Salary</div><div>{{ $setting_currency }}{{ $employee?->employeeInformation?->annual_salary }}</div>
                 </div>
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">

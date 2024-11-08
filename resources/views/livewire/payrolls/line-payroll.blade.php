@@ -7,9 +7,9 @@
         </span>
     @endif
     <span class="table-cell align-middle py-2">{{ $payroll->payroll_date->format('F d, Y') }}</span>
-    <span class="table-cell align-middle py-2">{{ $payroll->annual_salary }}</span>
-    <span class="table-cell align-middle py-2">{{ $payroll->gross_pay }}</span>
-    <span class="table-cell align-middle py-2">{{ $payroll->net_pay }}</span>
+    <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->annual_salary }}</span>
+    <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->gross_pay }}</span>
+    <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->net_pay }}</span>
     @can('admin')
         <span class="table-cell align-middle py-2">
             <div class="flex items-center gap-2">

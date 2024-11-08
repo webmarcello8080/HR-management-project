@@ -4,7 +4,7 @@
     <div class="tab-wrapper">
         <div class="tab cursor-pointer @if($activeStep == 1) active @endif" wire:click='getToStep(1)'>@svg('system', 'w-6 h-6') <span>System Information</span></div>
         <div class="tab cursor-pointer @if($activeStep == 2) active @endif" wire:click='getToStep(2)'>@svg('company', 'w-6 h-6') <span>Company Information</span></div>
-        <div class="tab cursor-pointer @if($activeStep == 3) active @endif" wire:click='getToStep(3)'>@svg('variables', 'w-6 h-6') <span>Variables</span></div>
+        <div class="tab cursor-pointer @if($activeStep == 3) active @endif" wire:click='getToStep(3)'>@svg('categories', 'w-6 h-6') <span>Categories</span></div>
     </div>
     @if ($activeStep == 1)
         @livewire('settings.system-setting')

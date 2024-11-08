@@ -16,7 +16,7 @@
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Amount Offered</label>
+                <label class="input-label" for="">Amount Offered ({{ $setting_currency }})</label>
                 <input type="text" wire:model.blur='amount' class="input-element" placeholder="Amount">
                 @error('amount') <span class="error">{{ $message }}</span> @enderror
             </div>

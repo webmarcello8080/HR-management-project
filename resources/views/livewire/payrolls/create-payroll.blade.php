@@ -16,12 +16,12 @@
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Annual Salary</label>
+                <label class="input-label" for="">Annual Salary ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='annual_salary' class="input-element" placeholder="Annual Salary">
                 @error('annual_salary') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Gross Pay</label>
+                <label class="input-label" for="">Gross Pay ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='gross_pay' class="input-element" placeholder="Gross Pay">
                 @error('gross_pay') <span class="error">{{ $message }}</span> @enderror
             </div>
@@ -33,19 +33,19 @@
                 @error('deduction_percentage') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Deduction</label>
+                <label class="input-label" for="">Deduction ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='deduction' class="input-element" placeholder="Deduction">
                 @error('deduction') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="flex justify-center gap-5 mb-5">
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Insurance</label>
+                <label class="input-label" for="">Insurance ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='insurance' class="input-element" placeholder="Insurance">
                 @error('insurance') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow">
-                <label class="input-label" for="">Net Pay</label>
+                <label class="input-label" for="">Net Pay ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='net_pay' class="input-element" placeholder="Net Pay">
                 @error('net_pay') <span class="error">{{ $message }}</span> @enderror
             </div>

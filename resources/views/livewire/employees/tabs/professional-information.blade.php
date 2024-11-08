@@ -19,7 +19,7 @@
                 @error('joining_date') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="flex-1 flex-grow" wire:ignore>
-                <label class="input-label" for="">Annula Salary</label>
+                <label class="input-label" for="">Annula Salary ({{ $setting_currency }})</label>
                 <input type="number" step="0.01" wire:model.blur='annual_salary' class="input-element" placeholder="Annual Salary">
                 @error('annual_salary') <span class="error">{{ $message }}</span> @enderror
             </div>
