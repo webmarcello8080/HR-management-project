@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GeneralSettingsRequest extends FormRequest
+class SystemSettingsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class GeneralSettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_name' => 'required|string|max:255',
-            'company_address' => 'required|string|max:255',
-            'company_phone' => 'nullable|string|max:255',
-            'company_email' => 'nullable|email:rfc,dns|max:255',
-            'logo' => 'nullable|max:1024',
+            'favicon' => 'nullable|max:1024',
         ];
     }
 }

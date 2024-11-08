@@ -24,8 +24,6 @@ class CompanySetting extends Component
     public $company_email;
     #[Validate]
     public $logo;
-    #[Validate]
-    public $favicon;
 
     public function rules(): array
     {
@@ -40,7 +38,6 @@ class CompanySetting extends Component
         $this->company_phone = $settings->company_phone;
         $this->company_email = $settings->company_email;
         $this->logo = $settings->logo;
-        $this->favicon = $settings->favicon;
     }
 
     public function save(): void
@@ -62,7 +59,7 @@ class CompanySetting extends Component
         $settings->fill($validated);
         $settings->save();
 
-        session()->flash('status', 'Settings updated.');
+        session()->flash('status', 'Company settings updated.');
 
         $this->redirectRoute('setting.index');
     }
