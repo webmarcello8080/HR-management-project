@@ -15,6 +15,12 @@
 
     &.badge-purple{
         @apply text-purple bg-purple/10;
+
+        svg{
+            path, ellipse, circle{
+                @apply stroke-purple;
+            }
+        }
     }
 
     &.badge-big{

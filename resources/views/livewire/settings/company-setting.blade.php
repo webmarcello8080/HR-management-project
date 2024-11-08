@@ -1,4 +1,4 @@
-<form wire:submit='save'>
+<form class="rounded-container mb-5" wire:submit='save'>
     <div class="setting-container">
         <div class="mb-5">
             <h6 class="mb-0">Company Information</h6>
