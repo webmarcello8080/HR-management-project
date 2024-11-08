@@ -4,7 +4,7 @@ namespace App\Livewire\Partials;
 
 use Livewire\Component;
 
-class UserBudge extends Component
+class UserBadge extends Component
 {
     public bool $displayUserMenu = false;
 
@@ -15,6 +15,6 @@ class UserBudge extends Component
 
     public function render()
     {
-        return view('livewire.partials.user-budge');
+        return view('livewire.partials.user-badge');
     }
 }

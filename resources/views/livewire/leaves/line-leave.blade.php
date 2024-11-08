@@ -2,7 +2,7 @@
     @if($display_user)
         <span class="table-cell align-middle py-2 pl-3">
             @if ($leave->employee)
-                @include('partials.employees.employee-budge', ['employee' => $leave->employee])
+                @include('partials.employees.employee-badge', ['employee' => $leave->employee])
             @endif
         </span>
     @endif
@@ -10,7 +10,7 @@
     <span class="table-cell align-middle py-2">{{ $leave->to_date->format('F d, Y') }}</span>
     <span class="table-cell align-middle py-2">{{ $leave->days }}</span>
     <span class="table-cell align-middle py-2">
-        <div class="budge budge-{{ $leave->leave_status->colour() }}">{{ $leave->leave_status->label() }}</div>
+        <div class="badge badge-{{ $leave->leave_status->colour() }}">{{ $leave->leave_status->label() }}</div>
     </span>
     @can('admin')
         <span class="table-cell align-middle py-2">

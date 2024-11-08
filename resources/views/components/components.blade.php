@@ -19,10 +19,11 @@
 </div>
 <div class="rounded-container mb-4">
     <h2>Another Heading Text</h2>
-    <div class="budge budge-green">Something</div>
-    <div class="budge budge-red">Something</div>
-    <div class="budge budge-yellow">Something</div>
-    <div class="budge budge-purple">Something</div>
+    <div class="badge badge-green">Something</div>
+    <div class="badge badge-red">Something</div>
+    <div class="badge badge-yellow">Something</div>
+    <div class="badge badge-purple">Something</div>
+    <div class="badge badge-purple badge-big">Something</div>
     <div class="flex items-center justify-center gap-4">
         <div class="grey-container">
             <h5>Something in here</h5>

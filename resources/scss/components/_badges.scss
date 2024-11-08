@@ -1,19 +1,23 @@
-.budge{
+.badge{
     @apply text-sm py-1 px-2 rounded inline-block;
 
-    &.budge-green{
+    &.badge-green{
         @apply text-green bg-green/10;
     }
 
-    &.budge-red{
+    &.badge-red{
         @apply text-red bg-red/10;
     }
 
-    &.budge-yellow{
+    &.badge-yellow{
         @apply text-yellow bg-yellow/10;
     }
 
-    &.budge-purple{
+    &.badge-purple{
         @apply text-purple bg-purple/10;
+    }
+
+    &.badge-big{
+        @apply text-base py-2 px-3;
     }
 }

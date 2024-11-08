@@ -2,7 +2,7 @@
     @if($display_user)
         <span class="table-cell align-middle py-2 pl-3">
             @if ($attendance->employee)
-                @include('partials.employees.employee-budge', ['employee' => $attendance->employee])
+                @include('partials.employees.employee-badge', ['employee' => $attendance->employee])
             @endif
         </span>
     @endif
@@ -10,7 +10,7 @@
     <span class="table-cell align-middle py-2">{{ $attendance->start_time }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->finish_time }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->working_hours }}</span>
-    <span class="table-cell align-middle py-2"><span class="budge budge-purple">{{ $attendance?->employeeType->name }}</span></span>
+    <span class="table-cell align-middle py-2"><span class="badge badge-purple">{{ $attendance?->employeeType->name }}</span></span>
     @can('admin')
         <span class="table-cell align-middle py-2">
             <div class="flex items-center gap-2">

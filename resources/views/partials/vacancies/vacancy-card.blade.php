@@ -13,9 +13,9 @@
         @svg('move', 'w-6 h-6')
     </div>
     <div class="flex flex-wrap items-center gap-4 mb-5">
-        <div class="budge budge-purple">{{ $vacancy?->working_day?->label() }}</div>
+        <div class="badge badge-purple">{{ $vacancy?->working_day?->label() }}</div>
         @if ($vacancy->employeeType)
-            <div class="budge budge-purple">{{ $vacancy?->employeeType?->name }}</div>
+            <div class="badge badge-purple">{{ $vacancy?->employeeType?->name }}</div>
         @endif
     </div>
     <div class="flex gap-4 justify-between">

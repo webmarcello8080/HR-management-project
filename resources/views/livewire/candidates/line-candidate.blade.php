@@ -5,7 +5,7 @@
     <span class="table-cell py-3">{{ $candidate->email }}</span>
     <span class="table-cell py-3">{{ $candidate->phone }}</span>
     <span class="table-cell py-3">
-        <div class="budge budge-{{ $candidate->candidate_status->colour() }}">{{ $candidate->candidate_status->label() }}</div>
+        <div class="badge badge-{{ $candidate->candidate_status->colour() }}">{{ $candidate->candidate_status->label() }}</div>
     </span>
     <span class="table-cell align-middle py-3">
         <div class="flex items-center gap-2">

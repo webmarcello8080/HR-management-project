@@ -1,14 +1,14 @@
 <div class="table-row border-b border-grey/20">
     <span class="table-cell align-middle py-2">
         <a class="no-underline" href="{{ route('employee.show', $employee)}}">
-            @include('partials\employees\employee-budge')
+            @include('partials\employees\employee-badge')
         </a>
     </span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->unique_id }}</span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->department?->name }}</span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->employeeType?->name }}</span>
     <span class="table-cell align-middle py-2">
-        <span class="budge budge-purple">{{ $employee->employeeInformation?->working_day?->label() }}</span>
+        <span class="badge badge-purple">{{ $employee->employeeInformation?->working_day?->label() }}</span>
     </span>
     <span class="table-cell align-middle py-2">{{ $employee->employeeInformation?->location?->name }}</span>
     <span class="table-cell align-middle py-2">

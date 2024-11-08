@@ -1,6 +1,6 @@
 <div wire:click='toggleMenu' class="rounded-container !py-1 !px-3 relative flex items-center gap-2 cursor-pointer">
     @if (auth()->user()->employee)
-        @include('partials.employees.employee-budge', ['employee' => auth()->user()->employee ])
+        @include('partials.employees.employee-badge', ['employee' => auth()->user()->employee ])
     @else
         <div>{{ auth()->user()->name }}</div>
     @endif

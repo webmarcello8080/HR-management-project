@@ -2,7 +2,7 @@
     @if($display_user)
         <span class="table-cell align-middle py-2 pl-3">
             @if ($payroll->employee)
-                @include('partials.employees.employee-budge', ['employee' => $payroll->employee])
+                @include('partials.employees.employee-badge', ['employee' => $payroll->employee])
             @endif
         </span>
     @endif
