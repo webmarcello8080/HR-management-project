@@ -10,7 +10,7 @@
         @livewire('settings.company-setting')
     @endif
     @if ($activeStep == 2)
-    @livewire('settings.system-setting')
+        @livewire('settings.system-setting')
     @endif
     @if ($activeStep == 3)
         @livewire('settings.employee-type-setting')
