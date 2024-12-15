@@ -13,5 +13,6 @@ return new class extends SettingsMigration
         $this->migrator->add('general.logo', '');
         $this->migrator->add('system.favicon', '');
         $this->migrator->add('system.currency', '1');
+        $this->migrator->add('system.date_format', '');
     }
 };

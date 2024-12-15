@@ -17,6 +17,8 @@ class SystemSetting extends Component
     public $currency;
     #[Validate]
     public $favicon;
+    #[Validate]
+    public $date_format;
 
     public function rules(): array
     {
@@ -27,6 +29,7 @@ class SystemSetting extends Component
     {
         $settings = resolve(SystemSettings::class);
         $this->currency = $settings->currency;
+        $this->date_format = $settings->date_format;
         $this->favicon = $settings->favicon;
     }
 
@@ -51,6 +54,8 @@ class SystemSetting extends Component
 
     public function render()
     {
-        return view('livewire.settings.system-setting');
+        return view('livewire.settings.system-setting', [
+            'date_formats' => \App\Enums\DateFormat::toArray()
+        ]);
     }
 }
