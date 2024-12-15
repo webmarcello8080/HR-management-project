@@ -161,7 +161,7 @@
                     if(!this.disabled) {
                         if (this.open) return this.closeSelect()
 
-                    this.open = true
+                        this.open = true
                     }
                 },
 
@@ -188,6 +188,11 @@
                             this.selected=value
                             this.closeSelect()
                         }
+
+                        // Refresh the Livewire component
+                        this.$nextTick(() => {
+                            this.$wire.$refresh();
+                        });
                     }
                 },
 

@@ -10,7 +10,7 @@
             </div>
             <div class="flex-1 flex-grow">
                 <label class="input-label" for="">Select Employee</label>
-                <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" x-on:blur="$wire.updated()" placeholder="Select Employee"/>
+                <x-select-search :data="\App\Models\Employee::getFullNameArray()" wire:model="employee_id" placeholder="Select Employee"/>
                 @error('employee_id') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
