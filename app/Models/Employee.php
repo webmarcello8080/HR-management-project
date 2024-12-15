@@ -16,7 +16,7 @@ class Employee extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['first_name', 'last_name', 'mobile_number', 'email', 'profile_image', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code', 'user_id'];
-    protected $casts = ['marital_status' => MaritalStatus::class, 'gender' => Gender::class];
+    protected $casts = ['dob' => 'date', 'marital_status' => MaritalStatus::class, 'gender' => Gender::class];
 
     /**
      * get the user of this employee

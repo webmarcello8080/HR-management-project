@@ -6,8 +6,8 @@
             @endif
         </span>
     @endif
-    <span class="table-cell align-middle py-2">{{ $leave->from_date->format('F d, Y') }}</span>
-    <span class="table-cell align-middle py-2">{{ $leave->to_date->format('F d, Y') }}</span>
+    <span class="table-cell align-middle py-2">{{ $leave->from_date->format($setting_date_format) }}</span>
+    <span class="table-cell align-middle py-2">{{ $leave->to_date->format($setting_date_format) }}</span>
     <span class="table-cell align-middle py-2">{{ $leave->days }}</span>
     <span class="table-cell align-middle py-2">
         <div class="badge badge-{{ $leave->leave_status->colour() }}">{{ $leave->leave_status->label() }}</div>

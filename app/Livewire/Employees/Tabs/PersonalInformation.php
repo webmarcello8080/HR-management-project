@@ -55,8 +55,9 @@ class PersonalInformation extends Component
         $this->employee = $employee ?? new Employee();
 
         $this->fill(
-            $employee->only('first_name', 'last_name', 'mobile_number', 'email', 'profile_image', 'dob', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'),
+            $employee->only('first_name', 'last_name', 'mobile_number', 'email', 'profile_image', 'marital_status', 'gender', 'nationality', 'address', 'city', 'country', 'post_code'),
         );
+        $this->dob = $employee->dob?->format('Y-m-d');
     }
 
     public function save(): void

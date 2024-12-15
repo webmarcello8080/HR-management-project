@@ -42,8 +42,9 @@ class ProfessionalInformation extends Component
         $this->employee = $employee;
         $this->employee_info = $employee->employeeInformation ?? new EmployeeInformation();
         $this->fill(
-            $employee->employeeInformation->only('unique_id', 'designation', 'joining_date', 'annual_salary', 'days_of_holiday', 'working_day', 'employee_type_id', 'department_id', 'location_id'),
+            $employee->employeeInformation->only('unique_id', 'designation', 'annual_salary', 'days_of_holiday', 'working_day', 'employee_type_id', 'department_id', 'location_id'),
         );
+        $this->joining_date = $employee->employeeInformation->joining_date?->format('Y-m-d');
     }
 
     public function save(){

@@ -24,7 +24,7 @@
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Date of Birth</div><div>{{ $employee->dob }}</div>
+                    <div class="small-caption">Date of Birth</div><div>{{ $employee->dob?->format($setting_date_format) }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
                     <div class="small-caption">Marital Status</div><div>{{ $employee->marital_status?->label() }}</div>
@@ -66,7 +66,7 @@
             </div>
             <div class="flex pb-2 border-b border-grey/20 mb-5 gap-5">
                 <div class="flex-1 flex-grow">
-                    <div class="small-caption">Joining Date</div><div>{{ $employee?->employeeInformation?->joining_date }}</div>
+                    <div class="small-caption">Joining Date</div><div>{{ $employee?->employeeInformation?->joining_date?->format($setting_date_format) }}</div>
                 </div>
                 <div class="flex-1 flex-grow">
                     <div class="small-caption">Annual Salary</div><div>{{ $setting_currency }}{{ $employee?->employeeInformation?->annual_salary }}</div>

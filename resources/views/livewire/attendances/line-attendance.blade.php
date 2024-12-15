@@ -6,7 +6,7 @@
             @endif
         </span>
     @endif
-    <span class="table-cell align-middle py-2">{{ $attendance->date->format('F d, Y') }}</span>
+    <span class="table-cell align-middle py-2">{{ $attendance->date->format($setting_date_format) }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->start_time }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->finish_time }}</span>
     <span class="table-cell align-middle py-2">{{ $attendance->working_hours }}</span>

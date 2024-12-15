@@ -3,7 +3,7 @@
 namespace App\View\Composers;
 
 use App\Enums\Currency;
-use App\Repositories\UserRepository;
+use App\Enums\DateFormat;
 use App\Settings\GeneralSettings;
 use App\Settings\SystemSettings;
 use Illuminate\View\View;
@@ -25,5 +25,11 @@ class SettingsComposer
         $currencySign = $currencyEnum->sign();
     
         $view->with('setting_currency', $currencySign);
+
+        // get date_format enum from currency saved in Setting table in database
+        $dateFormatEnum = DateFormat::from(app(SystemSettings::class)->date_format);
+        $dateFormat = $dateFormatEnum->format();
+    
+        $view->with('setting_date_format', $dateFormat);    
     }
 }

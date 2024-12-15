@@ -1,7 +1,7 @@
 <div class="table-row border-b border-b-grey/20 ">
     <span class="table-cell py-3 pl-3">{{ $candidate->full_name }}</span>
     <span class="table-cell py-3">{{ $candidate?->vacancy?->title }}</span>
-    <span class="table-cell py-3">{{ $candidate->created_at->format('F d, Y') }}</span>
+    <span class="table-cell py-3">{{ $candidate->created_at->format($setting_date_format) }}</span>
     <span class="table-cell py-3">{{ $candidate->email }}</span>
     <span class="table-cell py-3">{{ $candidate->phone }}</span>
     <span class="table-cell py-3">

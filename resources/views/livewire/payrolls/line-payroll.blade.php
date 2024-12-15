@@ -6,7 +6,7 @@
             @endif
         </span>
     @endif
-    <span class="table-cell align-middle py-2">{{ $payroll->payroll_date->format('F d, Y') }}</span>
+    <span class="table-cell align-middle py-2">{{ $payroll->payroll_date->format($setting_date_format) }}</span>
     <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->annual_salary }}</span>
     <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->gross_pay }}</span>
     <span class="table-cell align-middle py-2">{{ $setting_currency }}{{ $payroll->net_pay }}</span>
